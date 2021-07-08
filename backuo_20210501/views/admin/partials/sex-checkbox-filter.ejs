@@ -1,0 +1,15 @@
+<% if(typeof sex_types !='undefined' ) {%>
+    <div>
+        <label class="col-xs-1">Sex: </label>
+    </div>
+    <div>
+        <% for(sex of sex_types) {%>
+            <div class="form-check form-check-inline col-sm-3">
+                <input type="checkbox" class="form-check-input" id="<%= sex.id %>">
+                <label class="form-check-label" for="<%= sex.id %>" style="font-weight: normal;">
+                    <%= sex.name %>
+                </label>
+            </div>
+            <% }%>
+    </div>
+<% }%>

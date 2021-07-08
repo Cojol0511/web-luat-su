@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Luật sư | Dashboard</title>
+
+	<%- include('partials/head.ejs'); -%>
+	
+	<link rel="stylesheet" href="/admin/css/lawyers.css">
+  </head>
+
+  <body>
+
+    <!-- Navbar -->
+	<%- include('partials/nav.ejs'); -%>
+
+	<!-- Breadscrumb -->
+	<%- include('partials/breadcrumb.ejs', { site_name: 'Danh sách Luật sư', edit_flag: false }); -%>
+
+    <section id="main">
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-12">
+                <!-- Website Overview -->
+                <div class="panel panel-default panel-table">
+                    <div class="panel-heading main-color-bg">
+                        <div class="row">
+                            <div class="col col-xs-6">
+                              <h3 class="panel-title">Danh sách Luật sư</h3>
+                            </div>
+                            <div class="col col-xs-6 text-right">
+                                <!--
+                                <button type="button" class="btn btn-sm btn-primary btn-create">Tạo mới</button>
+                                <button type="button" class="btn btn-sm btn-success btn-create">Chỉnh sửa</button>
+                                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#del-selected-lawyers">Xóa </button>
+                                -->
+                            </div>
+                          </div>
+                    </div>
+                    <div class="panel-body">
+                          <table class="table table-striped table-hover table-list" id="lawyer-panel">
+                            <thead>
+                                <tr id="lawyer-info-title">
+                                    <!--
+                                    <th>
+                                        <input type="checkbox" id="parent" onclick="toggleCheckbox()">
+                                    </th>
+                                    -->
+                                    <!-- <th class="text-center">Username</th> -->
+                                    <th >
+                                       Họ và tên
+                                    </th>
+                                    <th class="text-center">Email</th>
+                                    <th class="text-center">SĐT</th>
+                                    <th class="text-center">Lĩnh vực</th>
+                                    <th class="text-center">Đánh giá</th>
+                                    <th class="text-center">Ngày gia nhập</th>
+                                    <th class="text-center">Cập nhật</th>
+                                    <th class="text-center"><em class="glyphicon glyphicon-cog"></em></th>
+                                </tr>
+                            </thead>
+                            <tbody id="ll_table">
+                            <!-- Print all regirsted lawyers -->
+                            <% for (var i = 0; i < lawyer_list.length; i++){                           
+                                lawyer = lawyer_list[i] %> %>
+                                <tr id="lawyer-info">
+                                    <!--
+                                    <td>
+                                        <input type="checkbox" id="child" onclick="detectCheckedAll()">
+                                    </td>
+                                    -->
+                                    <!--
+                                    <td class="text-center"  id='lt_username'>
+                                        <%= lawyer.UserName %>
+                                    </td>
+                                    -->
+                                    <td>
+                                        <%= lawyer.FirstName; %> <%= lawyer.LastName %>
+                                    </td>
+                                    <td>
+                                        <%= lawyer.Email; %>
+                                    </td>
+                                    <td>
+                                        <%= lawyer.PhoneNumber; %>
+                                    </td>
+                                    <td>
+                                        <%= lawyer.Specialize; %>
+                                    </td>
+                                    <td id="numberic-column">
+                                        <%= lawyer.Rating; %>
+                                    </td>
+                                    <td>
+                                        <%= new Date(lawyer.CreatedDateTime).toLocaleDateString("en-US"); %>
+                                    </td>
+                                    <td>
+                                        <%= new Date(lawyer.UpdatedDateTime).toLocaleDateString("en-US"); %>
+                                    </td>
+
+                                    <td>
+                                        <a class="btn btn-default glyphicon glyphicon-eye-open" onclick="showInfo(<%= i %>)"><em class="fa fa-pencil"></em></a>
+                                        <a class="btn btn-danger glyphicon glyphicon-trash" data-toggle="modal" data-target="#del-lawyer-<%= lawyer.LawyerID %>"><em class="fa fa-trash"></em></a>
+                                    </td>
+                                    <%- include('partials/del-lawyer-modal.ejs', { lawyer: lawyer }); %>
+                                </tr>
+                                <% }%>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!--
+                    <div class="panel-footer">
+                        <div class="row">
+                          <div class="col col-xs-4"><%= "Số lượng: " + lawyer_count %>
+                          </div>
+                          <div class="col col-xs-8">
+                            <ul class="pagination hidden-xs pull-right">
+                                <%	for (var i = 0; i < lawyer_page; i++){   
+                                    newoffset = i * limit;
+                                    if (offset == newoffset){
+                                %>
+                                        <li class="active"><a href='<%= "/admin/lawyers?offset=" + newoffset + "&limit=" + limit %>'> <%= i + 1 %></a></li>
+                                <%      } else { %>
+                                            <li><a href='<%= "/admin/lawyers?offset=" + newoffset + "&limit=" + limit %>'> <%= i + 1 %></a></li>      
+                                <% }} %>
+                            </ul>
+                            <ul class="pagination visible-xs pull-right">
+                                <%  current_page = Math.floor(offset/limit) + 1;
+                                console.log("Curent Page is :" + current_page);
+                                if (current_page == 1){
+                                    newoffset = offset + limit;
+                                %>
+                                    <li class="disable"><a href="#">«</a></li>
+                                    <li><a href='<%= "/admin/lawyers?offset=" + newoffset + "&limit=" + limit %>'>»</a></li>
+                                <% } else if (current_page == lawyer_page){ 
+                                    newoffset = offset - limit;
+                                %>
+                                    <li><a href='<%= "/admin/lawyers?offset=" + newoffset + "&limit=" + limit %>'>«</a></li>
+                                    <li class="disable"><a href='#'>»</a></li> 
+                                <% } else if (current_page > 1 && current_page < lawyer_page) { 
+                                    next_page = current_page + 1;
+                                    prev_page = current_page - 1;
+                                    console.log("Next Page is :" + next_page);
+                                    console.log("Prev Page is :" + prev_page);
+                                    prev_offset = prev_page * limit;
+                                    next_offset = next_page * limit;
+                                %>
+                                    <li><a href='<%= "/admin/lawyers?offset=" + prev_offset + "&limit=" + limit %>'>«</a></li>
+                                    <li><a href='<%= "/admin/lawyers?offset=" + next_offset + "&limit=" + limit %>'>»</a></li> 
+                                <% } else { %>
+                                    <li><a href='#'>«</a></li>
+                                    <li><a href='#'>»</a></li> 
+                                <% }%>
+                            </ul>
+                          </div>
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>  
+        <div class="row">
+            <div class="col-md-5">
+                <div class="panel-heading main-color-bg">
+                    <h3 class="panel-title">Thông tin chi tiết</h3>
+                </div>
+				<div class="panel panel-default">
+                    <div>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#lawyer-detail">
+                                Thông tin chung
+                            </a></li>
+                            <!-- <li><a data-toggle="tab" href="#addtitional-info">Thanh Toán</a></li> -->
+                            <li><a data-toggle="tab" href="#other">Khác</a></li>
+                            <!-- <li><a class="btn btn-primary btn-xs" href="#">Clear</a></li> -->
+                        </ul>
+                    </div>
+                    
+                    <div class="tab-content">
+                        <div id="lawyer-detail" class="tab-pane fade in active">
+                                    <form id="lawyerInfo" action="" method="POST">
+                                        <div class="form-group" style="margin-top: 20px">
+                                            <label> Tên đăng nhập</label>
+                                            <input id="ld_username" readonly type="text" class="form-control" placeholder="Tên đăng nhập" value="<%= lawyer.UserName %>">
+                                        </div>
+                                        <div class="form-group" id="email">
+                                            <label>Email</label>
+                                            <input id="ld_email" readonly type="text" class="form-control" placeholder="Email" value="<%=lawyer_list[0].Email%>">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label> Tên </label>
+                                                    <input id="ld_firstname" readonly type="text" class="form-control" placeholder="Họ người dùng" value="<%= lawyer_list[0].FirstName %>">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label> Họ </label>
+                                                    <input id="ld_lastname" readonly type="text" class="form-control" placeholder="Tên người dùng" value="<%= lawyer_list[0].LastName %>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label> Số điện thoại </label>
+                                            <input  id="ld_phonenumber" readonly type="text" class="form-control" placeholder="Số điện thoại" value="<%= lawyer_list[0].PhoneNumber %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label> Đánh giá </label>
+                                            <input  id="ld_rating" readonly type="text" class="form-control" placeholder="Đánh giá" value="<%= lawyer_list[0].Rating %>">
+                                        </div>
+                                        <div id="ld_message"></div>
+                                        <div class="form-group">
+                                            <button id="ld_editButton" type="button" class="btn btn-md btn-danger">Chỉnh sửa</button>
+                                            <button disabled id="ld_updateButton" type="button" class="btn btn-md btn-danger">Cập nhật</button>
+                                            <button disabled id="ld_cancelButton" type="button" class="btn btn-md btn-primary">Hủy</button>
+                                        </div>
+                                    </form>
+                        </div>
+                        <!--
+                        <div id="addtitional-info" class="tab-pane fade">
+                            <div class="container">
+                                <div class="row col-sm-4">
+                                    <form id="clientPayment" action="" method="POST">
+                                        <div class="form-group" style="margin-top: 20px">
+                                            <label> Tên chủ tài khoản</label>
+                                            <input readonly type="text" class="form-control" placeholder="Tên chủ tài khoản" value="Tên tài khoản">
+                                        </div>
+                                        <div class="form-group" id="email">
+                                            <label> Số tài khoản</label>
+                                            <input readonly type="text" class="form-control" placeholder="Số tài khoản" value="Số tài khoản">
+                                        </div>
+                                        <div class="form-group">
+                                            <label> Ngân hàng </label>
+                                            <input readonly type="text" class="form-control" placeholder="Ngân hàng" value="Ngân hàng">
+                                        </div>
+                                        <div class="form-group">
+                                            <label> Địa chỉ </label>
+                                            <input readonly type="text" class="form-control" placeholder="Địa chỉ" value="Địa chỉ">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-md btn-primary">Chỉnh sửa</button>
+                                            <button type="submit" class="btn btn-md btn-danger">Cập nhật</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    -->
+
+                        <div id="other" class="tab-pane fade">
+                            <div class="form-group" style="margin-top: 20px">
+                                <button type="submit" class="btn btn-md btn-primary">Đổi mật khẩu</button>
+                                <!-- <button type="submit" class="btn btn-md btn-danger">Khóa tài khoản</button> -->
+                            </div>
+                        </div>
+                    </div>
+				</div>
+            </div>
+            <div class="col-md-7">
+                <div class="panel panel-default" id="cases-list">
+                    <div class="panel-heading main-color-bg">
+                        <h3 class="panel-title">Hoạt động công ty </h3>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading main-color-bg" id="lawyer-list">
+                        <h3 class="panel-title">Hoạt động Khách hàng</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </section>
+
+    <!-- Delete List of selected lawyers-->
+    <div class="modal" id="del-selected-lawyers" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header main-color-bg">
+                    <h5 class="modal-title">Bạn có muốn xóa những tài khoản này không?</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Tài khoản 1</p>
+                    <p>Tài khoản 2</p>
+                    <p>Tài khoản ...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Có</button>
+                    <button type="button" class="btn" data-dismiss="modal">Không</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<%- include('partials/footer.ejs'); -%>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="http://cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'editor1' );
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/admin/js/bootstrap.min.js"></script>
+    <script src="/admin/js/lawyer.js"></script>
+    <script src="/admin/js/dataTable.js"></script>
+
+    <script>
+        var objList = [];
+        var j = 0;
+        <% for (var i  = 0; i < lawyer_list.length; i++) {%>
+            objList[j++] = <%- JSON.stringify(lawyer_list[i]) %>;
+        <% } %>
+        console.log(objList);
+    
+    </script>
+
+    <script>
+
+
+        function showInfo(i){
+            console.log(objList[i]);
+            document.getElementById("lawyerInfo").action = "/admin/lawyers/" + objList[i].LawyerID;
+            document.getElementById("ld_username").value = objList[i].UserName;
+            document.getElementById("ld_email").value = objList[i].Email;
+            document.getElementById("ld_firstname").value = objList[i].FirstName;
+            document.getElementById("ld_lastname").value = objList[i].LastName;
+            document.getElementById("ld_phonenumber").value = objList[i].PhoneNumber;
+            document.getElementById("ld_rating").value = objList[i].Rating;
+        }
+
+        $('#ld_editButton').click(function(){
+            $("#ld_firstname").removeAttr("readonly");
+            $("#ld_lastname").removeAttr("readonly");
+            $("#ld_phonenumber").removeAttr("readonly");
+            $("#ld_rating").removeAttr("readonly");
+            $('#ld_updateButton').attr('disabled', false);
+            $('#ld_cancelButton').attr('disabled', false);
+            $('#ld_editButton').attr('disabled', true);
+
+
+        });
+
+        $('#ld_updateButton').click(function(event){
+            event.preventDefault();
+
+            // Create Object with information from the form
+            const postData = {
+                FirstName:  $("#ld_firstname").val(),
+                LastName:  $("#ld_lastname").val(),
+                PhoneNumber: $("#ld_phonenumber").val(),
+                Rating: $("#ld_rating").val()
+            }
+
+            // Request to server to log-in passing the User information (userObj)
+
+            var formURL = '/admin/lawyers/' + $("#ld_username").val();
+            //var formURL = 'http://api.veneris.bitiland.com/api/lawyer/' + $("#ld_username").val();
+            console.log(postData);
+            console.log(formURL);
+
+            $.ajax(
+            {
+                url : formURL,
+                type: "PUT",
+                contentType: 'application/json',
+                crossDomain: true,
+                data : JSON.stringify(postData),
+                dataType: 'json',
+                //xhrFields: {
+                //    withCredentials: true
+                //},
+                success:function(response, textStatus, request) 
+                {
+                    //data: return data from server
+                    // alert("The server says: " + response.accessToken);
+                    ld_message.textContent = "Cập nhật thành công";
+                    ld_message.style.color = "green";
+                    ld_message.classList = "text-center mb-2";
+                    // console.log(request.getResponseHeader('Set-Cookie'));
+                    //alert(document.cookie);
+                    window.location.reload();
+                },
+                error: function(response) 
+                {
+                    console.log(response);
+                    ld_message.textContent = "Có lỗi xảy ra";
+                    ld_message.style.display = "block";
+                    ld_message.style.color = "red";
+                    ld_message.classList = "text-center mb-2";
+                    //if fails   
+                    //alert('it didnt work');   
+                }
+            });
+        });
+
+        $('#ld_cancelButton').click(function(){
+            console.log("Click Cancel");
+            $("#ld_firstname").attr('readonly', true);
+            $("#ld_lastname").attr('readonly', true);
+            $("#ld_phonenumber").attr('readonly', true);
+            $("#ld_rating").attr('readonly', true);
+            $('#ld_updateButton').attr('disabled', true);
+            $('#ld_cancelButton').attr('disabled', true);
+            $('#ld_editButton').attr('disabled', false);
+        })
+
+    </script>
+  </body>
+</html>

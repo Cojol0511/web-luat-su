@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title> Đánh giá | My Lawyer</title>
+
+  <%- include('partials/head.ejs'); -%>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="/client/assets/css/profile.css">
+
+  <style>
+    .success-box {
+      padding:10px 10px;
+      border:1px solid #eee;
+      background:#f9f9f9;
+    }
+
+    .success-box > div {
+      vertical-align:top;
+      display:inline-block;
+      color:#888;
+    }
+    /* Rating Star Widgets Style */
+    .rating-stars ul {
+      list-style-type:none;
+      padding:0;
+      
+      -moz-user-select:none;
+      -webkit-user-select:none;
+    }
+    .rating-stars ul > li.star {
+      display:inline-block;
+      
+    }
+
+    /* Idle State of the stars */
+    .rating-stars ul > li.star > i.fa {
+      font-size:2.5em; /* Change the size of the stars */
+      color:#ccc; /* Color on idle state */
+    }
+
+    /* Hover state of the stars */
+    .rating-stars ul > li.star.hover > i.fa {
+      color:#FFCC36;
+    }
+
+    /* Selected state of the stars */
+    .rating-stars ul > li.star.selected > i.fa {
+      color:#FF912C;
+    }
+
+  </style>
+
+
+  
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <%- include('partials/header.ejs'); -%>
+  <!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+<!--
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="container text-center" data-aos="fade-up">
+      <h1><span>Trang cá nhân</span></h1>
+      <h2>We are team of talanted designers making websites with Bootstrap</h2>
+    </div>
+  </section>
+-->
+  <!-- End Hero -->
+
+  <main id="main">
+
+    <!--Start code-->
+    <section id="checkOut">
+        <div class="container-fluid">
+				
+            <div class="row mt-5 justify-content-center">
+                <div class="col-lg-6">
+                
+                    <!-- Success Card -->
+                    <div class="card warning-card">
+                        <div class="card-body">
+                            <div class="success-cont">
+                                <i class="fas fa-star"></i>
+                                <h3>Đánh giá cuộc hẹn!</h3>
+                                <% 
+                                  var client_info = booking.Title.split('-') 
+                                %>                  
+                                <p>Cám ơn bạn đã sử dụng dịch vụ của chúng tôi. <br> Hãy cho chúng tôi biết cảm nhận của bạn về cuộc hẹn với <strong> LS. <%= client_info[3] %> </strong></p>
+                                <!--
+                                <a href="/invoice-view?LawyerID=<%= booking.LawyerID %>" class="btn btn-primary view-inv-btn">Thanh toán</a>
+                                <a href="/invoice-view?BookingID=<%= booking.BookingID %>" class="btn btn-primary view-inv-btn">Xem giao dịch</a>
+                              -->
+                            </div>
+                            <div class='rating-widget'>
+                                  <!-- Rating Stars Box -->
+                                  <div class='rating-stars text-center'>
+                                    <ul id='stars'>
+                                      <li class='star' title='Poor' data-value='1'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                      </li>
+                                      <li class='star' title='Fair' data-value='2'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                      </li>
+                                      <li class='star' title='Good' data-value='3'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                      </li>
+                                      <li class='star' title='Excellent' data-value='4'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                      </li>
+                                      <li class='star' title='WOW!!!' data-value='5'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  
+                            </div>
+                            <div class="success-cont">
+                                <div class="offset-lg-3 col-lg-6 align-items-center">
+                                  <div class='success-box'>
+                                      <div class='text-message'> Đánh giá mức độ hài lòng. </div>
+                                  </div>
+                                  <textarea col="3" id="rate_comment" name="rate_comment" class="form-control" placeholder="Nhập bình luận tại đây."></textarea>
+                                  <p><small> Bình luận tối đa 100 ký tự </small></p>
+                                </div>
+                                  <a id="ratingBtn" href="#" class="btn btn-primary view-inv-btn">Đánh giá</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /Success Card -->
+                    
+                </div>
+            </div>
+            
+        </div>
+        </div>        
+    </section>
+<!--end code-->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <%- include('partials/footer.ejs'); -%>
+  <!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/client/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="/client/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/client/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="/client/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/client/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="/client/assets/vendor/counterup/counterup.min.js"></script>
+  <script src="/client/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/client/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="/client/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+  <!-- Template Main JS File -->
+  
+  <script src="/client/assets/js/main.js"></script>
+  <script src="/client/assets/js/lawyer.js"></script>
+
+  <script>
+    
+    $(document).ready(function(){
+  
+      /* 1. Visualizing things on Hover - See next part for action on click */
+      $('#stars li').on('mouseover', function(){
+        var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+       
+        // Now highlight all the stars that's not after the current hovered star
+        $(this).parent().children('li.star').each(function(e){
+          if (e < onStar) {
+            $(this).addClass('hover');
+          }
+          else {
+            $(this).removeClass('hover');
+          }
+        });
+        
+      }).on('mouseout', function(){
+        $(this).parent().children('li.star').each(function(e){
+          $(this).removeClass('hover');
+        });
+      });
+      
+      
+      /* 2. Action to perform on click */
+      $('#stars li').on('click', function(){
+        var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+        var stars = $(this).parent().children('li.star');
+        
+        for (i = 0; i < stars.length; i++) {
+          $(stars[i]).removeClass('selected');
+        }
+        
+        for (i = 0; i < onStar; i++) {
+          $(stars[i]).addClass('selected');
+        }
+        
+        // JUST RESPONSE (Not needed)
+        var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+        var msg = "";
+        if (ratingValue > 1) {
+            msg = "Cám ơn bạn đã đánh giá " + ratingValue + " sao.";
+        }
+        else {
+            msg = "Nếu bạn gặp vấn đề, chúng tôi sẽ hỗ trợ. Cám ơn bạn đã phản hồi " + ratingValue + " sao.";
+        }
+        responseMessage(msg);
+        
+      });
+      
+      
+    });
+
+
+    function responseMessage(msg) {
+      $('.success-box').fadeIn(200);  
+      $('.success-box div.text-message').html("<span>" + msg + "</span>");
+    }
+  </script>
+
+  <script>
+
+    $('#ratingBtn').on('click', function(event){
+        event.preventDefault();
+
+
+        var newRating = (parseInt($('#stars li.selected').last().data('value'), 10) * 2 + <%= lawyer.Rating %> * <%= lawyer.comments.length %>)/(<%= lawyer.comments.length %> + 1);
+
+        newRating = Math.round(newRating*2)/2;
+
+        var ratingObj = {
+          ClientID: "<%= booking.ClientID %>",
+          LawyerID: "<%= booking.LawyerID %>",
+          Rating: parseInt($('#stars li.selected').last().data('value'), 10) * 2,
+          Comment: $('#rate_comment').val()
+        }
+
+        console.log(ratingObj);
+
+        var formURL = '/booking-rating?BookingID=<%= booking.BookingID %>';
+
+        //console.log(postData);
+        console.log(formURL);
+
+        $.ajax(
+        {
+            url : formURL,
+            type: "POST",
+            contentType: 'application/json',
+            crossDomain: true,
+            data : JSON.stringify(ratingObj),
+            dataType: 'json',
+            success:function(response, textStatus, request) 
+            {
+                //data: return data from server
+                // alert("The server says: " + response.accessToken);
+                if (response.success === 1){
+                    var msg = "Đánh giá thành công";
+                    responseMessage(msg);
+                    // console.log(request.getResponseHeader('Set-Cookie'));
+                    //alert(document.cookie);
+                    window.location.href="/user/dashboard?UserID=<%= booking.ClientID %>";
+                } else {
+                    ld_message.textContent = "Có lỗi xảy ra. Vui lòng thử lại.";
+                    ld_message.style.display = "block";
+                    ld_message.style.color = "red";
+                    ld_message.classList = "text-center mb-2";
+                }
+            },
+            error: function(response) 
+            {
+                console.log(response);
+                var msg = "Có lỗi xảy ra. Vui lòng thử lại.";
+                responseMessage(msg);
+                //if fails   
+                //alert('it didnt work');   
+            }
+        });
+
+    })
+  </script>
+
+</body>
+
+</html>

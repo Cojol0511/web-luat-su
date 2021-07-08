@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Admin | Dashboard</title>
+    <%- include('partials/head.ejs'); -%>
+  </head>
+
+  <body>
+
+	<!-- Navbar -->
+	<%- include('partials/nav.ejs'); -%>
+
+	<!-- Breadscrumb -->
+	<%- include('partials/breadcrumb.ejs', { site_name: 'Danh sách Admin', edit_flag: false }); -%>
+
+    <section id="main">
+    <div class="container">
+    	<div class="row">
+			<div class="col-md-7">
+				<!-- Website Overview -->
+				<div class="panel panel-default panel-table">
+					<div class="panel-heading main-color-bg">
+                        <div class="row">
+                            <div class="col col-xs-6">
+                              <h3 class="panel-title">Danh sách Admin</h3>
+                            </div>
+                            <div class="col col-xs-6 text-right">
+                                <!--
+                                <button type="button" class="btn btn-sm btn-primary btn-create">Tạo mới</button>
+                                <button type="button" class="btn btn-sm btn-success btn-create">Chỉnh sửa</button>
+                                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#del-selected-admins">Xóa </button>
+                                -->
+                            </div>
+                          </div>
+					</div>
+					<div class="panel-body">
+
+						<table class="table table-striped table-bordered table-list" id="admin-panel">
+                           <thead>
+                                <tr id="admin-info-title">
+                                    <!--
+                                    <th>
+                                        <input type="checkbox" id="parent" onclick="toggleCheckbox()">
+                                    </th>
+                                    -->
+                                    <!-- <th class="text-center" class="hidden-xs">ID</th> -->
+                                    <th>
+                                       Họ và tên
+                                    </th>
+                                    <th>
+                                       Email
+                                    </th>
+                                    <th>
+                                       Ngày tạo
+                                    </th>
+                                    <th>
+                                       Cập nhật
+                                    </th>
+                                    <th><em class="glyphicon glyphicon-cog"></em></th>
+                                    <!-- <th class="col-md-1">Rank</th>
+                                    <th class="col-md-1">Sex</th>
+                                    <th class="col-md-2">Career</th>
+                                    <th class="col-md-2"></th> -->
+                                </tr>
+                            </thead>
+							<!-- Print all regirsted guests -->
+                            <tbody id="al_table">
+                                                           
+						    <%	for (var i = 0; i < admin_list.length; i++){                           
+                                admin = admin_list[i];
+                                if (admin.Role === "admin"){ %>
+								<tr id="admin-info">
+                                    <!--
+									<td>
+										<input type="checkbox" id="child" onclick="detectCheckedAll()">
+									</td>
+                                    -->
+                                    <!--
+									<td>  
+                                        <%= admin.UserName; %>
+                                    </td>
+                                    -->
+									<td>
+										<%= admin.FirstName; %> <%= admin.LastName; %>
+									</td>
+									<td > <%= admin.Email; %> </td>
+                                    <td>
+                                        <%= new Date(admin.CreatedDateTime).toLocaleDateString("en-US"); %>
+                                    </td>
+                                    <td>
+                                        <%= new Date(admin.UpdatedDateTime).toLocaleDateString("en-US"); %>
+                                    </td>
+	
+                                    <td>
+                                        <a class="btn btn-default glyphicon glyphicon-eye-open" onclick="showInfo(<%= i %>)"><em class="fa fa-pencil"></em></a>
+                                        <a class="btn btn-danger glyphicon glyphicon-trash" data-toggle="modal" data-target="#del-admin-<%= admin.UserID %>"><em class="fa fa-trash"></em></a>
+                                    </td>
+                                    <%- include('partials/del-admin-modal.ejs', { admin: admin }); %>
+								</tr>
+							<% }}%>
+                             </tbody>
+						</table>
+					</div>
+                    <!--
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col col-xs-4"><%= "Số lượng: " + admin_count %>
+                            </div>
+                            <div class="col col-xs-8">
+                            
+                                <ul class="pagination hidden-xs pull-right">
+                                    <%	for (var i = 0; i < admin_page; i++){   
+                                            newoffset = i * limit;
+                                            if (offset == newoffset){
+                                    %>
+                                                <li class="active"><a href='<%= "/admin/admins?offset=" + newoffset + "&limit=" + limit %>'> <%= i + 1 %></a></li>
+                                    <%      } else { %>
+                                                <li><a href='<%= "/admin/admins?offset=" + newoffset + "&limit=" + limit %>'> <%= i + 1 %></a></li>      
+                                    <% }} %>
+                                </ul>
+                                <ul class="pagination visible-xs pull-right">
+                                    <%  current_page = Math.floor(offset/limit) + 1;
+                                        console.log("Curent Page is :" + current_page);
+                                        if (current_page == 1){
+                                            newoffset = offset + limit;
+                                    %>
+                                            <li class="disable"><a href="#">«</a></li>
+                                            <li><a href='<%= "/admin/admins?offset=" + newoffset + "&limit=" + limit %>'>»</a></li>
+                                        <% } else if (current_page == admin_page){ 
+                                            newoffset = offset - limit;
+                                        %>
+                                            <li><a href='<%= "/admin/admins?offset=" + newoffset + "&limit=" + limit %>'>«</a></li>
+                                            <li class="disable"><a href='#'>»</a></li> 
+                                        <% } else if (current_page > 1 && current_page < admin_page) { 
+                                            next_page = current_page + 1;
+                                            prev_page = current_page - 1;
+                                            console.log("Next Page is :" + next_page);
+                                            console.log("Prev Page is :" + prev_page);
+                                            prev_offset = prev_page * limit;
+                                            next_offset = next_page * limit;
+                                        %>
+                                            <li><a href='<%= "/admin/admins?offset=" + prev_offset + "&limit=" + limit %>'>«</a></li>
+                                            <li><a href='<%= "/admin/admins?offset=" + next_offset + "&limit=" + limit %>'>»</a></li> 
+                                        <% } else { %>
+                                            <li><a href='#'>«</a></li>
+                                            <li><a href='#'>»</a></li> 
+                                        <% }%>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                -->
+				</div>
+            </div>
+            <div class="col-md-5">
+                <div class="panel-heading main-color-bg">
+                    <h3 class="panel-title">Thông tin chi tiết</h3>
+                </div>
+				<div class="panel panel-default">
+                    <div>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#admin-detail">
+                                Thông tin chung
+                            </a></li>
+                            <li><a data-toggle="tab" href="#other">Khác</a></li>
+                            <!-- <li><a class="btn btn-primary btn-xs" href="#">Clear</a></li> -->
+                        </ul>
+                    </div>
+                    
+                    <div class="tab-content">
+                        <div id="admin-detail" class="tab-pane fade in active">
+                                    <form id="adminInfo" action="" method="POST">
+                                        <div class="form-group">
+                                            <label> ID </label>
+                                            <input id="ad_adminID" readonly type="text" class="form-control" placeholder="Tên đăng nhập" value="<%= admin_list[0].UserID %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label> Tên đăng nhập</label>
+                                            <input id="ad_username" readonly type="text" class="form-control" placeholder="Tên đăng nhập" value="<%= admin_list[0].UserName %>">
+                                        </div>
+                                        <div class="form-group" id="email">
+                                            <label>Email</label>
+                                            <input id="ad_email" readonly type="text" class="form-control" placeholder="Email" value="<%= admin_list[0].Email %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label> Tên </label>
+                                                    <input id="ad_firstname" readonly type="text" class="form-control" placeholder="Họ người dùng" value="<%= admin_list[0].FirstName %>">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label> Họ </label>
+                                                    <input id="ad_lastname" readonly type="text" class="form-control" placeholder="Tên người dùng" value="<%= admin_list[0].LastName %>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label> Phân quyền </label>
+                                            <input id="ad_level" readonly type="text" class="form-control" placeholder="Phân quyền" value="Cấp 1">
+                                        </div>
+                                        <div id="ad_message"></div>
+                                        <div class="form-group">
+                                            <button id="ad_editButton" type="button" class="btn btn-md btn-danger">Chỉnh sửa</button>
+                                            <button disabled id="ad_updateButton" type="button" class="btn btn-md btn-danger">Cập nhật</button>
+                                            <button disabled id="ad_cancelButton" type="button" class="btn btn-md btn-primary">Hủy</button>
+                                        </div>
+                                    </form>
+                        </div>
+
+                        <div id="other" class="tab-pane fade">
+                            <div class="container">
+                                <div class="row col-sm-4 mt-2">
+                                    <div class="form-group" style="margin-top: 20px">
+                                        <button type="submit" class="btn btn-md btn-primary">Đổi mật khẩu</button>
+                                        <!-- <button type="submit" class="btn btn-md btn-danger">Khóa tài khoản</button> -->
+                                    </div>
+                                <div>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+            </div>
+    </section>
+
+    <!-- Delete List of selected admins-->
+    <div class="modal" id="del-selected-admins" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header main-color-bg">
+                <h5 class="modal-title">Bạn có muốn xóa những tài khoản này không?</h5>
+            </div>
+            <div class="modal-body">
+                <p>Tài khoản 1</p>
+                <p>Tài khoản 2</p>
+                <p>Tài khoản ...</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger">Có</button>
+                <button type="button" class="btn" data-dismiss="modal">Không</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+	<%- include('partials/footer.ejs'); -%>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="http://cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'editor1' );
+    </script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="/admin/js/bootstrap.min.js"></script>
+	<!-- <script src="/admin/js/guest.js"></script> -->
+    <script src="/admin/js/dataTable.js"></script>
+
+    <script>
+        var objList = [];
+        var j = 0;
+        <% for (var i  = 0; i < admin_list.length; i++) {%>
+            objList[j++] = <%- JSON.stringify(admin_list[i]) %>;
+        <% } %>
+        console.log(objList);
+    
+    </script>
+
+    <script>
+
+
+        function showInfo(i){
+            console.log(objList[i]);
+            document.getElementById("adminInfo").action = "/admin/admins/" + objList[i].UserID;
+            document.getElementById("ad_adminID").value = objList[i].UserID;
+            document.getElementById("ad_username").value = objList[i].UserName;
+            document.getElementById("ad_email").value = objList[i].Email;
+            document.getElementById("ad_firstname").value = objList[i].FirstName;
+            document.getElementById("ad_lastname").value = objList[i].LastName;
+        }
+
+        $('#ad_editButton').click(function(){
+            $("#ad_firstname").removeAttr("readonly");
+            $("#ad_lastname").removeAttr("readonly");
+            $('#ad_updateButton').attr('disabled', false);
+            $('#ad_cancelButton').attr('disabled', false);
+            $('#ad_editButton').attr('disabled', true);
+
+
+        });
+
+        $('#ad_updateButton').click(function(event){
+            event.preventDefault();
+
+            // Create Object with information from the form
+            const postData = {
+                FirstName:  $("#ad_firstname").val(),
+                LastName:  $("#ad_lastname").val(),
+            }
+
+            // Request to server to log-in passing the User information (userObj)
+
+            var formURL = '/admin/admins/' + $("#ad_adminID").val();
+            console.log(postData);
+            console.log(formURL);
+
+            $.ajax(
+            {
+                url : formURL,
+                type: "PUT",
+                contentType: 'application/json',
+                crossDomain: true,
+                data : JSON.stringify(postData),
+                dataType: 'json',
+                success:function(response, textStatus, request) 
+                {
+                    //data: return data from server
+                    // alert("The server says: " + response.accessToken);
+                    ad_message.textContent = "Cập nhật thành công";
+                    ad_message.style.color = "green";
+                    ad_message.classList = "text-center mb-2";
+                    // console.log(request.getResponseHeader('Set-Cookie'));
+                    //alert(document.cookie);
+                    $('#ad_updateButton').attr('disabled', true);
+                    $('#ad_cancelButton').attr('disabled', true);
+                    $('#ad_editButton').attr('disabled', false);
+                    window.location.reload();
+                },
+                error: function(response) 
+                {
+                    console.log(response);
+                    ad_message.textContent = "Có lỗi xảy ra";
+                    ad_message.style.display = "block";
+                    ad_message.style.color = "red";
+                    ad_message.classList = "text-center mb-2";
+                    //if fails   
+                    //alert('it didnt work');   
+                }
+            });
+        });
+
+        $('#ad_cancelButton').click(function(){
+            console.log("Click Cancel");
+            $("#ad_firstname").attr('readonly', true);
+            $("#ad_lastname").attr('readonly', true);
+            $('#ad_updateButton').attr('disabled', true);
+            $('#ad_cancelButton').attr('disabled', true);
+            $('#ad_editButton').attr('disabled', false);
+        })
+
+    </script>
+
+</body>
+</html>

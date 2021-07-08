@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Khách hàng | Dashboard</title>
+    <%- include('partials/head.ejs'); -%>
+
+       
+  </head>
+
+  <body>
+
+	<!-- Navbar -->
+	<%- include('partials/nav.ejs'); -%>
+
+	<!-- Breadscrumb -->
+	<%- include('partials/breadcrumb.ejs', { site_name: 'Danh sách Khách hàng', edit_flag: false }); -%>
+
+    <section id="main">
+    <div class="container">
+    	<div class="row">
+			<div class="col-md-7">
+				<!-- Website Overview -->
+				<div class="panel panel-default panel-table">
+					<div class="panel-heading main-color-bg">
+                        <div class="row">
+                            <div class="col col-md-6 hidden-xs">
+                              <h3 class="panel-title">Danh sách Khách hàng</h3>
+                            </div>
+                            <div class="col col-md-6 text-right">
+                                <!--
+                              <button type="button" class="btn btn-sm btn-primary btn-create">Tạo mới</button>
+                              <button type="button" class="btn btn-sm btn-success btn-create">Chỉnh sửa</button>
+                              <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#del-selected-guests">Xóa </button>
+                                -->
+                              <!-- <button type="button" class="btn btn-sm btn-warning">Khóa </button> -->
+                            </div>
+                          </div>
+					</div>
+					<div class="panel-body">  
+						<table class="table table-striped table-bordered table-list" id="guest-panel">
+                           <thead>
+                                <tr id="guest-info-title">
+                                    <!--
+                                    <th>
+                                        <input type="checkbox" id="parent" onclick="toggleCheckbox()">
+                                    </th>
+                                    -->
+                                    <!-- <th class="text-center" class="hidden-xs">ID</th> -->
+                                    <th>
+                                        Họ và tên
+                                    </th>
+                                    <th>
+                                        Hạng
+                                    </th>
+                                    <th>
+                                        Ngày đăng ký
+                                    </th>
+                                    <th>
+                                        Cập nhật
+                                    </th>
+                                    <th class="text-center hidden-xs"><em class="glyphicon glyphicon-cog"></em></th>
+                                    <!-- <th class="col-md-1">Rank</th>
+                                    <th class="col-md-1">Sex</th>
+                                    <th class="col-md-2">Career</th>
+                                    <th class="col-md-2"></th> -->
+                                </tr>
+                            </thead>
+							<!-- Print all regirsted guests -->
+                            <tbody>
+							<% for(var i=0; i < guest_list.length; i++) { 
+                                guest = guest_list[i]; %>
+								<tr id="guest-info">
+                                    <!--
+									<td>
+										<input type="checkbox" id="child" onclick="detectCheckedAll()">
+									</td>
+                                    -->
+                                    <!--
+									<td class="text-center">
+                                        <a class="btn" onclick='showInfo("<%=i%>")'>
+                                        <%= guest.ClientID; %>
+                                        </a>
+                                    </td>
+                                    -->
+									<td >
+										<%= guest.FirstName; %> <%= guest.LastName; %>
+									</td>
+                                    <!-- Hạng -->
+									<!-- <td class="text-center"> Thường </td> -->
+                                    <td>
+                                        <%=  rank_list[0].name %>
+                                        <!--
+                                        <select class="btn btn-default">
+                                            <% for(rank of rank_list) {%>
+                                            <option value="<%= rank.id %>"
+                                                <% if(guest_list.indexOf(guest) % 4 == 0) {%>
+                                                    selected
+                                                <% } %>
+                                                ><%= rank.name %></option>
+                                            <% } %>
+                                        </select>
+                                    -->
+                                    </td>
+                                    <td>
+                                        <%= new Date(guest.CreatedDateTime).toLocaleDateString("en-US"); %>
+                                    </td>
+                                    <td>
+                                        <%= new Date(guest.UpdatedDateTime).toLocaleDateString("en-US"); %>
+                                    </td>
+									<!-- <td><%= guest.rank; %></td>
+									<td><%= guest.sex; %></td>
+									<td><%= guest.career; %></td>
+									<td>
+										<a class="btn btn-default glyphicon glyphicon-pencil" id="edit-btn"
+											href="/admin/guests/edit-guest/<%= guest.id %>">
+										</a>
+										<a class="btn btn-danger glyphicon glyphicon-trash" id="deactivate-btn" href="#">
+										</a>
+									</td> -->
+                                    <td class="text-center hidden-xs">
+                                        <a class="btn btn-default glyphicon glyphicon-eye-open" onclick="showInfo(<%= i %>)"><em class="fa fa-pencil"></em></a>
+                                        <a class="btn btn-danger glyphicon glyphicon-trash" data-toggle="modal" data-target="#del-guest-<%= guest.ClientID %>"><em class="fa fa-trash"></em></a>
+                                        <!-- <a class="btn btn-warning glyphicon glyphicon-lock"><em class="fa fa-trash"></em></a> -->
+                                      </td>
+                                      
+
+                                    <!-- Delete Guest Modal -->
+                                    <%- include('partials/del-guest-modal.ejs', { guest: guest }); %>
+								</tr>
+								<% }%>
+                             </tbody>
+						</table>
+					</div>
+                    <!--
+                    <div class="panel-footer">
+                        <div class="row">
+                          <div class="col col-xs-4">Trang 1/1
+                          </div>
+                          <div class="col col-xs-8">
+                            <ul class="pagination hidden-xs pull-right">
+                              <li><a href="#">1</a></li>
+                            </ul>
+                            <ul class="pagination visible-xs pull-right">
+                                <li><a href="#">«</a></li>
+                                <li><a href="#">»</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                    </div>
+                    -->
+				</div>
+            </div>
+            <div class="col-md-5">
+                <div class="panel-heading main-color-bg">
+                    <h3 class="panel-title">Thông tin chi tiết</h3>
+                </div>
+				<div class="panel panel-default">
+                    <div>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#guest-detail">
+                                Thông tin chung
+                            </a></li>
+                            <!--
+                            <li><a data-toggle="tab" href="#addtitional-info">Thanh Toán</a></li>
+                            -->
+                            <li><a data-toggle="tab" href="#other">Khác</a></li>
+                            <!-- <li><a class="btn btn-primary btn-xs" href="#">Clear</a></li> -->
+                        </ul>
+                    </div>
+                    
+                    <div class="tab-content">
+                        <div id="guest-detail" class="tab-pane fade in active">
+                            <form id="clientInfo" action="/admin/client/" method="PUT">
+                                
+                                <div class="form-group">
+                                    <label> ID </label>
+                                    <input id="cd_username" readonly type="text" class="form-control" placeholder="Tên đăng nhập" value="<%= guest_list[0].ClientID %>">
+                                </div>
+                                <div class="form-group" id="email">
+                                    <label>Email</label>
+                                    <input id="cd_email" readonly type="text" class="form-control" placeholder="Email" value="<%= guest_list[0].email %>">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label> Tên </label>
+                                            <input id="cd_firstname" readonly type="text" class="form-control" placeholder="Tên người dùng" value="<%= guest_list[0].FirstName %>">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label> Họ </label>
+                                            <input id="cd_lastname" readonly type="text" class="form-control" placeholder="Tên người dùng" value="<%= guest_list[0].LastName %>">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label> Số điện thoại </label>
+                                    <input id="cd_phonenumber" readonly type="text" class="form-control" placeholder="Số điện thoại" value="<%= guest_list[0].PhoneNumber %>">
+                                </div>
+                                <div class="form-group">
+                                    <label> Hạng </label>
+                                    <select disabled id="cd_rank" class="form-control" placeholder="Hạng khách hàng" value="Thường">
+                                        <option>Thường</option>
+                                        <option>Bạc</option>
+                                        <option>Vàng</option>
+                                    </select>
+                                </div>
+                                <!--
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="password-input" placeholder="Password" value="Guest Password">
+                                        <span class="input-group-btn">
+                                            <a onclick="show_password()" class="btn btn-primary" id="password-show-btn">Show Password</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            -->
+                                <div id="cd_message"></div>
+                                <div class="form-group">
+                                    <button id="cd_editButton" type="button" class="btn btn-md btn-danger">Chỉnh sửa</button>
+                                    <button disabled id="cd_updateButton" type="button" class="btn btn-md btn-danger">Cập nhật</button>
+                                    <button disabled id="cd_cancelButton" type="button" class="btn btn-md btn-primary">Hủy</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!--
+                        <div id="addtitional-info" class="tab-pane fade">
+                            <form id="clientPayment" action="" method="POST">
+                                <div class="form-group">
+                                    <label> Tên chủ tài khoản</label>
+                                    <input readonly type="text" class="form-control" placeholder="Tên chủ tài khoản" value="<%= guest.ClientID %>">
+                                </div>
+                                <div class="form-group" id="email">
+                                    <label> Số tài khoản</label>
+                                    <input readonly type="text" class="form-control" placeholder="Số tài khoản" value="<%= guest.email %>">
+                                </div>
+                                <div class="form-group">
+                                    <label> Ngân hàng </label>
+                                    <input readonly type="text" class="form-control" placeholder="Ngân hàng" value="<%= guest.fullname %>">
+                                </div>
+                                <div class="form-group">
+                                    <label> Địa chỉ </label>
+                                    <input id="dia-chi" readonly type="text" class="form-control" placeholder="Địa chỉ" value="<%= guest.fullname %>">
+                                </div>
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-md btn-primary" onclick="edit()">Chỉnh sửa</button>
+                                    <button type="submit" class="btn btn-md btn-danger">Cập nhật</button>
+                                </div>
+                            </form>
+                        </div>
+                        -->
+
+                        <div id="other" class="tab-pane fade">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-md btn-primary">Đổi mật khẩu</button>
+                                <!-- <button type="submit" class="btn btn-md btn-danger">Khóa tài khoản</button> -->
+                            </div>
+                        </div>
+                    </div>
+				</div>
+            </div>
+    </section>
+
+    <!-- Delete List of selected Guests-->
+    <div class="modal" id="del-selected-guests" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header main-color-bg">
+              <h5 class="modal-title">Bạn có muốn xóa những tài khoản này không?</h5>
+            </div>
+            <div class="modal-body">
+              <p>Tài khoản 1</p>
+              <p>Tài khoản 2</p>
+              <p>Tài khoản ...</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger">Có</button>
+              <button type="button" class="btn" data-dismiss="modal">Không</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+	<%- include('partials/footer.ejs'); -%>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="http://cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'editor1' );
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/admin/js/bootstrap.min.js"></script>
+	<script src="/admin/js/guest.js"></script>
+    <script src="/admin/js/dataTable.js"></script>
+
+    <script>
+        var objList = [];
+        var j = 0;
+        <% for (var i  = 0; i < guest_list.length; i++) {%>
+            objList[j++] = <%- JSON.stringify(guest_list[i]) %>;
+        <% } %>
+        console.log(objList);
+    
+    </script>
+
+    <script>
+
+
+        function showInfo(i){
+            console.log(objList[i]);
+            document.getElementById("clientInfo").action = "/admin/guests/" + objList[i].ClientID;
+            document.getElementById("cd_username").value = objList[i].ClientID;
+            document.getElementById("cd_email").value = objList[i].Email;
+            document.getElementById("cd_firstname").value = objList[i].FirstName;
+            document.getElementById("cd_lastname").value = objList[i].LastName;
+            document.getElementById("cd_phonenumber").value = objList[i].PhoneNumber;
+        }
+
+        $('#cd_editButton').click(function(){
+            $("#cd_firstname").removeAttr("readonly");
+            $("#cd_lastname").removeAttr("readonly");
+            $("#cd_phonenumber").removeAttr("readonly");
+            $("#cd_rank").removeAttr("disabled");
+            $('#cd_updateButton').attr('disabled', false);
+            $('#cd_cancelButton').attr('disabled', false);
+            $('#cd_editButton').attr('disabled', true);
+
+
+        });
+
+        $('#cd_updateButton').click(function(event){
+            event.preventDefault();
+
+            // Create Object with information from the form
+            const postData = {
+                FirstName:  $("#cd_firstname").val(),
+                LastName:  $("#cd_lastname").val(),
+                PhoneNumber: $("#cd_phonenumber").val()
+            }
+
+            // Request to server to log-in passing the User information (userObj)
+
+            var formURL = '/admin/client/' + $("#cd_username").val();
+            console.log(postData);
+            console.log(formURL);
+
+            $.ajax(
+            {
+                url : formURL,
+                type: "PUT",
+                contentType: 'application/json',
+                crossDomain: true,
+                data : JSON.stringify(postData),
+                dataType: 'json',
+                xhrFields: {
+                    withCredentials: true
+                },
+                success:function(response, textStatus, request) 
+                {
+                    //data: return data from server
+                    // alert("The server says: " + response.accessToken);
+                    cd_message.textContent = "Cập nhật thành công";
+                    cd_message.style.color = "green";
+                    cd_message.classList = "text-center mb-2";
+                    // console.log(request.getResponseHeader('Set-Cookie'));
+                    //alert(document.cookie);
+                },
+                error: function(response) 
+                {
+                    console.log(response);
+                    cd_message.textContent = "Có lỗi xảy ra";
+                    cd_message.style.display = "block";
+                    cd_message.style.color = "red";
+                    cd_message.classList = "text-center mb-2";
+                    //if fails   
+                    //alert('it didnt work');   
+                }
+            });
+        });
+
+        $('#cd_cancelButton').click(function(){
+            console.log("Click Cancel");
+            $("#cd_firstname").attr('readonly', true);
+            $("#cd_lastname").attr('readonly', true);
+            $("#cd_phonenumber").attr('readonly', true);
+            $("#cd_rank").attr('disabled', true);
+            $('#cd_updateButton').attr('disabled', true);
+            $('#cd_cancelButton').attr('disabled', true);
+            $('#cd_editButton').attr('disabled', false);
+        })
+
+    </script>
+
+</body>
+</html>

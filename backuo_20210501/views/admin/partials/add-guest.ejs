@@ -1,0 +1,52 @@
+<!-- Modals -->
+<!-- Add Lawyer -->
+<div class="modal fade" id="addGuest" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form id="cr_registerForm" action="/admin/register/addClient"  class="well"  method="POST">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Thêm Người dùng</h4>
+                </div>
+                <div class="modal-body">  
+                    <div id="cr_message"></div>
+                    <p> Các thông tin có dấu <span style="color: red">*</span> là bắt buộc.</p>
+                    <div class="form-group">
+                        <label>Địa chỉ Email <span style="color: red">*</span></label>
+                        <input id="cr_email" type="text" name="Email" class="form-control" onchange="email_validate(this.value);" placeholder="Nhập địa chỉ email">
+                        <div class="status" id="cr_status"></div>
+                    </div>
+            
+                    <div class="form-group">
+                      <label>Tên đăng nhập <span style="color: red">*</span></label>
+                      <input id="cr_username" type="text" name="UserName" class="form-control" onkeyup = "Validate(this)" placeholder="Nhập tên đăng nhập">
+                    </div>
+    
+                    <div class="form-group">
+                        <label>Mật khẩu <span style="color: red">*</span></label>
+                        <div class="col-md-12 input-group">
+                            <input id="cr_password" type="password" name="PasswordHash" class="form-control"  minlength="4" maxlength="16" placeholder="Nhập mật khẩu">
+                            <span class="input-group-btn"><button class="btn btn-defaultCUST" id="cr_view_button3" style=" height: 34px;padding-left: 7px;" type="button"><span class="glyphicon glyphicon-eye-open"></span>                  
+                            </button></span>    
+                        </div> 
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Xác nhận mật khẩu <span style="color: red">*</span></label>
+                        <div class="col-md-12 input-group">
+                            <input id="cr_verifyPassword" type="password" name="PasswordHashConfirm" class="form-control"  minlength="4" maxlength="16" onkeyup="checkPass(); return false;" placeholder="Nhập lại mật khẩu">
+                            <span class="input-group-btn"><button class="btn btn-defaultCUST" id="cr_view_button4" style=" height: 34px;padding-left: 7px;" type="button"><span class="glyphicon glyphicon-eye-open" ></span>                   
+                            </button></span>          
+                        </div>          
+                        <span id="cr_confirmMessage" class="confirmMessage"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-primary">Thêm Người dùng</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

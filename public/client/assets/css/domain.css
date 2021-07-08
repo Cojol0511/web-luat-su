@@ -1,0 +1,66 @@
+.domain {
+    color: #04324C;
+    background: #FFF5DA;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.domain .domain-title {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.domain .domain-title img {
+    color: #04324C;
+    background: #FFF5DA;
+    border-radius: 10px;
+    padding: 20px;
+    width: 70%;
+}
+
+.domain-footer {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+}
+
+
+.domain-subtitle {
+    text-align: center;
+}
+
+.domain-content {
+    color: #04324C;
+    background: #FFF5DA;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.domain-content h3{
+
+    padding: 20px;
+}
+
+.domain-content p{
+    padding: 0px 10px;
+}
+
+.domain-content-container {
+    padding: 20px;
+}
+
+.domain-post-list {
+    padding: 10px;
+    width: 100%;
+    display: inline-block;
+}
+
+.domain-contact {
+    color: #04324C;
+    background: #FCD993;
+    text-align: center;
+    padding: 3%;
+}

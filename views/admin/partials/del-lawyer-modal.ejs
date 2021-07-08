@@ -1,0 +1,65 @@
+<div class="modal" id="del-lawyer-<%= lawyer.LawyerID %>" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title panel-heading main-color-bg">Bạn có chắc chắn xóa luật sư bên dưới không? </h5>
+        </div>
+        <div class="modal-body">
+          <p><%= typeof lawyer != 'undefined' || !lawyer ? lawyer.LawyerID + ' ' + lawyer.FirstName + ' ' + lawyer.LastName : '(UNDEFINED)'; %></p>
+        </div>
+        <div id="ld_delmessage"></div>
+        <div class="modal-footer">
+          <a id="ld_delButton-<%= lawyer.LawyerID %>" type="button" class="btn btn-danger">Có</a>
+          <a type="button" class="btn btn-primary" data-dismiss="modal">Không</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    $('#ld_delButton-<%= lawyer.LawyerID %>').click(function(){
+
+      alert("Click Del <%= lawyer.LawyerID %>");
+      const LawyerID = {
+        'LawyerID' : '<%- lawyer.LawyerID %>'
+      }
+      $.ajax(
+            {
+                url : "/admin/lawyers/<%- lawyer.LawyerID %>",
+                type: "DELETE",
+                contentType: 'application/json',
+                crossDomain: true,
+                //data : JSON.stringify(LawyerID),
+                //dataType: 'json',
+                xhrFields: {
+                    withCredentials: true
+                },
+                success:function(response, textStatus, request) 
+                {
+                    //data: return data from server
+                    // alert("The server says: " + response.accessToken);
+                    ld_delmessage.textContent = "Xóa thành công";
+                    ld_delmessage.style.color = "green";
+                    ld_delmessage.classList = "text-center mb-2";
+                    // console.log(request.getResponseHeader('Set-Cookie'));
+                    //alert(document.cookie);
+                    window.location.replace('/admin/lawyers');
+
+                },
+                error: function(response) 
+                {
+                    console.log(response);
+                    ld_delmessage.textContent = "Có lỗi xảy ra";
+                    ld_delmessage.style.display = "block";
+                    ld_delmessage.style.color = "red";
+                    ld_delmessage.classList = "text-center mb-2";
+                    //if fails   
+                    //alert('it didnt work');   
+                }
+            });
+
+
+    })
+
+  </script>

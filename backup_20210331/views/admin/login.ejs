@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Đăng nhập | Admin </title>
+
+    <%- include('partials/head.ejs'); -%>
+
+    <link rel="stylesheet" href="/admin/css/login.css" >
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/admin">MY LAWYER</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <header id="header">
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-12">
+    			<h1 class="text-center"> Admin <small> Đăng nhập </small></h1>
+    		</div>
+    	</div>
+    </header>
+
+
+    <section id="main">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4">
+            <form id="a_loginForm" action="/admin/login" class="well" method="POST">
+              <div id="a_message"></div>
+
+              <div class="form-group">
+                <label>Tên đăng nhập</label>
+                <input id="a_username"  type="text" class="form-control" name="UserName" placeholder="Nhập tên người dùng">
+              </div>
+            
+              <div class="form-group">
+                <label>Mật khẩu</label>
+                <input id="a_password" type="password" class="form-control" name="PasswordHash" placeholder="Nhập mật khẩu">
+              </div>
+            
+              <div class="form-group">
+                <div class="col-md-6">
+                  <!-- <button type="submit" class="btn btn-primary btn-block">Login</button> -->
+                  <button id="login-btn" type="submit" class="btn btn-primary btn-block"> Đăng nhập </button>
+                </div>
+              </div>
+            
+              <div class="form-group">
+                <div class="form-group text-center">
+                  <a href="/admin/forgot-password" class="btn btn-outline-danger mb-2"> Quên mật khẩu? </a>
+            
+                  <!-- <p>Login with: 
+                                            <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook">F</span></a>
+                                            <a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter">T</span></a>
+                                        <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus">G</span></a> 
+                            </p> -->
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap core JavaScript -->
+    <%- include('partials/footer.ejs'); -%>
+
+    <script src="/admin/js/login.js"></script>
+  </body>
+</html>

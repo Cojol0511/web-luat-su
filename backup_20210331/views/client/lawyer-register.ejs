@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>Thông tin Luật Sư | My Lawyer</title>
+
+  <%- include('partials/head.ejs'); -%>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="/client/assets/css/profile.css">
+
+
+  
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <%- include('partials/header.ejs'); -%>
+  <!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+<!--
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="container text-center" data-aos="fade-up">
+      <h1><span>Trang cá nhân</span></h1>
+      <h2>We are team of talanted designers making websites with Bootstrap</h2>
+    </div>
+  </section>
+-->
+  <!-- End Hero -->
+
+  <main id="main">
+
+    <!--Start code-->
+    <section id="lawyerDashboard">
+        <div class="container-fluid">
+            <div class="row mt-5">
+                <div class="col-md-8 offset-md-2">
+                
+                    <!-- Account Content -->
+                    <div class="account-content">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-md-12 col-lg-6 login-right">
+                                <div class="login-header">
+                                    <h3>Đăng ký Luật sư 
+                                        <a a href="#" data-dismiss="modal" data-toggle="modal" data-target="#myModal2"> Không phải Luật sư?</a></h3>
+                                </div>
+                                
+                                <div id="lr_message"></div>
+                                <!-- Register Form -->
+                                <form id="lrForm" action="/lawyer/register" method="POST">
+                    
+                                    <div class="row">
+                                        <div class="col-lg-6 col-sm-12">
+                                            <div class="form-group form-focus">
+                                                <input id="lr_firstname"  type="text" name="FirstName" class="form-control floating">
+                                                <label class="focus-label">Họ và tên đệm</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-12">
+                                            <div class="form-group form-focus">
+                                                <input id="lr_lastname" type="text" name="LastName" class="form-control floating">
+                                                <label class="focus-label">Tên</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-focus">
+                                        <input id="lr_username" type="text" name="UserName" class="form-control floating" required="required" oninvalid="this.setCustomValidity('Vui lòng nhập tên đăng nhập')" oninput="setCustomValidity('')">
+                                        <label class="focus-label">Tên đăng nhập</label>
+                                    </div>
+                                    <div class="form-group form-focus">
+                                        <input id="lr_email" type="text" name="Email" class="form-control floating" required="required"  oninvalid="this.setCustomValidity('Vui lòng nhập email')" oninput="setCustomValidity('')">
+                                        <label class="focus-label">Email</label>
+                                    </div>
+                                    <!--
+                                    <div class="form-group form-focus">
+                                        <input id="lr_phone" type="text" name="Phone" class="form-control floating">
+                                        <label class="focus-label">Số điện thoại</label>
+                                    </div>
+                                  -->
+                                    <div class="form-group form-focus">
+                                        <input id="lr_password" type="password" name="PasswordHash" class="form-control floating" required="required" oninvalid="this.setCustomValidity('Vui lòng nhập mật khẩu')" oninput="setCustomValidity('')">
+                                        <label class="focus-label">Mật khẩu</label>
+                                    </div>
+                                    <div class="form-group form-focus">
+                                        <input id="lr_passwordConfirm" type="password" name="PasswordConfirm" class="form-control floating" required="required">
+                                        <label class="focus-label">Nhập lại mật khẩu</label>
+                                    </div>
+                                    <div class="text-right">
+                                        <a class="forgot-link" href="#" data-dismiss="modal" data-toggle="modal" data-target="#myModal">Đã có tài khoản?</a>
+                                    </div>
+                                    <button class="btn btn-primary btn-block btn-lg login-btn" type="submit">Đăng ký</button>
+                                    <div class="login-or">
+                                        <span class="or-line"></span>
+                                        <span class="span-or">hoặc</span>
+                                    </div>
+                                    <div class="row form-row social-login">
+                                        <div class="col-6">
+                                            <a href="#" class="btn btn-facebook btn-block"><i class="fab fa-facebook-f mr-1"></i> Facebook</a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a href="#" class="btn btn-google btn-block"><i class="fab fa-google mr-1"></i> Google</a>
+                                        </div>
+                                    </div>
+                                </form>
+                                <!-- /Register Form -->
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Account Content -->
+                        
+                </div>
+            </div>
+
+        </div>
+        
+    </section>
+<!--end code-->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <%- include('partials/footer.ejs'); -%>
+  <!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/client/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="/client/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/client/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="/client/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/client/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="/client/assets/vendor/counterup/counterup.min.js"></script>
+  <script src="/client/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/client/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="/client/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+  <!-- Template Main JS File -->
+  
+  <script src="/client/assets/js/main.js"></script>
+  <script src="/client/assets/js/lawyer.js"></script>
+
+  <script>     
+
+    // Attach a submit handler to the form 
+    // Attach a submit handler to the form 
+    /*
+      $.fn.serializeObject = function() {
+          var o = {};
+          var a = this.serializeArray();
+          $.each(a, function() {
+              if (o[this.name]) {
+                  if (!o[this.name].push) {
+                      o[this.name] = [o[this.name]];
+                  }
+                  o[this.name].push(this.value || '');
+              } else {
+                  o[this.name] = this.value || '';
+              }
+          });
+          return o;
+      };
+    */
+      const lr_firstname = document.querySelector("#lr_firstname");
+      const lr_lastname = document.querySelector("#lr_lastname");
+      const lr_username = document.querySelector("#lr_username");
+      const lr_password = document.querySelector("#lr_password");
+      const lr_email = document.querySelector("#lr_email");
+      const lr_message = document.querySelector("#lr_message");
+
+      $("#lrForm").submit(function(event) {
+
+        event.preventDefault(); //STOP default action
+
+        if (lr_username.value === "" || lr_password.value === "" || lr_email.value === "" 
+                                     ||  lr_firstname.value === "" || lr_lastname.value === "" ){
+            lr_message.textContent = "Vui lòng nhập thông tin bắt buộc";
+            lr_message.style.display = "block";
+            lr_message.style.color = "red";
+            lr_message.classList = "text-center mb-2";
+
+          return;
+        }
+
+
+
+        
+
+        const postData = {
+          FirstName: lr_firstname.value,
+          LastName: lr_lastname.value,
+          Avatar: "/client/assets/img/team/team-3.jpg",
+          UserName: lr_username.value,
+          PasswordHash: lr_password.value,
+          Email: lr_email.value,
+          Role: "Lawyer"
+        }
+
+        console.log(JSON.stringify(postData));
+
+        var formURL = $(this).attr("action");
+
+        $.ajax(
+        {
+            url : formURL,
+            type: "POST",
+            contentType: 'application/json',
+            crossDomain: true,
+            data : JSON.stringify(postData),
+            success:function(response) 
+            {
+                //data: return data from server
+                r_message.textContent = "Đăng ký thành công";
+                r_message.style.color = "green";
+                r_message.classList = "text-center mb-2";
+                logIn(postData);
+            },
+            error: function(response) 
+            {
+                //if fails   
+                console.log(response);
+                r_message.textContent = "Có lỗi xảy ra trong quá trình đăng ký";
+                r_message.style.display = "block";
+                r_message.style.color = "red";
+                r_message.classList = "text-center mb-2";
+                window.location.reload();
+            }
+        });
+
+      });
+
+  </script>
+
+</body>
+
+</html>

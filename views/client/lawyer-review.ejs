@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>Thông tin Luật Sư | My Lawyer</title>
+
+  <%- include('partials/head.ejs'); -%>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="/client/assets/css/profile.css">
+
+
+  
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <%- include('partials/header-2.ejs'); -%>
+  <!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+<!--
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="container text-center" data-aos="fade-up">
+      <h1><span>Trang cá nhân</span></h1>
+      <h2>We are team of talanted designers making websites with Bootstrap</h2>
+    </div>
+  </section>
+-->
+
+  <!-- End Hero -->
+
+  <main id="main">
+
+    <!--Start code-->
+    <section id="lawyerDashboard">
+        <div class="container-fluid">
+
+            <div class="row mt-5">
+                <div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+                
+                    <!-- Sidebar -->
+                    <%- include('partials/user-sidebar.ejs'); -%>
+                    <!-- /Sidebar -->
+
+                </div>
+                
+                <div class="col-md-7 col-lg-8 col-xl-9">
+                    <div class="doc-review review-listing">
+                    
+                        <!-- Review Listing -->
+                        <ul class="comments-list">
+                        
+                            <!-- Comment List -->
+                            <li>
+                                <div class="comment">
+                                    <img class="avatar rounded-circle" alt="User Image" src="/client/assets/img/user/user.jpg">
+                                    <div class="comment-body">
+                                        <div class="meta-data">
+                                            <span class="comment-author">Richard Wilson</span>
+                                            <span class="comment-date">Reviewed 2 Days ago</span>
+                                            <div class="review-count rating">
+                                                <i class="fas fa-star filled"></i>
+                                                <i class="fas fa-star filled"></i>
+                                                <i class="fas fa-star filled"></i>
+                                                <i class="fas fa-star filled"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                        <p class="recommended"><i class="far fa-thumbs-up"></i> I recommend the consectetur</p>
+                                        <p class="comment-content">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                            Ut enim ad minim veniam, quis nostrud exercitation.
+                                            Curabitur non nulla sit amet nisl tempus
+                                        </p>
+                                        <div class="comment-reply">
+                                            <a class="comment-btn" href="reviews.html#">
+                                                <i class="fas fa-reply"></i> Reply
+                                            </a>
+                                           <p class="recommend-btn">
+                                            <span>Recommend?</span>
+                                            <a href="reviews.html#" class="like-btn">
+                                                <i class="far fa-thumbs-up"></i> Yes
+                                            </a>
+                                            <a href="reviews.html#" class="dislike-btn">
+                                                <i class="far fa-thumbs-down"></i> No
+                                            </a>
+                                        </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Comment Reply -->
+                                <ul class="comments-reply">
+                                
+                                    <!-- Comment Reply List -->
+                                    <li>
+                                        <div class="comment">
+                                            <img class="avatar rounded-circle" alt="User Image" src="/client/assets/img/user/user.jpg">
+                                            <div class="comment-body">
+                                                <div class="meta-data">
+                                                    <span class="comment-author">Dr. Darren Elder</span>
+                                                    <span class="comment-date">Reviewed 3 Days ago</span>
+                                                </div>
+                                                <p class="comment-content">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                    Ut enim ad minim veniam.
+                                                    Curabitur non nulla sit amet nisl tempus
+                                                </p>
+                                                <div class="comment-reply">
+                                                    <a class="comment-btn" href="reviews.html#">
+                                                        <i class="fas fa-reply"></i> Reply
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- /Comment Reply List -->
+                                    
+                                </ul>
+                                <!-- /Comment Reply -->
+                                
+                            </li>
+                            <!-- /Comment List -->
+                            
+                            <!-- Comment List -->
+                            <li>
+                                <div class="comment">
+                                    <img class="avatar rounded-circle" alt="User Image" src="/client/assets/img/user/user.jpg">
+                                    <div class="comment-body">
+                                        <div class="meta-data">
+                                            <span class="comment-author">Travis Trimble</span>
+                                            <span class="comment-date">Reviewed 4 Days ago</span>
+                                            <div class="review-count rating">
+                                                <i class="fas fa-star filled"></i>
+                                                <i class="fas fa-star filled"></i>
+                                                <i class="fas fa-star filled"></i>
+                                                <i class="fas fa-star filled"></i>
+                                                <i class="fas fa-star filled"></i>
+                                            </div>
+                                        </div>
+                                        <p class="comment-content">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                            Ut enim ad minim veniam, quis nostrud exercitation.
+                                            Curabitur non nulla sit amet nisl tempus
+                                        </p>
+                                        <div class="comment-reply">
+                                            <a class="comment-btn" href="reviews.html#">
+                                                <i class="fas fa-reply"></i> Reply
+                                            </a>
+                                            <p class="recommend-btn">
+                                                <span>Recommend?</span>
+                                                <a href="reviews.html#" class="like-btn">
+                                                    <i class="far fa-thumbs-up"></i> Yes
+                                                </a>
+                                                <a href="reviews.html#" class="dislike-btn">
+                                                    <i class="far fa-thumbs-down"></i> No
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- /Comment List -->
+                            
+                            <!-- Comment List -->
+                            <li>
+                                <div class="comment">
+                                    <img class="avatar rounded-circle" alt="User Image" src="/client/assets/img/user/user3.jpg">
+                                    <div class="comment-body">
+                                        <div class="meta-data">
+                                            <span class="comment-author">Carl Kelly</span>
+                                            <span class="comment-date">Reviewed 5 Days ago</span>
+                                            <div class="review-count rating">
+                                                <i class="fas fa-star filled"></i>
+                                                <i class="fas fa-star filled"></i>
+                                                <i class="fas fa-star filled"></i>
+                                                <i class="fas fa-star filled"></i>
+                                                <i class="fas fa-star filled"></i>
+                                            </div>
+                                        </div>
+                                        <p class="comment-content">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                            Ut enim ad minim veniam, quis nostrud exercitation.
+                                            Curabitur non nulla sit amet nisl tempus
+                                        </p>
+                                        <div class="comment-reply">
+                                            <a class="comment-btn" href="reviews.html#">
+                                                <i class="fas fa-reply"></i> Reply
+                                            </a>
+                                            <p class="recommend-btn">
+                                                <span>Recommend?</span>
+                                                <a href="reviews.html#" class="like-btn">
+                                                    <i class="far fa-thumbs-up"></i> Yes
+                                                </a>
+                                                <a href="reviews.html#" class="dislike-btn">
+                                                    <i class="far fa-thumbs-down"></i> No
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- /Comment List -->
+                            
+                        </ul>
+                        <!-- /Comment List -->
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+    </section>
+<!--end code-->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <%- include('partials/footer.ejs'); -%>
+  <!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/client/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="/client/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/client/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="/client/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/client/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="/client/assets/vendor/counterup/counterup.min.js"></script>
+  <script src="/client/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/client/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="/client/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+  <!-- Template Main JS File -->
+  
+  <script src="/client/assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,190 @@
+<!-- Modals -->
+<!-- Add Post -->
+<div class="modal fade" id="addPost" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form id="pr_registerForm" action="/admin/posts"  class="well"  method="POST">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Thêm bài viết</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Tiêu đề</label>
+                        <input id="pr_title" type="text" class="form-control" placeholder="Nhập tiêu đề bài viết">
+                        <div class="form-group">
+                            <label>Nội dung</label>
+                            <textarea id="pr_content" name="editor2" class="form-control" placeholder="Nhập nội dung bài viết"></textarea>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox">Đăng</label>
+                        </div>
+                        <div class="form-group">
+                            <label>Lĩnh vực</label>
+                            <input id="pr_category" type="text" class="form-control" placeholder="Nhập lĩnh vực">
+                        </div>
+                        <div class="form-group">
+                            <label>Hình ảnh</label>
+                            <input id="pr_imageurl" type="text" class="form-control" placeholder="Nhập hình ảnh">
+                            <!-- Profile Settings Form -->
+                            <input id="pr_upload_image" type="file" accept="image/*" class="upload" name="photo">
+                            <img id="pr_image" src="" alt="" class="img-fluid" style="max-width: 100%;max-height: 100%;">
+                            <!-- /Profile Settings Form -->
+                        </div>
+                    </div>
+                    <div id="pr_message"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-primary">Thêm bài viết</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        
+        reader.onload = function(e) {
+          $('#pr_image').attr('src', e.target.result);
+
+        }
+        
+        reader.readAsDataURL(input.files[0]); // convert to base64 string
+      }
+    }
+
+    $("#pr_upload_image").change(function() {
+      readURL(this);
+      var file = document.getElementById("pr_upload_image").value;
+      $('#pr_imageurl').val(file.replace(/^.*[\\\/]/, ''));
+      console.log(file);
+    });
+</script>
+
+<script type="text/javascript">
+    
+  const pr_title = document.querySelector("#pr_title");
+  const pr_content = document.querySelector("#pr_content");
+  const pr_category = document.querySelector("#pr_category");
+  const pr_imageurl = document.querySelector("#pr_imageurl");
+  const pr_message = document.querySelector("#pr_message");
+
+
+  $("#pr_registerForm").on('submit',function(event) {
+
+    event.preventDefault(); //STOP default action
+
+    if (pr_title.value === "" ){
+      pr_message.textContent = "Vui lòng nhập tiêu đề bài viết";
+      pr_message.style.display = "block";
+      pr_message.style.color = "red";
+      pr_message.classList = "text-center mb-2";
+      return;
+    }
+
+    const postData = {
+      Title: pr_title.value,
+      AdminID: getCookie("userID"),
+      Content: CKEDITOR.instances.pr_content.getData(),
+      ImageUrl: "/admin/uploads/posts/" + pr_imageurl.value
+    }
+
+    var file = document.getElementById("pr_upload_image").value;
+
+    if (file != ''){
+        // Request to server to log-in passing the User information (userObj)
+        var formURL = '/admin/post/upload?PostID=' + $('#pr_imageurl').val();
+
+        var idxDot = file.lastIndexOf(".") + 1;
+        var extFile = file.substr(idxDot, file.length).toLowerCase();
+
+        if (extFile == "jpg") {
+            extFile = "jpeg";
+        }
+
+        postData.ImageUrl = "/admin/uploads/posts/" + $('#pr_imageurl').val() + "." + extFile;
+
+        var file_data = $('#pr_upload_image').prop('files')[0];   
+        var form_data = new FormData(); 
+
+        form_data.append('photo', file_data);
+
+        console.log(form_data);
+        
+        $.ajax(
+        {
+            url : formURL,
+            type: "POST",
+            contentType: false,
+            crossDomain: true,
+            data : form_data,
+            cache:false,
+            contentType: false,
+            processData: false,
+            success:function(response) 
+            {
+                //data: return data from server
+                console.log(response.message);
+                //alert("Cập nhật ảnh bìa thành công");
+                
+                //ld_message.textContent = "Cập nhật thành công";
+                //ld_message.style.color = "green";
+                //ld_message.classList = "text-center mb-2";
+                //window.location.reload();
+            },
+            error: function(response) 
+            {
+                console.log(response.message);
+                //alert("Cập nhật ảnh bìa thất bại");
+            }
+        });
+    }
+      
+   
+    console.log(JSON.stringify(postData));
+
+    var formURL = $(this).attr("action");
+
+    $.ajax(
+    {
+        url : formURL,
+        type: "POST",
+        contentType: 'application/json',
+        crossDomain: true,
+        data : JSON.stringify(postData),
+        success:function(response) 
+        {
+            if (response.success === 1){
+              //data: return data from server
+              pr_message.textContent = "Thêm bài viết thành công";
+              pr_message.style.color = "green";
+              pr_message.classList = "text-center mb-2";
+              window.location.reload();
+            } else {
+              pr_message.textContent = "Có lỗi xảy ra trong quá trình thêm bài viết";
+              pr_message.style.display = "block";
+              pr_message.style.color = "red";
+              pr_message.classList = "text-center mb-2";
+            }
+        },
+        error: function(response) 
+        {
+            //if fails   
+            console.log(response);
+            ar_message.textContent = "Có lỗi xảy ra trong quá trình thêm bài viết";
+            ar_message.style.display = "block";
+            ar_message.style.color = "red";
+            ar_message.classList = "text-center mb-2";
+        }
+    });
+
+
+
+
+  });
+</script>

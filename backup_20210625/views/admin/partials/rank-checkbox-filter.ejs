@@ -1,0 +1,31 @@
+<% if(typeof rank_types !='undefined' ) {%>
+    <div class="selectBox" onclick="showCheckboxes()">
+        <select>
+            <option>Select options</option>
+        </select>
+        <div class="overSelect"></div>
+    </div>
+    <div id="checkBoxes">
+    <% for(rank of rank_types) {%>
+        <label for="<%= rank.id %>"> 
+            <input type="checkbox" id="<%= rank.id %>" /> 
+            <%= rank.name %>
+        </label> 
+        <% }%>
+    </div>
+<% }%>
+<script type="text/javascript">
+    function showCheckboxes() {
+        var show = true; 
+        var checkboxes =  
+                document.getElementById("checkBoxes"); 
+  
+            if (show) { 
+                checkboxes.style.display = "block"; 
+                show = false; 
+            } else { 
+                checkboxes.style.display = "none"; 
+                show = true; 
+            } 
+    }
+</script>

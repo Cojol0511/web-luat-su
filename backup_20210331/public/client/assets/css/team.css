@@ -1,0 +1,14 @@
+
+.carousel-indicators li{
+	background-color: #04324C;
+}
+
+.carousel-indicators .active {
+	background-color: #F7A818;
+}
+
+.carousel-item{
+    width: 48px;
+    height: 48px;
+    background-color: #04324C;
+}

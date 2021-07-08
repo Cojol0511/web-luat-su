@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title> Luật Sư | My Lawyer</title>
+
+  <%- include('partials/head.ejs'); -%>
+  <link href="/client/assets/css/rating.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <%- include('partials/header.ejs'); -%>
+  <!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="container text-center" data-aos="fade-up">
+      <h1><span>Danh sách Luật Sư</span></h1>
+      <h2>We are team of talanted designers making websites with Bootstrap</h2>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <section id="team" class="team">
+    <!--
+    <div class="container">
+
+        <div class="section-title">
+        <h2>Danh sách luật sư</h2>
+        <p>Sit sint consectetur velit quos quisquam cupiditate nemo qui</p>
+        </div>
+
+        <div class="row">
+        <div class="col-md-12">
+            <div class="owl-carousel team-slider">
+                <div class="col-md-12 d-flex align-items-stretch">
+                    <div class="member">
+                        <img src="/client/assets/img/team/team-1.jpg" alt="">
+                        <h4>Walter White</h4>
+                        <span>Chief Executive Officer</span>
+                        <p>
+                        Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+                        </p>
+                        <div class="social">
+                        <a href=""><i class="icofont-twitter"></i></a>
+                        <a href=""><i class="icofont-facebook"></i></a>
+                        <a href=""><i class="icofont-instagram"></i></a>
+                        <a href=""><i class="icofont-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md-12 d-flex align-items-stretch">
+                    <div class="member">
+                        <img src="/client/assets/img/team/team-2.jpg" alt="">
+                        <h4>Sarah Jhinson</h4>
+                        <span>Product Manager</span>
+                        <p>
+                        Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
+                        </p>
+                        <div class="social">
+                        <a href=""><i class="icofont-twitter"></i></a>
+                        <a href=""><i class="icofont-facebook"></i></a>
+                        <a href=""><i class="icofont-instagram"></i></a>
+                        <a href=""><i class="icofont-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 d-flex align-items-stretch">
+                    <div class="member">
+                        <img src="/client/assets/img/team/team-3.jpg" alt="">
+                        <h4>William Anderson</h4>
+                        <span>CTO</span>
+                        <p>
+                        Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
+                        </p>
+                        <div class="social">
+                        <a href=""><i class="icofont-twitter"></i></a>
+                        <a href=""><i class="icofont-facebook"></i></a>
+                        <a href=""><i class="icofont-instagram"></i></a>
+                        <a href=""><i class="icofont-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 d-flex align-items-stretch">
+                    <div class="member">
+                        <img src="/client/assets/img/team/team-3.jpg" alt="">
+                        <h4>William Anderson</h4>
+                        <span>CTO</span>
+                        <p>
+                        Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
+                        </p>
+                        <div class="social">
+                        <a href=""><i class="icofont-twitter"></i></a>
+                        <a href=""><i class="icofont-facebook"></i></a>
+                        <a href=""><i class="icofont-instagram"></i></a>
+                        <a href=""><i class="icofont-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 d-flex align-items-stretch">
+                    <div class="member">
+                        <img src="/client/assets/img/team/team-3.jpg" alt="">
+                        <h4>William Anderson</h4>
+                        <span>CTO</span>
+                        <p>
+                        Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
+                        </p>
+                        <div class="social">
+                        <a href=""><i class="icofont-twitter"></i></a>
+                        <a href=""><i class="icofont-facebook"></i></a>
+                        <a href=""><i class="icofont-instagram"></i></a>
+                        <a href=""><i class="icofont-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    -->
+    <div class="container">
+        <div class="row" id="search-bar">
+        <div class="col-6">
+            <form id="search" class="form-inline">
+                <label class="sr-only" for="inlineFormInputName2">Name</label>
+                <input type="text" class="form-control mb-2 mr-sm-2" id="search-input" placeholder="Nhập thông tin luật sư...">
+                <button type="submit" class="btn btn-warning mb-2" id="submit-search">Tìm kiếm</button>
+            </form>
+        </div>
+        <div class="col-6 d-flex justify-content-end" id="modeSwitch">
+            <i class="listItem fa fa-bars mr-2 fa-lg" aria-hidden="true"></i>
+            <i class="cardItem fa fa-th fa-lg" aria-hidden="true"></i>
+        </div>
+        </div>
+    </div>
+
+    <!-- data-panel -->
+    <div class="container mt-5">
+        <div class="row" id="data-panel">
+        <!-- print movie list here -->
+        
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="show-movie-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="show-movie-title"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body" id="show-movie-body">
+            <div class="row">
+                <div class="col-7" id="show-movie-image"></div>
+                <div class="col-5">
+                <p><em id="show-movie-date"></em></p>
+                <p id="show-movie-description"></p>
+                </div>
+            </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center" id="pagination">
+        <li class="page-item">
+            <a class="page-link" href="#">1</a>
+        </li>
+        </ul>
+    </nav>
+    </section>
+    <!-- End Team Section -->
+
+    <!-- partial:index.partial.html -->
+    <!-- search bar -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <%- include('partials/footer.ejs'); -%>
+  <!-- End Footer -->
+  <!--
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  -->
+
+  <!-- Vendor JS Files -->
+  <script src="/client/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="/client/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/client/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="/client/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/client/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="/client/assets/vendor/counterup/counterup.min.js"></script>
+  <script src="/client/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/client/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="/client/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+  <!-- Template Main JS File -->
+  
+  <script src="/client/assets/js/main.js"></script>
+  <!-- <script src="/client/assets/js/rating.js"></script> -->
+  <!-- <script src="/client/assets/js/grid.js"></script> -->
+
+  <!--  <script>
+    $("#langButton a").click(function(){
+      $(this).parents(".drop-down").find('a').first().html($(this).html());
+      $(this).parents(".drop-down").find('a').val($(this).data('value'));
+    });
+  </script>
+    -->
+    <script>
+        var data = [];
+        var j = 0;
+        <% for (var i  = 0; i < lawyer_list.length; i++) {%>
+            data[j++] = <%- JSON.stringify(lawyer_list[i]) %>;
+        <% } %>
+
+                  
+        const LAWYER_URL = 'http://api.veneris.bitiland.com/api/lawyer/'
+        
+        let searchData = []
+
+        const dataPanel = document.getElementById('data-panel')
+        const searchForm = document.getElementById('search')
+        const searchBtn = document.getElementById("submit-search");
+        const searchInput = document.getElementById('search-input')
+
+        const pagination = document.getElementById('pagination')
+
+        const ITEM_PER_PAGE = 8
+        let paginationData = []
+        
+        //   New variable for view switch
+        const modeSwitch = document.getElementById('modeSwitch')
+        let cardMode = 'cardItem'
+        let currentPage = 1
+        let currentData = []
+        let targetPage = 1;
+
+        // listen to data panel
+        dataPanel.addEventListener('click', (event) => {
+        if (event.target.matches('.btn-show-movie')) {
+            showMovie(event.target.dataset.id)
+        } else if (event.target.matches('.btn-add-favorite')) {
+            addFavoriteItem(event.target.dataset.id)
+        }
+        })
+        // Transfer the data from API to variable data
+
+        console.log(data);
+        getTotalPages(data);
+        getPageData(1, data);
+        currentData = data;
+
+        modeSwitch.addEventListener('click', event => {
+        if (event.target.matches('.listItem')) {
+            cardMode = 'listItem'
+            getPageData(currentPage, currentData)
+        } else if (event.target.matches('.cardItem')) {
+            cardMode = 'cardItem'
+            getPageData(currentPage, currentData)
+        }
+        })
+
+        //   the format of two different modes
+        function cardModeDisplay(data) {
+        let htmlContent = ''
+        data.forEach(function (item, index) {
+
+            const id = ratingValue(String(index), item.Rating);
+            console.log(id);
+            specialize = getSpecialize(item.Specialize)
+            if (!item.Avatar) item.Avatar = "/client/assets/img/team/null.png";
+            htmlContent += `
+            <div class="col-sm-3 d-flex align-items-stretch">
+                    <div class="member">
+                        <img class="card-img-top " src="${item.Avatar}" alt="Hình đại diện">
+                        <h4>  ${item.FirstName} ${item.LastName} </h4>
+                        <span>Luật sư</span>
+                        <p> Lĩnh vực ${specialize} </p>
+                    <div class="rating_class">
+                        <input disabled type="radio" id="star5_${index}" name="rating__${index}" value="5"`+ (id === ("star5_" + index) ? "checked" : "") + `/>
+                        <label class = "full" for="star5_${index}" title="Awesome - 5 stars"></label>
+                        
+                        <input disabled type="radio" id="star4half_${index}" name="rating__${index}" value="4 and a half" ` +  (id === ("star4half_" + index) ? "checked" : "") + ` />
+                        <label class="half" for="star4half_${index}" title="Pretty good - 4.5 stars"></label>
+                        
+                        <input disabled type="radio" id="star4_${index}" name="rating__${index}" value="4"` +  (id === ("star4_" + index) ? "checked" : "") + `/>
+                        <label class = "full" for="star4_${index}" title="Pretty good - 4 stars"></label>
+                        
+                        <input disabled type="radio" id="star3half_${index}" name="rating__${index}" value="3 and a half" ` +  (id === ("star3half_" + index) ? "checked" : "") + ` />
+                        <label class="half" for="star3half_${index}" title="Meh - 3.5 stars"></label>
+                        
+                        <input disabled type="radio" id="star3_${index}" name="rating__${index}" value="3" ` +  (id === ("star3_" + index) ? "checked" : "") + ` />
+                        <label class = "full" for="star3_${index}" title="Meh - 3 stars"></label>
+                        
+                        <input disabled type="radio" id="star2half_${index}" name="rating__${index}" value="2 and a half"  ` +  (id === ("star2half_" + index) ? "checked" : "") + ` />
+                        <label class="half" for="star2half_${index}" title="Kinda bad - 2.5 stars"></label>
+                        
+                        <input disabled type="radio" id="star2_${index}" name="rating__${index}" value="2" ` +  (id === ("star2_" + index) ? "checked" : "") + ` />
+                        <label class = "full" for="star2_${index}" title="Kinda bad - 2 stars"></label>
+                        
+                        <input disabled type="radio" id="star1half_${index}" name="rating__${index}" value="1 and a half" ` +  (id === ("star1half_" + index) ? "checked" : "") + `/>
+                        <label class="half" for="star1half_${index}" title="Meh - 1.5 stars"></label>
+                        
+                        <input disabled type="radio" id="star1_${index}" name="rating__${index}" value="1" ` +  (id === ("star1_" + index) ? "checked" : "") + `/>
+                        <label class = "full" for="star1_${index}" title="Sucks big time - 1 star"></label>
+                        
+                        <input disabled type="radio" id="starhalf_${index}" name="rating__${index}" value="half" ` +  (id === ("starhalf_" + index) ? "checked" : "") + ` />
+                        <label class="half" for="starhalf_${index}" title="Sucks big time - 0.5 stars"></label>
+                    </div>
+                <!-- "More" button -->
+                <div class="card-footer">
+                    <a class="btn btn-warning btn-show-movie" href='/lawyerList?lawyerID=${item.LawyerID}'>Chi tiết</a>
+                    <!-- favorite button --> 
+                    <!-- <button class="btn btn-danger btn-add-favorite" data-id="${item.LawyerID}"> Theo dõi </button> -->
+                </div>
+                </div>
+            </div>
+            `
+            
+        })
+        dataPanel.innerHTML = htmlContent
+        }
+
+        function listModeDisplay(data) {
+        let htmlContent = `<ul class="list-group list-group-flush" style="width:100%;">`
+        data.forEach(function (item, index) {
+            htmlContent += `
+            <li class="list-group-item d-flex justify-content-between align-items-center mx-3"> ${item.LastName} ${item.FirstName}
+            <div>
+                <a class="btn btn-warning btn-show-movie" href='/lawyerList?lawyerID=${item.LawyerID}'>Chi tiết</a>
+                <!-- <button class="btn btn-danger btn-add-favorite" data-id="${item.LawyerID}">+</button> -->
+            </div>
+            </li>
+            `
+        })
+        htmlContent += `</ul>`
+        dataPanel.innerHTML = htmlContent
+        }
+
+        //   Detail information for items
+        function showMovie(id) {
+        // get elements
+        const modalTitle = document.getElementById('show-movie-title')
+        const modalImage = document.getElementById('show-movie-image')
+        const modalDate = document.getElementById('show-movie-date')
+        const modalDescription = document.getElementById('show-movie-description')
+        // set request url
+        const url = INDEX_URL + id
+        console.log(url)
+        // send request to show api
+        axios.get(url).then(response => {
+            const data = response.data.results
+            console.log(data)
+            // insert data into modal ui
+            modalTitle.textContent = data.title
+            modalImage.innerHTML = `<img src="${POSTER_URL}${data.image}" class="img-fluid" alt="Responsive image">`
+            modalDate.textContent = `release at : ${data.release_date}`
+            modalDescription.textContent = `${data.description}`
+        })
+        }
+
+        // SearchBtn 
+        searchBtn.addEventListener("click", event => {
+        event.preventDefault();
+        let results = [];
+
+        const regex = new RegExp(searchInput.value, "i");
+        results = data.filter(lawyer => String(lawyer.FirstName).match(regex));
+        // console.log(results.length);
+
+        if (results.length == 0) {
+            searchInput.value = "";
+        } else if (searchInput.value == "") {
+            getTotalPages(data);
+
+            getPageData(targetPage, data);
+        } else {
+            searchData = results;
+            console.log(searchData);
+
+            if (targetPage != 1) {
+            targetPage = 1;
+            }
+
+            getTotalPages(searchData);
+
+            getPageData(targetPage, searchData);
+        }
+        });
+
+        
+        // listen to search form submit event
+        /*
+        searchForm.addEventListener('keyup', event => {
+        event.preventDefault()
+        let results = []
+        console.log(searchInput.value)
+        const regex = new RegExp(searchInput.value, 'i')
+        results = data.filter(lawyer => lawyer.FirstName.match(regex))
+        console.log(resutls);
+        getTotalPages(results)
+        getPageData(1, results)
+        currentData = results
+        })
+        */
+
+        function addFavoriteItem(id) {
+        const list = JSON.parse(localStorage.getItem('favoriteMovies')) || []
+        const movie = data.find(item => item.id === Number(id))
+
+        if (list.some(item => item.id === Number(id))) {
+            alert(`${movie.title} is already in your favorite list.`)
+        } else {
+            list.push(movie)
+            alert(`Added ${movie.title} to your favorite list!`)
+        }
+        localStorage.setItem('favoriteMovies', JSON.stringify(list))
+        }
+
+        // Pagination
+        function getTotalPages(data) {
+        let totalPages = Math.ceil(data.length / ITEM_PER_PAGE) || 1
+        let pageItemContent = ''
+        for (let i = 0; i < totalPages; i++) {
+            pageItemContent += `
+            <li class="page-item">
+                <a style="color:#4f5a62;" class="page-link" href="javascript:;" data-page="${i + 1}">${i + 1}</a>
+            </li>
+            `
+        }
+        pagination.innerHTML = pageItemContent
+        }
+
+        // Pagination EventListener
+        pagination.addEventListener('click', (event) => {
+        currentPage = event.target.dataset.page
+        if (event.target.tagName === 'A') {
+            getPageData(event.target.dataset.page)
+        }
+        })
+
+        function getPageData(pageNum, data) {
+        paginationData = data || paginationData
+        let offset = (pageNum - 1) * ITEM_PER_PAGE
+        let pageData = paginationData.slice(offset, offset + ITEM_PER_PAGE)
+        if (cardMode == 'cardItem') {
+            cardModeDisplay(pageData)
+        } else {
+            listModeDisplay(pageData)
+        }
+        }
+
+        function ratingValue(index, rating){ 
+
+            var r = 0;
+            var f = 0;
+
+            if (rating){
+                r = rating/2;
+                f = ~~r ;//Tương tự Math.floor(r)
+            } 
+
+            id = "star" + f + (r % f ? 'half' : '') + "_" + index; 
+
+            return id;
+
+        }; 
+
+        function getSpecialize(i){
+            var specialize = '';
+            switch (i){
+                case '1':
+                specialize = "Dân sự";
+                break;
+                case '2':
+                specialize = "Hình sự";
+                break;  
+                case '3':
+                specialize = "KDTM";
+                break;     
+                default:
+                specialize = "khác";
+                break;          
+            }
+
+            return specialize;
+
+        };
+    </script>
+
+</body>
+
+</html>

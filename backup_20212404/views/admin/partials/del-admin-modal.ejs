@@ -1,0 +1,65 @@
+<div class="modal" id="del-admin-<%= admin.UserID %>" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title panel-heading main-color-bg">Bạn có chắc chắn xóa tài khoản bên dưới không? </h5>
+        </div>
+        <div class="modal-body">
+          <p><%= typeof admin != 'undefined' || !admin ? admin.UserID + ' ' + admin.FirstName + ' ' + admin.LastName : '(UNDEFINED)'; %></p>
+        </div>
+        <div id="cd_delmessage"></div>
+        <div class="modal-footer">
+          <a id="ad_delButton-<%= admin.UserID %>" type="button" class="btn btn-danger">Có</a>
+          <a type="button" class="btn btn-primary" data-dismiss="modal">Không</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    $('#ad_delButton-<%= admin.UserID %>').click(function(){
+
+      alert("Click Del <%= admin.UserID %>");
+      const AdminID = {
+        'UserID' : '<%- admin.UserID %>'
+      }
+      $.ajax(
+            {
+                url : "/admin/admins/<%- admin.UserID %>",
+                type: "DELETE",
+                contentType: 'application/json',
+                crossDomain: true,
+                //data : JSON.stringify(UserID),
+                //dataType: 'json',
+                xhrFields: {
+                    withCredentials: true
+                },
+                success:function(response, textStatus, request) 
+                {
+                    //data: return data from server
+                    // alert("The server says: " + response.accessToken);
+                    cd_delmessage.textContent = "Xóa thành công";
+                    cd_delmessage.style.color = "green";
+                    cd_delmessage.classList = "text-center mb-2";
+                    // console.log(request.getResponseHeader('Set-Cookie'));
+                    //alert(document.cookie);
+                    window.location.replace('/admin/admins');
+
+                },
+                error: function(response) 
+                {
+                    console.log(response);
+                    cd_delmessage.textContent = "Có lỗi xảy ra";
+                    cd_delmessage.style.display = "block";
+                    cd_delmessage.style.color = "red";
+                    cd_delmessage.classList = "text-center mb-2";
+                    //if fails   
+                    //alert('it didnt work');   
+                }
+            });
+
+
+    })
+
+  </script>

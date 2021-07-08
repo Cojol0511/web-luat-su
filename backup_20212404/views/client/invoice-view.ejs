@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>Thanh toán | My Lawyer </title>
+
+  <%- include('partials/head.ejs'); -%>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="/client/assets/vendor/daterangepicker/daterangepicker.css">
+
+  <link rel="stylesheet" href="/client/assets/css/profile.css">
+
+
+  
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <%- include('partials/header.ejs'); -%>
+  <!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+<!--
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="container text-center" data-aos="fade-up">
+      <h1><span>Trang cá nhân</span></h1>
+      <h2>We are team of talanted designers making websites with Bootstrap</h2>
+    </div>
+  </section>
+-->
+  <!-- End Hero -->
+
+  <main id="main">
+
+    <!--Start code-->
+    <section id="invoice-view">
+        <div class="container-fluid">
+
+            <div id="invoice" class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="invoice-content">
+                        <div class="invoice-item">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="invoice-logo">
+                                        <img src="/client/assets/img/logo.png" alt="logo">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="invoice-details">
+                                        <strong>Số giao dịch:</strong> <%= bookingInfo.BookingID %> <br>
+                                        <strong>Ngày giao dịch:</strong> <%= new Date(bookingInfo.CreatedDateTime).toLocaleDateString("en-US"); %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Invoice Item -->
+                        <div class="invoice-item">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="invoice-info">
+                                        <strong class="customer-text">Luật sư</strong>
+                                        <p class="invoice-details invoice-details-two">
+                                            <%= lawyer.FirstName %> <%= lawyer.LastName %> <br>
+                                            <%= lawyer.Street %>, <%= lawyer.District %>,<br>
+                                            <%= lawyer.Province %> <br>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="invoice-info invoice-info2">
+                                        <strong class="customer-text">Khách hàng</strong>
+                                        <p class="invoice-details">
+                                            <%= user.FirstName %> <%= user.LastName %> <br>
+                                            <%= user.Street %>, <%= user.District %>,<br>
+                                            <%= user.Province %> <br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Invoice Item -->
+                        
+                        <!-- Invoice Item -->
+                        <div class="invoice-item">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="invoice-info">
+                                        <strong class="customer-text">Nội dung thanh toán</strong>
+                                        <p class="invoice-details invoice-details-two"> 
+                                          <%= bookingInfo.Title %> 
+                                        </p>
+                                        <strong class="customer-text">Phương thức thanh toán</strong>
+                                        <p class="invoice-details invoice-details-two">
+                                          
+                                          <% switch (bookingInfo.State){
+                                              case "0":
+                                                  state = "Đã thanh toán";
+                                                  pay = 1;
+                                                  break;
+                                              default:
+                                                  state = "Chưa thanh toán";
+                                                  pay = 0;
+                                                  break;
+                                          } %>
+
+                                          <%= bookingInfo.Content %> ( <%= state %>)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Invoice Item -->
+                        
+                        <!-- Invoice Item -->
+                        <div class="invoice-item invoice-table-wrap">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table class="invoice-table table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Mô tả</th>
+                                                    <th class="text-center">Số lượng</th>
+                                                    <th class="text-center">VAT</th>
+                                                    <th class="text-right">Tổng</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Phí luật sư</td>
+                                                    <td class="text-center">XXX</td>
+                                                    <td class="text-center">XXX</td>
+                                                    <td class="text-right">XXX</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Phí dịch vụ</td>
+                                                    <td class="text-center">XXX</td>
+                                                    <td class="text-center">XXX</td>
+                                                    <td class="text-right">XXX</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xl-4 ml-auto">
+                                    <div class="table-responsive">
+                                        <table class="invoice-table-two table">
+                                            <tbody>
+                                            <tr>
+                                                <th>Tổng tiền:</th>
+                                                <td><span>XXX</span></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Giảm giá:</th>
+                                                <td><span>XXX</span></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tổng thanh toán:</th>
+                                                <td><span>XXX</span></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Invoice Item -->
+                        
+                        <!-- Invoice Information -->
+                        <div class="other-info">
+                            <h4>Thông tin khác</h4>
+                            <p class="text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed dictum ligula, cursus blandit risus. Maecenas eget metus non tellus dignissim aliquam ut a ex. Maecenas sed vehicula dui, ac suscipit lacus. Sed finibus leo vitae lorem interdum, eu scelerisque tellus fermentum. Curabitur sit amet lacinia lorem. Nullam finibus pellentesque libero.</p>
+                        </div>
+                        <!-- /Invoice Information -->
+
+                        <div class="submit-section proceed-btn text-right">
+                            <a href="/" class="btn btn-danger submit-btn">Thanh toán</a>
+                            <a id="create_pdf" class="btn btn-warning submit-btn">In</a>
+                            <a href="/" class="btn btn-primary submit-btn">Quay về</a>                
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div> 
+    </section>
+<!--end code-->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <%- include('partials/footer.ejs'); -%>
+  <!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/client/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="/client/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/client/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="/client/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/client/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="/client/assets/vendor/counterup/counterup.min.js"></script>
+  <script src="/client/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/client/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="/client/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+
+  <!-- Template Main JS File -->
+  
+
+  <script src="/client/assets/js/moment.min.js"></script>
+  <script src="/client/assets/vendor/daterangepicker/daterangepicker.js"></script>
+
+  <script src="/client/assets/js/main.js"></script>
+  <script src="/client/assets/js/lawyer.js"></script>
+
+
+  <script>
+    (function ($) {
+        $.fn.html2canvas = function (options) {
+            var date = new Date(),
+            $message = null,
+            timeoutTimer = false,
+            timer = date.getTime();
+            html2canvas.logging = options && options.logging;
+            html2canvas.Preload(this[0], $.extend({
+                complete: function (images) {
+                    var queue = html2canvas.Parse(this[0], images, options),
+                    $canvas = $(html2canvas.Renderer(queue, options)),
+                    finishTime = new Date();
+
+                    $canvas.css({ position: 'absolute', left: 0, top: 0 }).appendTo(document.body);
+                    $canvas.siblings().toggle();
+
+                    $(window).click(function () {
+                        if (!$canvas.is(':visible')) {
+                            $canvas.toggle().siblings().toggle();
+                            throwMessage("Canvas Render visible");
+                        } else {
+                            $canvas.siblings().toggle();
+                            $canvas.toggle();
+                            throwMessage("Canvas Render hidden");
+                        }
+                    });
+                    throwMessage('Screenshot created in ' + ((finishTime.getTime() - timer) / 1000) + " seconds<br />", 4000);
+                }
+            }, options));
+
+            function throwMessage(msg, duration) {
+                window.clearTimeout(timeoutTimer);
+                timeoutTimer = window.setTimeout(function () {
+                    $message.fadeOut(function () {
+                        $message.remove();
+                    });
+                }, duration || 2000);
+                if ($message)
+                    $message.remove();
+                $message = $('<div ></div>').html(msg).css({
+                    margin: 0,
+                    padding: 10,
+                    background: "#000",
+                    opacity: 0.7,
+                    position: "fixed",
+                    top: 10,
+                    right: 10,
+                    fontFamily: 'Tahoma',
+                    color: '#fff',
+                    fontSize: 12,
+                    borderRadius: 12,
+                    width: 'auto',
+                    height: 'auto',
+                    textAlign: 'center',
+                    textDecoration: 'none'
+                }).hide().fadeIn().appendTo('body');
+            }
+        };
+    })(jQuery);
+</script>
+
+
+<script>
+    (function () {
+        var
+         form = $('#invoice-view'),
+         cache_width = form.width(),
+         a4 = [595.28, 841.89]; // for a4 size paper width and height
+
+        $('#create_pdf').on('click', function () {
+            $('body').scrollTop(0);
+            createPDF();
+        });
+        //create pdf
+        function createPDF() {
+            getCanvas().then(function (canvas) {
+                var
+                 img = canvas.toDataURL("image/png"),
+                 doc = new jsPDF({
+                     unit: 'px',
+                     format: 'a4'
+                 });
+                doc.addImage(img, 'JPEG', 20, 20);
+                doc.save('<%= bookingInfo.BookingID %>.pdf');
+                form.width(cache_width);
+            });
+        }
+
+        // create canvas object
+        function getCanvas() {
+            form.width((a4[0] * 1.33333) - 80).css('max-width', 'none');
+            return html2canvas(form, {
+                imageTimeout: 2000,
+                removeContainer: true
+            });
+        }
+
+    }());
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+async getToken() {
+  if (this.authToken && this.authToken.expires > new Date().getTime()) {
+   return `_dremio${this.authToken.token}`;
+  }
+
+  const { data } = await axios.post(`${this.config.url}/apiv2/login`, {
+   userName: this.config.user,
+   password: this.config.password
+  });
+
+  this.authToken = data;
+  return `_dremio${this.authToken.token}`;
+ }

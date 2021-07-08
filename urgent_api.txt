@@ -1,0 +1,9 @@
+
+1.  /api/auth 	(Xác thực - Đăng ký, Đăng nhập)
+2.  /api/lawyer (Lấy danh sách luật sư - Trang luật sư)
+3.  /api/lawyerID (Lấy thông tin chi tiết của một luật sư)
+4.  /api/user (Lấy danh sách người dùng)
+5.  /api/user (Lấy thông tin chi tiết của người dùng)
+6.  /api/article (Lấy danh sách bài viết)
+7.  /api/articleCategory (Lấy danh sách bài viết theo từng Category)
+8.  /api/arctileID (Lấy nội dung bài viết)

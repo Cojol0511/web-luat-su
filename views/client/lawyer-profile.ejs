@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>Thông tin Luật Sư | My Lawyer</title>
+
+  <%- include('partials/head.ejs'); -%>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="/client/assets/css/profile.css">
+
+
+  
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <%- include('partials/header.ejs'); -%>
+  <!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+<!--
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="container text-center" data-aos="fade-up">
+      <h1><span>Trang cá nhân</span></h1>
+      <h2>We are team of talanted designers making websites with Bootstrap</h2>
+    </div>
+  </section>
+-->
+  <!-- End Hero -->
+
+  <main id="main">
+
+    <!--Start code-->
+    <section id="lawyerDashboard">
+        <div class="container-fluid">
+
+            <div class="row mt-5">
+                <div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+                
+                    <!-- Sidebar -->
+                    <%- include('partials/user-sidebar.ejs'); -%>
+                    <!-- /Sidebar -->
+
+                </div>
+                
+                <div class="col-md-7 col-lg-8 col-xl-9">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3> Kinh nghiệm </h3>
+                            <!-- Profile Settings Form -->
+                            <form>
+                                <div class="row form-row">                                
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>Cơ quan công tác</label>
+                                            <input id="ld_company" type="text" class="form-control" value="<%= lawyer.experiences[0].Company %>">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <div class="form-group">
+                                            <label>Vị trí</label>
+                                            <input id="ld_position" type="text" class="form-control" value="<%= lawyer.experiences[0].PostName %>">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <div class="form-group">
+                                            <label>Năm bắt đầu</label>
+                                            <div class="cal-icon">
+                                                <input id="ld_year" type="text" class="form-control" value="<%= lawyer.experiences[0].StartDate %>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="submit-section">
+                                    <button id="ld_updateButton_0" type="button" class="btn btn-primary submit-btn">Lưu thay đổi</button>
+                                    <div id="ld_message_0"></div>
+                                </div>
+                            </form>
+                            <!-- /Profile Settings Form -->                          
+                        </div>
+
+                        <div class="card-body">
+                            <h3> Trình độ </h3>
+                            <!-- Profile Settings Form -->
+                            <form>
+                                <div class="row form-row">                                
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>Học vấn</label>
+                                            <select id="ld_degreetype" class="form-control select">
+                                                <option value="1">Cao Đẳng</option>
+                                                <option value="2">Đại Học</option>
+                                                <option value="3">Thạc Sỹ</option>
+                                                <option value="4">Tiến Sỹ</option>
+                                                <option value="0">Chưa xác định</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>Chuyên ngành</label>
+                                            <input id="ld_major" type="text" class="form-control" value="<%= lawyer.formations[0].Major %>">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>Nơi đào tạo</label>
+                                            <input id="ld_institution" type="text" class="form-control" value="<%= lawyer.formations[0].Institution %>">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <div class="form-group">
+                                            <label>Năm bắt đầu</label>
+                                            <div class="cal-icon">
+                                                <input id="ld_startyear" type="text" class="form-control" value="<%= lawyer.formations[0].StartYear %>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <div class="form-group">
+                                            <label>Năm hoàn thành</label>
+                                            <div class="cal-icon">
+                                                <input id="ld_endyear" type="text" class="form-control" value="<%= lawyer.formations[0].EndYear %>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="submit-section">
+                                    <button id="ld_updateButton_1" type="button" class="btn btn-primary submit-btn">Lưu thay đổi</button>
+                                    <div id="ld_message_1"></div>
+                                </div>
+                            </form>
+                            <!-- /Profile Settings Form -->                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+    </section>
+<!--end code-->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <%- include('partials/footer.ejs'); -%>
+  <!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/client/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="/client/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/client/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="/client/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/client/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="/client/assets/vendor/counterup/counterup.min.js"></script>
+  <script src="/client/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/client/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="/client/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+  <!-- Template Main JS File -->
+  
+  <script src="/client/assets/js/main.js"></script>
+  <script src="/client/assets/js/lawyer.js"></script>
+
+ <script>
+        <% 
+        var degreeType = '';
+
+        if (lawyer.formations[0].DegreeType != '1' || 
+                lawyer.formations[0].DegreeType != '2' ||
+                    lawyer.formations[0].DegreeType != '3' || 
+                        lawyer.formations[0].DegreeType != '4' ){
+            degreeType = 0
+        } else {
+            degreeType = lawyer.formations[0].DegreeType;
+        }
+        %>
+
+        console.log(<%= degreeType %>);
+
+        document.querySelector('#ld_degreetype [value="' + <%= parseInt(lawyer.formations[0].DegreeType) || 0 %> + '"]').selected = true;
+  </script>
+
+  <script>
+
+    /*
+    function upload(){
+      var x = document.getElementById("ld_specialize");
+      var txt = "";
+      if ('files' in x) {
+        if (x.files.length == 0) {
+          txt = "Select one or more files.";
+        } else {
+          for (var i = 0; i < x.files.length; i++) {
+            txt += "<br><strong>" + (i+1) + ". file</strong><br>";
+            var file = x.files[i];
+            if ('name' in file) {
+              txt += "name: " + file.name + "<br>";
+            }
+            if ('size' in file) {
+              txt += "size: " + file.size + " bytes <br>";
+            }
+          }
+        }
+      } 
+      else {
+        if (x.value == "") {
+          txt += "Select one or more files.";
+        } else {
+          txt += "The files property is not supported by your browser!";
+          txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead. 
+        }
+      }
+      document.getElementById("ld_avatar").innerHTML = txt;
+    }
+    */
+</script>
+
+
+
+  <script>
+
+    $('#ld_updateButton_1').click(function(event){
+        event.preventDefault();
+
+        var DegreeType;
+
+        switch ($("#ld_degreetype").val()){
+            case "1": 
+                DegreeType = '1';
+                break;
+            case "2": 
+                DegreeType = '2';
+                break;
+            case "3": 
+                DegreeType = '3';
+                break;
+            case "4": 
+                DegreeType = '4';
+                break;
+            default:
+                DegreeType = '0';
+                break;
+        }
+        // Create Object with information from the form
+        const postData = {
+            Institution: $("#ld_institution").val(),
+            Major: $("#ld_major").val(),
+            DegreeType: $("#ld_degreetype").val(),
+            StartYear: $("#ld_startyear").val(),
+            EndYear: $("#ld_endyear").val(),
+        }
+
+        // Request to server to log-in passing the User information (userObj)
+
+        var formURL = '/lawyer/dashboard/formation?LawyerID=<%= lawyer.LawyerID %>&FormationID=<%= lawyer.formations[0].FormationID %>';
+
+        //var formURL = '/admin/lawyers/<%= lawyer.LawyerID %>';
+        console.log(postData);
+        console.log(formURL);
+
+        $.ajax(
+        {
+            url : formURL,
+            type: "PUT",
+            contentType: 'application/json',
+            crossDomain: true,
+            data : JSON.stringify(postData),
+            dataType: 'json',
+            success:function(response, textStatus, request) 
+            {
+                //data: return data from server
+                // alert("The server says: " + response.accessToken);
+                if (response.success === 1){
+                    ld_message_1.textContent = "Cập nhật thành công";
+                    ld_message_1.style.color = "green";
+                    ld_message_1.classList = "text-center mb-2";
+                    // console.log(request.getResponseHeader('Set-Cookie'));
+                    //alert(document.cookie);
+                    window.location.reload();
+                } else {
+                    ld_message_1.textContent = "Có lỗi xảy ra. Vui lòng thử lại.";
+                    ld_message_1.style.display = "block";
+                    ld_message_1.style.color = "red";
+                    ld_message_1.classList = "text-center mb-2";
+                }
+            },
+            error: function(response) 
+            {
+                console.log(response);
+                ld_message_1.textContent = "Có lỗi xảy ra. Vui lòng thử lại.";
+                ld_message_1.style.display = "block";
+                ld_message_1.style.color = "red";
+                ld_message_1.classList = "text-center mb-2";
+                //if fails   
+                //alert('it didnt work');   
+            }
+        });
+    });
+
+
+    $('#ld_updateButton_0').click(function(event){
+        event.preventDefault();
+
+        var DegreeType;
+
+        // Create Object with information from the form
+        const postData = {
+            Company: $("#ld_company").val(),
+            PostName: $("#ld_position").val(),
+            StartDate: $("#ld_year").val()
+        }
+
+        // Request to server to log-in passing the User information (userObj)
+
+        var formURL = '/lawyer/dashboard/experience?LawyerID=<%= lawyer.LawyerID %>&ExperienceID=<%= lawyer.experiences[0].ExperienceID %>';
+
+        //var formURL = '/admin/lawyers/<%= lawyer.LawyerID %>';
+        console.log(postData);
+        console.log(formURL);
+
+        var type = "PUT";
+
+        $.ajax(
+        {
+            url : formURL,
+            type: "PUT",
+            contentType: 'application/json',
+            crossDomain: true,
+            data : JSON.stringify(postData),
+            dataType: 'json',
+            success:function(response, textStatus, request) 
+            {
+                //data: return data from server
+                // alert("The server says: " + response.accessToken);
+                if (response.success === 1){
+                    ld_message_0.textContent = "Cập nhật thành công";
+                    ld_message_0.style.color = "green";
+                    ld_message_0.classList = "text-center mb-2";
+                    // console.log(request.getResponseHeader('Set-Cookie'));
+                    //alert(document.cookie);
+                    window.location.reload();
+                } else {
+                    ld_message_0.textContent = "Có lỗi xảy ra. Vui lòng thử lại.";
+                    ld_message_0.style.display = "block";
+                    ld_message_0.style.color = "red";
+                    ld_message_0.classList = "text-center mb-2";
+                }
+            },
+            error: function(response) 
+            {
+                console.log(response);
+                ld_message_0.textContent = "Có lỗi xảy ra. Vui lòng thử lại.";
+                ld_message_0.style.display = "block";
+                ld_message_0.style.color = "red";
+                ld_message_0.classList = "text-center mb-2";
+                //if fails   
+                //alert('it didnt work');   
+            }
+        });
+    });
+
+  </script>
+
+</body>
+
+</html>

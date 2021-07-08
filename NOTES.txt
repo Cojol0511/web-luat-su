@@ -1,0 +1,5 @@
+Thêm field cho table DOMAIN để hiển lên trang 'domain-info':
+ + domain_picture: hình đại biểu cho lĩnh vực: lưu đường dẫn file image của lĩnh vực.
+ 
+Lấy danh sách bài viết theo LĨNH VỰC:
+	trong table POST không có column như là lĩnh vực nên chưa thể lấy danh sách bài viết dựa theo mã lĩnh vực được

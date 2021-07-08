@@ -1,0 +1,67 @@
+<div class="modal" id="del-domain-<%= Domain.DomainID %>" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title panel-heading main-color-bg">Bạn có chắc chắn xóa danh mục bên dưới không? </h5>
+        </div>
+        <div class="modal-body">
+          <p><%= typeof Domain != 'undefined' || !Domain ? Domain.DomainID + ' ' + Domain.Name : '(UNDEFINED)'; %></p>
+        </div>
+        <div id="catd_delmessage"></div>
+        <div class="modal-footer">
+          <a id="catd_delButton_<%= Domain.DomainID %>" type="button" class="btn btn-danger">Có</a>
+          <a type="button" class="btn btn-primary" data-dismiss="modal">Không</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    $('#catd_delButton_<%= Domain.DomainID %>').click(function(){
+
+      alert("Click Del <%= Domain.DomainID %>");
+
+      const DomainID = {
+        'DomainID' : '<%= Domain.DomainID %>'
+      }
+
+      $.ajax(
+            {
+                url : "/admin/domains/<%- Domain.DomainID %>",
+                type: "DELETE",
+                contentType: 'application/json',
+                crossDomain: true,
+                //data : JSON.stringify(UserID),
+                //dataType: 'json',
+                xhrFields: {
+                    withCredentials: true
+                },
+                success:function(response, textStatus, request) 
+                {
+                    //data: return data from server
+                    // alert("The server says: " + response.accessToken);
+                    catd_delmessage.textContent = "Xóa thành công";
+                    catd_delmessage.style.color = "green";
+                    catd_delmessage.classList = "text-center mb-2";
+                    // console.log(request.getResponseHeader('Set-Cookie'));
+                    //alert(document.cookie);
+                    window.location.replace('/admin/domains');
+
+                },
+                error: function(response) 
+                {
+                    console.log(response);
+                    catd_delmessage.textContent = "Có lỗi xảy ra";
+                    catd_delmessage.style.display = "block";
+                    catd_delmessage.style.color = "red";
+                    catd_delmessage.classList = "text-center mb-2";
+                    //if fails   
+                    //alert('it didnt work');   
+                }
+            });
+
+
+    })
+
+  </script>

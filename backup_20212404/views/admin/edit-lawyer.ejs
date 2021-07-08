@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<title>Edit Lawyer| Dashboard</title>
+
+	<%- include('partials/head.ejs'); -%>
+
+  </head>
+
+  <body>
+
+	<!-- Navbar -->
+	<%- include('partials/nav.ejs'); -%>
+
+	<!-- Breadscrumb -->
+	<%- include('partials/breadcrumb.ejs', { site_name: 'Lawyers', edit_flag: true }); -%>
+
+    <section id="main">
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-2">
+
+				<!-- Dash Board -->
+				<%- include('partials/dash-board.ejs'); -%>
+				<!-- End of Dash Board  -->
+    		</div>
+    		<div class="col-md-6">
+    			<!-- Website Overview -->
+			    <div class="panel panel-default">
+			  		<div class="panel-heading main-color-bg">
+			    		<h3 class="panel-title">Edit Guest Profile</h3>
+			  		</div>
+			  		<div class="panel-body">
+			  			<form>
+							<div class="form-group">
+							  <label>Lawyer ID</label>
+							  <input readonly type="text" class="form-control" placeholder="Guest ID" value="<%= lawyer.id %>">
+						  	</div>
+
+							<div class="form-group">
+								<label>Fullname</label>
+								<input type="text" class="form-control" placeholder="Fullname" value="<%= lawyer.fullname %>">
+							</div>
+
+							<div class="form-group">
+								<label>Password</label>
+								<div class="input-group">
+									<input type="password" class="form-control" id="password-input" placeholder="Password" value="<%= lawyer.password %>">
+									<span class="input-group-btn">
+										<a onclick="show_password()" class="btn btn-primary" id="password-show-btn">Show Password</a>
+									</span>
+								</div>
+							</div>
+
+							<div class="form-group" id="email">
+								<label>Email</label>
+								<input type="text" class="form-control" placeholder="Email" value="<%= lawyer.email %>">
+							</div>
+
+							<div class="form-group" id="created_at">
+								<label>Created At</label>
+								<input readonly type="text" class="form-control" placeholder="Created At" value="<%= new Date(lawyer.created_at).toDateString() %>">
+							</div>
+
+							<div class="form-group" id="lawyer">
+								<label>Guests</label>
+								<!-- Print all regirsted guests -->
+								<table class="table table-striped table-hover">
+									<tr>
+										<th class="col-lg-4">Name</th>
+										<th class="col-lg-4">Email</th>
+										<th>Joined</th>
+									</tr>
+									<!-- Print all regirsted guests -->
+									<% for(guest of guests) { %>
+										<tr>
+											<td hidden id='lawyer-id'><%= guest.id %></td>
+											<td class="col-lg-4">
+												<a href="/admin/guests/edit-guest/<%= guest.id %>">
+													<%= guest.fullname; %>
+												</a>
+											</td>
+											<td class="col-lg-4"><%= guest.email; %></td>
+											<td><%= new Date(guest.created_at).toDateString(); %></td>
+									</tr>
+									<% }%>
+									</table>
+							</div>
+							
+							<div class="form-group">
+								<label hidden>Submit</label>
+							</div>
+								<input type="submit" class="btn btn-danger" value="Submit">
+								<input type="button" class="btn btn-default" onclick="window.history.back()" value="Back to List">
+							</div>
+						</form>
+			  		</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    </section>
+
+	<%- include('partials/footer.ejs'); -%>
+
+     <!-- Modals -->
+     <!-- Add Page -->
+	<div class="modal fade" id="addPage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		<form>
+		<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title" id="myModalLabel">Add Page</h4>
+		</div>
+		<div class="modal-body">
+		<div class="form-group">
+			<label>Page Title</label>
+			<input type="text" class="form-control" placeholder="Page Title">
+			<div class="form-group">
+			<label>Page Body</label>
+			<textarea name="editor1" class="form-control" placeholder="Page Body"></textarea>
+			</div>
+			<div class="checkbox">
+				<label><input type="checkbox">Published</label>
+			</div>
+			<div class="form-group">
+			<label>Meta Tags</label>
+			<input type="text" class="form-control" placeholder="Add some tags">
+			</div>
+			<div class="form-group">
+			<label>Meta Description</label>
+			<input type="text" class="form-control" placeholder="Add Meta description">
+			</div>
+		</div>
+		</div>
+		<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<button type="submit" class="btn btn-primary">Save changes</button>
+		</div>
+		</form>
+		</div>
+		</div>
+	</div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="http://cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'editor1' );
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="/admin/js/bootstrap.min.js"></script>
+	<script src="/admin/js/edit-guest.js"></script>
+</body>
+</html>
