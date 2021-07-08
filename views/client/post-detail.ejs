@@ -1,264 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Chi tiết bài viết | My Lawyer</title>
 
-<head>
+    <%- include('partials/head.ejs'); -%>
 
-  <title>Thông tin Luật Sư | My Lawyer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
 
-  <%- include('partials/head.ejs'); -%>
+    <link rel="stylesheet" href="/client/assets/css/profile.css" />
+    <link rel="stylesheet" href="/client/assets/css/post-detail.css" />
+  </head>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+  <body>
+    <!-- ======= Header ======= -->
+    <%- include('partials/header.ejs'); -%>
+    <!-- End Header -->
 
-  <link rel="stylesheet" href="/client/assets/css/profile.css">
-
-
-  
-</head>
-
-<body>
-
-  <!-- ======= Header ======= -->
-  <%- include('partials/header.ejs'); -%>
-  <!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-<!--
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="container text-center" data-aos="fade-up">
-      <h1><span>Trang cá nhân</span></h1>
-      <h2>We are team of talanted designers making websites with Bootstrap</h2>
-    </div>
-  </section>
--->
-  <!-- End Hero -->
-
-  <main id="main">
-
-    <!--Start code-->
-    <section id="lawyerDashboard">
-			<!-- Page Content -->
-			<div class="content">
-				<div class="container-fluid">
-				
-					<div class="row">
-						<div class="offset-md-2 col-md-8 ">
-							<div class="blog-view">
-								<div class="blog blog-single-post">
-									<div class="blog-image">
-										<a href="javascript:void(0);"><img alt="" src="<%= Post.ImageUrl%>" class="img-fluid"></a>
-									</div>
-									<h3 class="blog-title"><%= Post.Title %></h3>
-									<div class="blog-info clearfix">
-										<div class="post-left">
-											<ul>
-												<li>
-													<div class="post-author">
-														<!-- <a href="profile.html"><img src="assets/img/user/user.jpg" alt="Post Author"> --> <span>Admin</span></a>
-													</div>
-												</li>
-												<li><i class="far fa-calendar"></i>4 Dec 2019</li>
-												<li><i class="far fa-comments"></i>12 Comments</li>
-												<li><i class="fa fa-tags"></i>HTML</li>
-											</ul>
-										</div>
-									</div>
-									<div class="blog-content">
-										<%- Post.Content.toString() %>
-									</div>
-								</div>
-								
-								<div class="card blog-share clearfix">
-									<div class="card-header">
-										<h4 class="card-title">Share the post</h4>
-									</div>
-									<div class="card-body">
-										<ul class="social-share">
-											<li><a href="blog-details.html#" title="Facebook"><i class="fab fa-facebook"></i></a></li>
-											<li><a href="blog-details.html#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-											<li><a href="blog-details.html#" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
-											<li><a href="blog-details.html#" title="Google Plus"><i class="fab fa-google-plus"></i></a></li>
-											<li><a href="blog-details.html#" title="Youtube"><i class="fab fa-youtube"></i></a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="card author-widget clearfix">
-								<div class="card-header">
-									<h4 class="card-title">About Author</h4>
-									</div>
-								<div class="card-body">
-									<div class="about-author">
-										<div class="about-author-img">
-											<div class="author-img-wrap">
-												<a href="profile.html"><img class="img-fluid rounded-circle" alt="" src="assets/img/user/user1.jpg"></a>
-											</div>
-										</div>
-										<div class="author-details">
-											<a href="profile.html" class="blog-author-name">Admin</a>
-											<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-										</div>
-									</div>
-								</div>
-								</div>
-								<!--
-								<div class="card blog-comments clearfix">
-									<div class="card-header">
-										<h4 class="card-title">Comments (12)</h4>
-									</div>
-									<div class="card-body pb-0">
-									<ul class="comments-list">
-										<li>
-											<div class="comment">
-												<div class="comment-author">
-													<img class="avatar" alt="" src="assets/img/user/user4.jpg">
-												</div>
-												<div class="comment-block">
-													<span class="comment-by">
-														<span class="blog-author-name">Michelle Fairfax</span>
-													</span>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-													<p class="blog-date">Dec 6, 2017</p>
-													<a class="comment-btn" href="blog-details.html#">
-														<i class="fas fa-reply"></i> Reply
-													</a>
-												</div>
-											</div>
-											<ul class="comments-list reply">
-												<li>
-													<div class="comment">
-														<div class="comment-author">
-															<img class="avatar" alt="" src="assets/img/user/user5.jpg">
-														</div>
-														<div class="comment-block">
-															<span class="comment-by">
-																<span class="blog-author-name">Gina Moore</span>
-															</span>
-															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
-															<p class="blog-date">Dec 6, 2017</p>
-													<a class="comment-btn" href="blog-details.html#">
-														<i class="fas fa-reply"></i> Reply
-													</a>
-														</div>
-													</div>
-												</li>
-												<li>
-													<div class="comment">
-														<div class="comment-author">
-															<img class="avatar" alt="" src="assets/img/user/user3.jpg">
-														</div>
-														<div class="comment-block">
-															<span class="comment-by">
-																<span class="blog-author-name">Carl Kelly</span>
-															</span>
-															<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
-															<p class="blog-date">December 7, 2017</p>
-													<a class="comment-btn" href="blog-details.html#">
-														<i class="fas fa-reply"></i> Reply
-													</a>
-														</div>
-													</div>
-												</li>
-											</ul>
-										</li>
-										<li>
-											<div class="comment">
-												<div class="comment-author">
-													<img class="avatar" alt="" src="assets/img/user/user6.jpg">
-												</div>
-												<div class="comment-block">
-													<span class="comment-by">
-														<span class="blog-author-name">Elsie Gilley</span>
-													</span>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-													<p class="blog-date">December 11, 2017</p>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div class="comment">
-												<div class="comment-author">
-													<img class="avatar" alt="" src="assets/img/user/user7.jpg">
-												</div>
-												<div class="comment-block">
-													<span class="comment-by">
-														<span class="blog-author-name">Joan Gardner</span>
-													</span>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-													<p class="blog-date">December 13, 2017</p>
-													<a class="comment-btn" href="blog-details.html#">
-														<i class="fas fa-reply"></i> Reply
-													</a>
-												</div>
-											</div>
-										</li>
-									</ul>
-								</div>
-								</div>
-								
-								<div class="card new-comment clearfix">
-									<div class="card-header">
-										<h4 class="card-title">Leave Comment</h4>
-									</div>
-									<div class="card-body">
-										<form>
-											<div class="form-group">
-												<label>Name <span class="text-danger">*</span></label>
-												<input type="text" class="form-control">
-											</div>
-											<div class="form-group">
-												<label>Your Email Address <span class="text-danger">*</span></label>
-												<input type="email" class="form-control">
-											</div>
-											<div class="form-group">
-												<label>Comments</label>
-												<textarea rows="4" class="form-control"></textarea>
-											</div>
-											<div class="submit-section">
-												<button class="btn btn-primary submit-btn" type="submit">Submit</button>
-											</div>
-										</form>
-									</div>
-								</div>
-							-->
-								
-							</div>
-						</div>
-					
-                </div>
-				</div>
-
-			</div>		
-			<!-- /Page Content -->
+    <!-- ======= Hero Section ======= -->
+    <section
+      id="hero"
+      class="d-flex flex-column justify-content-center align-items-center"
+    >
+      <div class="container text-center" data-aos="fade-up">
+        <h1>
+          <span> Lĩnh vực </span>
+        </h1>
+        <h2>
+          We are team of talanted designers making websites with Bootstrap
+        </h2>
+      </div>
     </section>
-<!--end code-->
+    <!-- End Hero -->
 
-  </main><!-- End #main -->
+    <!-- ======= #main ======= -->
+    <main id="main-post-detail">
+      <section class="post-detail">
+        <div class="container">
+          <div class="row g-3">
+            <div class="col-4">
+              <div class="category-list w-100">
+                <select
+                  id="categorys"
+                  class="fw-bold w-100 border-0 categorys"
+                  onchange="location = this.value;"
+                >
+                  <option value="domain-info/6">Giao thông</option>
+                  <option value="domain-info/4">Đất đai</option>
+                  <option value="domain-info/1">Dân sự</option>
+                  <option value="domain-info/2">Hình sự</option>
+                  <option value="domain-info/5">Hôn nhân - Gia đình</option>
+                  <option value="domain-info/3">Kinh doanh thương mại</option>
+                  <option value="domain-info/7">Thừa kế</option>
+                  <option value="domain-info/10">Hành chính</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="h-100 hoi-dap">
+                <a
+                  href=""
+                  class="
+                    h-100
+                    fw-bold
+                    d-flex
+                    align-items-center
+                    justify-content-center
+                    text-dark text-uppercase
+                  "
+                >
+                  hỏi - đáp</a
+                >
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="find w-100">
+                <form action="">
+                  <input
+                    type="text"
+                    class="fw-bold w-100 border-0"
+                    placeholder="Tìm kiếm"
+                  />
+                </form>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="post p-3">
+                <div class="post-header">
+                  <p class="post-category text-uppercase m-0">Category</p>
+                  <h1 class="post-title"><%= Post.Title %></h1>
+                  <div class="post-infor my-4 d-flex">
+                    <div class="post-author me-3">
+                      <i class="fas fa-user-edit"></i>
+                      <span><%= Post.AdminID%></span>
+                    </div>
+                    <div class="post-day me-3">
+                      <i class="far fa-calendar-alt"></i>
+                      <span
+                        ><%=new Intl.DateTimeFormat('en-GB', { year: 'numeric',
+                        month: 'long', day: '2-digit'}).format(new
+                        Date(Post.UpdatedDateTime))%></span
+                      >
+                    </div>
+                    <div class="post-comment me-3">
+                      <i class="far fa-comment"></i>
+                      <span>12 Comment</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="post-content">
+                  <div class="post-img text-center">
+                    <img src="<%= Post.ImageUrl%>" alt="" />
+                  </div>
+                  <%- Post.Content.toString() %>
+                </div>
+                <div class="post-share">
+                  <h3 class="share-header my-4">SHARE THE POST</h3>
+                  <ul class="d-flex share-list">
+                    <li
+                      class="
+                        d-flex
+                        align-items-center
+                        justify-content-center
+                        facebook
+                      "
+                    >
+                      <a href=""><i class="fab fa-facebook-f"></i> </a>
+                    </li>
+                    <li
+                      class="
+                        d-flex
+                        align-items-center
+                        justify-content-center
+                        twitter
+                      "
+                    >
+                      <a href=""><i class="fab fa-twitter"></i> </a>
+                    </li>
+                    <li
+                      class="
+                        d-flex
+                        align-items-center
+                        justify-content-center
+                        google
+                      "
+                    >
+                      <a href=""> <i class="fab fa-google-plus-g"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="d-flex flex-column p-3 post-other">
+                <div
+                  class="text-center fw-bold text-uppercase post-other-header"
+                >
+                  TIN TỨC
+                </div>
+                <ul class="post-other-list">
+                  <% if(postList != null && typeof postList != 'undifined') {%>
+                  <% for(var post of postList) {%>
+                  <li>
+                    <a href="/post-detail/<%= post.PostID%>">
+                      &middot; <%= post.Title%>
+                    </a>
+                  </li>
+                  <% } %> <% } %>
+                </ul>
+              </div>
+            </div>
+            <!-- Bottom Left -->
+            <div class="col-md-8">
+              <div class="domain-content" style="height: 100%">
+                <h4 class="sub-title">LỰA CHỌN LUẬT SƯ</h4>
+                <div class="owl-carousel field-slider">
+                  <% for (var i=0; i < lawyer_list.length; i++) { other_lawyer =
+                  lawyer_list[i]; %>
+                  <div class="col-md-12 d-flex align-items-stretch">
+                    <div class="member">
+                      <img
+                        src='<%= other_lawyer.Avatar?other_lawyer.Avatar : "/client/uploads/avatar/default.png" %>'
+                        alt=""
+                      />
+                      <h6>
+                        <a
+                          href="/lawyerList?lawyerID=<%= other_lawyer.LawyerID %>"
+                        >
+                          LS. <%= other_lawyer.FirstName %> <%=
+                          other_lawyer.LastName %>
+                        </a>
+                      </h6>
+                    </div>
+                  </div>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+            <!-- Bottom Right -->
+            <div class="col-md-4">
+              <div
+                class="domain-content text-center justify-content-center"
+                style="height: 100%"
+              >
+                <h3 style="margin: 25% 0">
+                  Liên hệ đến tổng đài để được tư vấn (hotline)
+                  <br />0123456789
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <%- include('partials/footer.ejs'); -%>
-  <!-- End Footer -->
+    <!-- ======= Footer ======= -->
+    <%- include('partials/footer.ejs'); -%>
+    <!-- End Footer -->
 
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="/client/assets/vendor/jquery/jquery.min.js"></script>
-  <script src="/client/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/client/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="/client/assets/vendor/php-email-form/validate.js"></script>
-  <script src="/client/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-  <script src="/client/assets/vendor/counterup/counterup.min.js"></script>
-  <script src="/client/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="/client/assets/vendor/venobox/venobox.min.js"></script>
-  <script src="/client/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="/client/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/client/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/client/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="/client/assets/vendor/php-email-form/validate.js"></script>
+    <script src="/client/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="/client/assets/vendor/counterup/counterup.min.js"></script>
+    <script src="/client/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/client/assets/vendor/venobox/venobox.min.js"></script>
+    <script src="/client/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <!-- Template Main JS File -->
 
-  <!-- Template Main JS File -->
-  
-  <script src="/client/assets/js/main.js"></script>
-  <script src="/client/assets/js/lawyer.js"></script>
-
-</body>
-
+    <script src="/client/assets/js/main.js"></script>
+    <script src="/client/assets/js/lawyer.js"></script>
+    <script src="/client/assets/js/post-detail.js"></script>
+  </body>
 </html>
