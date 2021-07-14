@@ -1,0 +1,36 @@
+#listLawyer #team #search-bar form {
+  border: 1px solid #f7a818;
+  padding: 5px;
+  border-radius: 0.25rem;
+}
+#listLawyer #team #search-bar form input {
+  border: none;
+  color: #f7a818;
+  padding: 5px;
+}
+#listLawyer #team #search-bar form input:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#listLawyer #team #search-bar form button {
+  border: none;
+  color: white;
+  background-color: #f7a818;
+}
+#listLawyer #team #search-bar #modeSwitch i {
+  font-size: 32px;
+}
+#listLawyer #team .member .card-img-top {
+  -o-object-fit: contain;
+  object-fit: contain;
+  height: 150px;
+  width: 100%;
+}
+#listLawyer #team .member .card-body .card-title {
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 19px;
+}

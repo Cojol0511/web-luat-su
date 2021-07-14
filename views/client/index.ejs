@@ -1,462 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Trang chủ | My Lawyer</title>
 
-<head>
+    <%- include('partials/head.ejs'); -%>
+    <link rel="stylesheet" href="/client/assets/css/home.css" />
+  </head>
 
-  <title>Trang chủ | My Lawyer</title>
+  <body>
+    <!-- ======= Header ======= -->
+    <%- include('partials/header.ejs'); -%>
+    <!-- End Header -->
 
-  <%- include('partials/head.ejs'); -%>
+    <main id="home">
+      <section id="home-banner" class="home-banner">
+        <div class="container">
+          <div class="banner">
+            <img class="" src="/client/assets/img/bg.png" />
+            <div class="section-title banner-content">
+              <h5>Chúng tôi là ai?</h5>
+              <h2>Dẫn đầu trong việc cung cấp dịch vụ luật sư</h2>
+              <h4>
+                My Lawyer đã tư vấn và giải đáp cho hàng triệu khách hàng có nhu
+                cầu tư vấn pháp luật trực tuyến trên phạm vi cả nước.
+              </h4>
+              <button><a href="/about">Tìm hiểu</a></button>
+            </div>
+          </div>
+        </div>
+      </section>
 
-</head>
+      <section id="what-we-do" class="what-we-do">
+        <div class="container d-flex flex-column align-items-center">
+          <div class="section-title">
+            <h2>Giới thiệu My Lawyer</h2>
+            <h4>
+              My Lawyer với đội ngũ nhân viên dày dặn kinh nghiệm, chuyên môn
+              cao, cung cấp dịch vụ luật sư giải quyết mọi vấn đề cho thân chủ,
+              đảm bảo đạt được sự hài lòng tuyệt đối cho khách hàng
+            </h4>
+          </div>
 
-<body>
+          <div class="row gx-2">
+            <div class="col-12 col-md-4">
+              <div class="icon-box">
+                <div class="icon">
+                  <img class="" src="/client/assets/img/about/1.png" />
+                </div>
+                <h4><a href="">Về Luật sư</a></h4>
+                <p>
+                  Với đội ngũ luật sư uy tín, giàu kinh nghiệm, am hiểu kiến
+                  thức xã hội, My Lawyer cung cấp dịch vụ tư vấn pháp luật trực
+                  tuyến trên phạm vi toàn quốc.
+                </p>
+                <a href="" class="btn btn-small btn-warning mt-2 mt-lg-3"
+                  >Xem thêm</a
+                >
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="icon-box">
+                <div class="icon">
+                  <img class="" src="/client/assets/img/about/2.png" />
+                </div>
+                <h4><a href="">Về chúng tôi</a></h4>
+                <p>
+                  Công ty luật My Lawyer được thành lập vào năm 2009, chúng tôi
+                  đã từng bước làm thay đổi quan điểm của người dân về việc sử
+                  dụng dịch vụ tư vấn pháp luật trực tuyến.
+                </p>
+                <a href="/about" class="btn btn-small btn-warning mt-2 mt-lg-3"
+                  >Xem thêm</a
+                >
+              </div>
+            </div>
 
-  <!-- ======= Header ======= -->
-  <%- include('partials/header.ejs'); -%>
-  <!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-
-  <section id="banner-wrap">
-    <canvas id="banner-canvas"></canvas>
-      <div id="banner-carousel" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#banner-carousel" data-slide-to="0" class="active"></li>
-          <li data-target="#banner-carousel" data-slide-to="1"></li>
-          <li data-target="#banner-carousel" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="container">
-              <div class="col-md-12 text-center">
-                <h1>Tìm kiếm Luật sư uy tín</h1>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                <a href="/about" class="btn btn-warning btn-lg">Xem thêm</a>
+            <div class="col-12 col-md-4">
+              <div class="icon-box">
+                <div class="icon">
+                  <img class="" src="/client/assets/img/about/3.png" />
+                </div>
+                <h4><a href="">Ý kiến khách hàng</a></h4>
+                <p>
+                  My Lawyer luôn ghi nhận ý kiến đóng góp của quý khách hàng.
+                  Chúng tôi luôn chú trọng tới việc mang lại chất lượng dịch vụ
+                  hàng đầu dành cho quý khách, thể hiện vai trò đơn vị đồng hành
+                  uy tín, tin cậy.
+                </p>
+                <a href="" class="btn btn-small btn-warning mt-2 mt-lg-3"
+                  >Xem thêm</a
+                >
               </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="container">
-              <div class="col-md-12 text-center">
-                <h1>Khám phá dịch vụ My Lawyer</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <a href="/about" class="btn btn-warning btn-lg">Khám phá</a>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container">
-              <div class="col-md-12 text-center">
-                <h1>Chuyên nghiệp - hiệu quả</h1>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                <a href="/about" class="btn btn-warning btn-lg">Get Started</a>
-              </div>
-            </div>
-          </div>
         </div>
-        <a class="carousel-control-prev" href="#banner-carousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#banner-carousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-  </section>
+      </section>
 
-  <main id="main">
-
-    <!-- ======= What We Do Section ======= -->
-    <section id="what-we-do" class="what-we-do">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Giới thiệu Luật sư của tôi</h2>
-          <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore</h4>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="icon-box">
-              <div class="icon"> <img class="" src="/client/assets/img/about/1.png"></div>
-              <h4><a href="">Về Luật sư</a></h4>
-              <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-                sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
-              <a href="" class="btn btn-small btn-warning mt-2 mt-lg-3">Xem thêm</a>
-            </div>
+      <section id="services" class="services section-bg-2">
+        <div class="container d-flex flex-column align-items-center">
+          <div class="section-title">
+            <h2>Sản phẩm dịch vụ</h2>
+            <h4>
+              My Lawyer cung cấp dịch vụ tư vấn pháp luật cho quý khách hàng
+              toàn quốc trên mọi lĩnh vực.
+            </h4>
           </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-            <div class="icon-box">
-              <div class="icon"><img class="" src="/client/assets/img/about/2.png"></div>
-              <h4><a href="">Về chúng tôi</a></h4>
-              <p>Amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis. Ut enim ad minim veniam, quis</p>
-              <a href="/about" class="btn btn-small btn-warning mt-2 mt-lg-3">Xem thêm</a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-            <div class="icon-box">
-              <div class="icon"><img class="" src="/client/assets/img/about/3.png"></div>
-              <h4><a href="">Ý kiến khách hàng</a></h4>
-              <p>Consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. 
-                Neque porro quisquam est, qui dolorem ipsum quia dolor. Ut enim ad minim veniam, quis</p>
-              <a href="" class="btn btn-small btn-warning  mt-2 mt-lg-3">Xem thêm</a>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End What We Do Section -->
-
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services section-bg-2">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Sản phẩm dịch vụ</h2>
-          <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br>
-            sed do eiusmod tempor incididunt ut labore</h4>
-        </div>
 
           <div class="owl-carousel gallery-carousel">
-            <!--
-            <div>
-              <img src="https://placehold.it/400x300/f06/fff/?text=1" alt="">
-            </div>
-            <div>
-              <img src="https://placehold.it/400x300/f63/fff/?text=2" alt="">
-            </div>
-            <div>
-              <img src="https://placehold.it/400x300/fc3/fff/?text=3" alt="">
-            </div>
-            <div>
-              <img src="https://placehold.it/400x300/693/fff/?text=4" alt="">
-            </div>
-            <div>
-              <img src="https://placehold.it/400x300/3cc/fff/?text=5" alt="">
-            </div>
-            
-            <div><img src="/client/assets/img/gallery/_1.jpg" alt=""></div>
-            <div><img src="/client/assets/img/gallery/_2.png" alt=""></div>
-            <div><img src="/client/assets/img/gallery/3.jpg" alt=""></div>
-            <div><img src="/client/assets/img/gallery/4.jpg" alt=""></div>
-            <div><img src="/client/assets/img/gallery/_5.png" alt=""></div>
-          -->
             <div class="service-item">
               <div class="post-img">
-                  <img src="/client/assets/img/index/1.png" alt="">
-                  <span class="title">
-                    <a href="/domain-info/6"> <i class='fa fa-angle-right'></i> Giao thông </a>
-                  </span>
-              </div>
-            </div>    
-
-            <div class="service-item">
-              <div class="post-img">
-                  <img src="/client/assets/img/index/2.png" alt="">
-                  <span class="title">
-                      <a href="/domain-info/4"> <i class='fa fa-angle-right'></i> Đất đai </a>
-                  </span>
-              </div>
-            </div>   
-
-            <div class="service-item">
-              <div class="post-img">
-                  <img src="/client/assets/img/index/3.png" alt="">
-                  <span class="title">
-                    <a href="/domain-info/1"> <i class='fa fa-angle-right'></i> Dân sự </a>
-                  </span>
-              </div>
-            </div>   
-
-            <div class="service-item">
-              <div class="post-img">
-                  <img src="/client/assets/img/index/4.png" alt="">
-                  <span class="title">
-                    <a href="/domain-info/2"> <i class='fa fa-angle-right'></i> Hình sự </a>
+                <img src="/client/assets/img/index/1.png" alt="" />
+                <span class="title justify-content-center">
+                  <a href="/domain-info/6"> Giao thông </a>
                 </span>
               </div>
-            </div>   
+            </div>
 
             <div class="service-item">
               <div class="post-img">
-                  <img src="/client/assets/img/index/5.png" alt="">
-                  <span class="title">
-                    <a href="/domain-info/5"> <i class='fa fa-angle-right'></i> Hôn nhân - Gia đình </a>
+                <img src="/client/assets/img/index/2.png" alt="" />
+                <span class="title justify-content-center">
+                  <a href="/domain-info/4"> Đất đai </a>
                 </span>
               </div>
-            </div>   
+            </div>
 
             <div class="service-item">
               <div class="post-img">
-                  <img src="/client/assets/img/index/6.png" alt="">
-                  <span class="title">
-                    <a href="/domain-info/3"> <i class='fa fa-angle-right'></i> Kinh doanh thương mại </a>
+                <img src="/client/assets/img/index/3.png" alt="" />
+                <span class="title justify-content-center">
+                  <a href="/domain-info/1"> Dân sự </a>
                 </span>
               </div>
-            </div> 
+            </div>
 
             <div class="service-item">
               <div class="post-img">
-                  <img src="/client/assets/img/index/7.png" alt="">
-                  <span class="title">
-                    <a href="/domain-info/7"> <i class='fa fa-angle-right'></i> Thừa kế </a>
+                <img src="/client/assets/img/index/4.png" alt="" />
+                <span class="title justify-content-center">
+                  <a href="/domain-info/2"> Hình sự </a>
                 </span>
               </div>
-            </div> 
+            </div>
 
             <div class="service-item">
               <div class="post-img">
-                  <img src="/client/assets/img/index/8.png" alt="">
-                  <span class="title">
-                    <a href="/domain-info/10"> <i class='fa fa-angle-right'></i> Hành chính </a>
+                <img src="/client/assets/img/index/5.png" alt="" />
+                <span class="title justify-content-center">
+                  <a href="/domain-info/5"> Hôn nhân - Gia đình </a>
                 </span>
               </div>
-            </div> 
+            </div>
 
+            <div class="service-item">
+              <div class="post-img">
+                <img src="/client/assets/img/index/6.png" alt="" />
+                <span class="title justify-content-center">
+                  <a href="/domain-info/3"> Kinh doanh thương mại </a>
+                </span>
+              </div>
+            </div>
+
+            <div class="service-item">
+              <div class="post-img">
+                <img src="/client/assets/img/index/7.png" alt="" />
+                <span class="title justify-content-center">
+                  <a href="/domain-info/7"> Thừa kế </a>
+                </span>
+              </div>
+            </div>
+
+            <div class="service-item">
+              <div class="post-img">
+                <img src="/client/assets/img/index/8.png" alt="" />
+                <span class="title justify-content-center">
+                  <a h ref="/domain-info/10"> Hành chính </a>
+                </span>
+              </div>
+            </div>
           </div>
-
-
-      </div>
-    </section><!-- End Services Section -->
-
-    <!-- ======= News Section ======= -->
-    <section id="testimonials" class="testimonials">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Tin tức</h2>
-          <h4>Sit sint consectetur velit quisquam cupiditate impedit suscipit</h4>
         </div>
+      </section>
 
-        <div class="row">
-          <div class="col-md-12">
-            <div class="owl-carousel news-slider">
-              <!-- Post-->
-                <% if(typeof postList == 'undefined' || postList.length == 0) {%>
-                    <div>Have No Post to Show</div>
-                <% } else {%>
-                    <% for(post of postList) {%>
-                    <!-- Show post's content -->
-              <div class="post-slide7">
-                        <!-- Image -->
-                <div class="post-img">
-                  <a href="/post-detail/<%= post.PostID %>">
-                    <img src="<%= post.ImageUrl %>" alt="Blog Image">
+      <section id="news" class="news">
+        <div class="container d-flex flex-column align-items-center">
+          <div class="section-title">
+            <h2>Tin tức</h2>
+            <h4>
+              My Lawyer hỗ trợ thực hiện toàn bộ quy trình trong thủ tục tố tụng
+              cho đến khi đạt được kết quả tối ưu nhất cho khách hàng.
+            </h4>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-4 my-3 my-md-0">
+              <div class="post lawyer">
+                <img
+                  class="post-image"
+                  src="/client/assets/img/home-news/home-news-1.png"
+                />
+
+                <div class="post-category">Tin tức Luật sư</div>
+                <div class="post-content">
+                  <h4 class="post-content-title">
+                    Nemo enim ipsam voluptatem quia voluptas
+                  </h4>
+                  <p class="post-content-description">
+                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+                    odit aut fugit, sed quia consequuntur magni dolores eos qui
+                    ratione voluptatem.
+                  </p>
+                  <a class="post-content-link"
+                    ><div class="line"></div>
+                    <div class="more">Xem thêm</div>
                   </a>
-                    <!--
-                    <span class="icons">
-                        <img src="<%= post.ImageUrl %>" alt="">
-                    </span>
-                  -->
                 </div>
-                <div class="post-review">
-                    <ul class="post-bar">
-                        <!-- Pulished Date-->
-                        <li><i class="fa fa-calendar"></i><%= new Date(post.PublishedDateTime).toLocaleString() %></li>
-                        <li><i class="fa fa-user"></i>Tin tức Luật Sư</li>
-                    </ul>
-                            <h3 class="post-title">
-                              <a href="/post-detail/<%= post.PostID %>">
-                                <%= post.Title %>
-                              </a>
-                            </h3>
-                            <p class="post-description">
-                              
-                                <% 
-                                  var post_content = post.Content.toString();
-                                %>
-                              
-                                <%- 
-                                    post_content.substring(0,150) + "..."
-                                %>
-                              
-                              <!--
-                              <% 
-                                var post_content = post.Content.toString().replace(/^(.{150}[^\s]*).*/, "$1");
-                                var description = '';
-                                if (post_content.length > 150){
-                                    description = post_content.substring(0,150);
-                                    description = description + "...";
-                                } else {
-                                    description = post_content;
-                                }
-                                %>
-                                <%= description %>
-                            -->
-                            </p>
-                            <a href="/post-detail/<%= post.PostID %>" class="read">Xem thêm<i class="fa fa-angle-right"></i></a>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 my-3 my-md-0">
+              <div class="post company">
+                <img
+                  class="post-image"
+                  src="/client/assets/img/home-news/home-news-2.png"
+                />
+
+                <div class="post-category">Công ty My Lawyer</div>
+                <div class="post-content">
+                  <h4 class="post-content-title">
+                    Nemo enim ipsam voluptatem quia voluptas
+                  </h4>
+                  <p class="post-content-description">
+                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+                    odit aut fugit, sed quia consequuntur magni dolores eos qui
+                    ratione voluptatem.
+                  </p>
+                  <a class="post-content-link"
+                    ><div class="line"></div>
+                    <div class="more">Xem thêm</div>
+                  </a>
                 </div>
-              </div>    
-                    <% } %>
-                <% } %>
+              </div>
             </div>
-          </div> 
-        </div>
+            <div class="col-12 col-md-4 my-3 my-md-0">
+              <div class="post doc">
+                <img
+                  class="post-image"
+                  src="/client/assets/img/home-news/home-news-3.png"
+                />
 
-
-      </div> 
-    </section><!-- End News Section -->
-
-    <section id="" class="services section-bg">
-      <div class="container">
-        <div class="section-title">
-          <h2>Dịch vụ trung gian thanh toán </h2>
-          <h4> Do công ty Cổ Phần  Di Động Trực Tuyến ( Ví MoMo). MSDN</h4>
-        </div>
-    </section>
-    <!-- ======= Testimonials Section ======= -->
-    <!--
-    <section id="testimonials" class="testimonials">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Cảm nhận của khách hàng</h2>
-          <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br>
-             sed do eiusmod tempor incididunt ut labore</h4>
-        </div>
-
-        <div class="owl-carousel testimonials-carousel">
-
-          <div class="testimonial">
-            <div class="pic">
-                <img src="https://images.pexels.com/photos/704955/pexels-photo-704955.jpeg?w=940&h=650&auto=compress&cs=tinysrgb">
+                <div class="post-category">Biểu mẫu</div>
+                <div class="post-content">
+                  <h4 class="post-content-title">
+                    Nemo enim ipsam voluptatem quia voluptas
+                  </h4>
+                  <p class="post-content-description">
+                    Tổng hợp tài liệu biểu mẫu
+                  </p>
+                  <a class="post-content-link"
+                    ><div class="line"></div>
+                    <div class="more">Xem thêm</div>
+                  </a>
+                </div>
+              </div>
             </div>
-            <p class="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada vulputate nisi in fermentum. Vivamus ac libero quis nisi auctor pulvinar. Aenean sit amet lectus posuere, mattis massa eget, ullamcorper diam. Nunc sit amet felis eget arcu congue dictum.
-            </p>
-            <h3 class="title">Jessica</h3>
-            <small class="post">- Archietect</small>
+          </div>
         </div>
-        
-        <div class="testimonial">
-          <div class="pic">
-              <img src="https://images.pexels.com/photos/704955/pexels-photo-704955.jpeg?w=940&h=650&auto=compress&cs=tinysrgb">
+      </section>
+
+      <section id="" class="services section-bg">
+        <div class="container d-flex flex-column align-items-center">
+          <div class="section-title">
+            <h2>Dịch vụ trung gian thanh toán</h2>
+            <h4>Do công ty Cổ Phần Di Động Trực Tuyến ( Ví MoMo). MSDN</h4>
           </div>
-          <p class="description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada vulputate nisi in fermentum. Vivamus ac libero quis nisi auctor pulvinar. Aenean sit amet lectus posuere, mattis massa eget, ullamcorper diam. Nunc sit amet felis eget arcu congue dictum.
-          </p>
-          <h3 class="title">Jessica</h3>
-          <small class="post">- Archietect</small>
-      </div>
-      
-      <div class="testimonial">
-        <div class="pic">
-            <img src="https://images.pexels.com/photos/704955/pexels-photo-704955.jpeg?w=940&h=650&auto=compress&cs=tinysrgb">
         </div>
-        <p class="description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada vulputate nisi in fermentum. Vivamus ac libero quis nisi auctor pulvinar. Aenean sit amet lectus posuere, mattis massa eget, ullamcorper diam. Nunc sit amet felis eget arcu congue dictum.
-        </p>
-        <h3 class="title">Jessica</h3>
-        <small class="post">- Archietect</small>
-    </div>      
-  -->
-<!--
-          <div class="testimonial-item">
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-            <img src="/client/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-            <h3>Saul Goodman</h3>
-            <h4>Ceo &amp; Founder</h4>
-          </div>
+      </section>
+    </main>
 
-          <div class="testimonial-item">
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-            <img src="/client/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-            <h3>Sara Wilsson</h3>
-            <h4>Designer</h4>
-          </div>
-          
-          <div class="testimonial-item">
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-            <img src="/client/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-            <h3>Jena Karlis</h3>
-            <h4>Store Owner</h4>
-          </div>
-      
-          
-          <div class="testimonial-item">
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-            <img src="/client/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-            <h3>Matt Brandon</h3>
-            <h4>Freelancer</h4>
-          </div>
+    <!-- ======= Footer ======= -->
+    <%- include('partials/footer.ejs'); -%>
+    <!-- End Footer -->
 
-          <div class="testimonial-item">
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-            <img src="/client/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-            <h3>John Larson</h3>
-            <h4>Entrepreneur</h4>
-          </div>
-       
-        </div>
+    <!-- Vendor JS Files -->
 
-      </div>
-    </section>
-  -->
-    <!-- End Testimonials Section -->
+    <script
+      type="text/javascript"
+      src="/client/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/client/assets/vendor/jquery.easing/jquery.easing.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/client/assets/vendor/php-email-form/validate.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/client/assets/vendor/waypoints/jquery.waypoints.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/client/assets/vendor/counterup/counterup.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/client/assets/vendor/isotope-layout/isotope.pkgd.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/client/assets/vendor/venobox/venobox.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/client/assets/vendor/owl.carousel/owl.carousel.min.js"
+    ></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
 
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <%- include('partials/footer.ejs'); -%>
-  <!-- End Footer -->
-  <!--
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
-  -->
-  <!-- Vendor JS Files -->
-
-  <script type="text/javascript" src="/client/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script type="text/javascript" src="/client/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script type="text/javascript" src="/client/assets/vendor/php-email-form/validate.js"></script>
-  <script type="text/javascript" src="/client/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-  <script type="text/javascript" src="/client/assets/vendor/counterup/counterup.min.js"></script>
-  <script type="text/javascript" src="/client/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script type="text/javascript" src="/client/assets/vendor/venobox/venobox.min.js"></script>
-  <script type="text/javascript" src="/client/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-
-  <!-- Template Main JS File -->
-  <script type="text/javascript" src="/client/assets/js/main.js"></script>
-  <script type="text/javascript" src="/client/assets/js/header.js"></script>
-  <script type="text/javascript" src="/client/assets/js/banner.js"></script>
-  <script type="text/javascript" src="/client/assets/js/carousel.js"></script>
-
-  <!--
-  <script>
-    $("#langButton a").click(function(){
-      $(this).parents(".drop-down").find('a').first().html($(this).html());
-      $(this).parents(".drop-down").find('a').val($(this).data('value'));
-    });
-  </script>
-  -->
-
-</body>
-
+    <!-- Template Main JS File -->
+    <script type="text/javascript" src="/client/assets/js/main.js"></script>
+    <script type="text/javascript" src="/client/assets/js/header.js"></script>
+    <script type="text/javascript" src="/client/assets/js/banner.js"></script>
+    <script type="text/javascript" src="/client/assets/js/carousel.js"></script>
+  </body>
 </html>

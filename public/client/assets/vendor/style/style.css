@@ -2501,26 +2501,26 @@ fieldset:disabled a.btn {
 }
 
 .btn-warning {
-  color: #212529;
+  color: #fff;
   background-color: #f5a623;
   border-color: #f5a623;
 }
 
 .btn-warning:hover {
-  color: #212529;
+  color: #fff;
   background-color: #e7940b;
   border-color: #db8c0a;
 }
 
 .btn-warning:focus, .btn-warning.focus {
-  color: #212529;
+  color: #fff;
   background-color: #e7940b;
   border-color: #db8c0a;
   box-shadow: 0 0 0 0.2rem rgba(213, 147, 36, 0.5);
 }
 
 .btn-warning.disabled, .btn-warning:disabled {
-  color: #212529;
+  color: #fff;
   background-color: #f5a623;
   border-color: #f5a623;
 }
@@ -10103,13 +10103,13 @@ textarea.form-control {
 }
 
 .btn-warning {
-  color: #212529;
+  color: #fff;
   background-color: #f5a623;
   border-color: #f5a623;
 }
 
 .btn-warning:hover {
-  color: #212529;
+  color: #fff;
   background-color: #e7940b;
   border-color: #db8c0a;
 }
