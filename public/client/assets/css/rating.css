@@ -5,9 +5,7 @@ label {
   margin: 0;
   padding: 0;
 }
-body {
-  margin: 20px;
-}
+
 h1 {
   font-size: 1.5em;
   margin: 10px;
@@ -52,7 +50,7 @@ h1 {
 .rating_class {
   border: none;
   float: left;
-  margin: 0 15%;
+  margin: 0 auto;
 }
 .rating_class > input {
   display: none;

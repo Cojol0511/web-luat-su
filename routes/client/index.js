@@ -414,6 +414,19 @@ router.get("/news", async function (req, res) {
   });
 });
 
+router.get("/news-detail", async function (req, res) {
+  var postPro = await axios.get(api_url + "post", {
+    headers: {
+      "content-type": "application/json",
+    },
+  });
+
+  res.render("client/news-detail", {
+    CategoryMapper: Constant.CATEGORY_MAPPER,
+    FlashNewsList: postPro.data.slice(0, 4),
+  });
+});
+
 router.get("/category-posts/:CategoryId", async function (req, res) {
   var postPro = await axios.get(api_url + "post", {
     headers: {

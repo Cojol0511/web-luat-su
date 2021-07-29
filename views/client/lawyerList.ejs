@@ -31,7 +31,7 @@
       <section id="team" class="team">
         <div class="container">
           <div class="row justify-content-between" id="search-bar">
-            <div class="col-3">
+            <div class="col-8 col-lg-3">
               <form class="row g-0">
                 <div class="col-10">
                   <input
@@ -53,7 +53,12 @@
               </form>
             </div>
             <div
-              class="col-3 d-flex justify-content-end align-items-center"
+              class="
+                col-4 col-lg-3
+                d-flex
+                justify-content-end
+                align-items-center
+              "
               id="modeSwitch"
             >
               <i class="listItem mx-1 fa fa-bars" aria-hidden="true"></i>
@@ -63,14 +68,14 @@
         </div>
 
         <!-- data-panel -->
-        <div class="container my-5">
+        <div class="container my-3 my-lg-5">
           <div class="row g-3" id="data-panel">
             <!-- print movie list here -->
           </div>
         </div>
 
         <!-- Modal -->
-        <div
+        <!-- <div
           class="modal fade"
           id="show-movie-modal"
           tabindex="-1"
@@ -111,7 +116,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Pagination -->
         <nav aria-label="Page navigation">
@@ -190,10 +195,8 @@
         })
         // Transfer the data from API to variable data
 
-        console.log(data);
         getTotalPages(data);
         getPageData(1, data);
-        currentData = data;
 
         modeSwitch.addEventListener('click', event => {
         if (event.target.matches('.listItem')) {
@@ -211,16 +214,15 @@
         data.forEach(function (item, index) {
 
             const id = ratingValue(String(index), item.Rating);
-            console.log(id);
             specialize = getSpecialize(item.Specialize)
             if (!item.Avatar) item.Avatar = "/client/assets/img/team/null.png";
             htmlContent += `
-          <div class="col-6 col-md-3">
+          <div class="col-6 col-lg-3">
               <div class="member card text-center">
                   <img class="card-img-top " src="${item.Avatar}" alt="Hình đại diện">
                   <div class="card-body">
                   <h5 class="card-title">  ${item.FirstName} ${item.LastName} </h4>
-                  <p class="card-text">Luật sư cao cấp</p>
+                  <span class="card-text">Luật sư cao cấp</span>
                   <div class="rating_class">
                       <input disabled type="radio" id="star5_${index}" name="rating__${index}" value="5"`+ (id === ("star5_" + index) ? "checked" : "") + `/>
                       <label class = "full" for="star5_${index}" title="Awesome - 5 stars"></label>
@@ -280,27 +282,27 @@
         dataPanel.innerHTML = htmlContent
         }
 
-        //   Detail information for items
-        function showMovie(id) {
-        // get elements
-        const modalTitle = document.getElementById('show-movie-title')
-        const modalImage = document.getElementById('show-movie-image')
-        const modalDate = document.getElementById('show-movie-date')
-        const modalDescription = document.getElementById('show-movie-description')
-        // set request url
-        const url = INDEX_URL + id
-        console.log(url)
-        // send request to show api
-        axios.get(url).then(response => {
-            const data = response.data.results
-            console.log(data)
-            // insert data into modal ui
-            modalTitle.textContent = data.title
-            modalImage.innerHTML = `<img src="${POSTER_URL}${data.image}" class="img-fluid" alt="Responsive image">`
-            modalDate.textContent = `release at : ${data.release_date}`
-            modalDescription.textContent = `${data.description}`
-        })
-        }
+        // //   Detail information for items
+        // function showMovie(id) {
+        // // get elements
+        // const modalTitle = document.getElementById('show-movie-title')
+        // const modalImage = document.getElementById('show-movie-image')
+        // const modalDate = document.getElementById('show-movie-date')
+        // const modalDescription = document.getElementById('show-movie-description')
+        // // set request url
+        // const url = INDEX_URL + id
+        // console.log(url)
+        // // send request to show api
+        // axios.get(url).then(response => {
+        //     const data = response.data.results
+        //     console.log(data)
+        //     // insert data into modal ui
+        //     modalTitle.textContent = data.title
+        //     modalImage.innerHTML = `<img src="${POSTER_URL}${data.image}" class="img-fluid" alt="Responsive image">`
+        //     modalDate.textContent = `release at : ${data.release_date}`
+        //     modalDescription.textContent = `${data.description}`
+        // })
+        // }
         function nonAccentVietnamese(str) {
           str = str.toLowerCase();
           str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
@@ -328,11 +330,7 @@
             let fullname = nonAccentVietnamese(String(lawyer.FirstName + lawyer.LastName));
             let findName = nonAccentVietnamese(searchInput.value.toString());
             (fullname.includes(findName))? results.push(lawyer): results.push();
-            console.log(fullname + findName);
-            // return String(lawyer.FirstName + lawyer.LastName).match(regex);
         });
-        console.log(results);
-        // console.log(results.length);
 
         if (results.length == 0) {
             searchInput.value = "";
@@ -342,14 +340,10 @@
             getPageData(targetPage, data);
         } else {
             searchData = results;
-            console.log(searchData);
-
             if (targetPage != 1) {
-            targetPage = 1;
+              targetPage = 1;
             }
-
             getTotalPages(searchData);
-
             getPageData(targetPage, searchData);
         }
         });
