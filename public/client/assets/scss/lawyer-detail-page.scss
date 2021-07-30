@@ -1,0 +1,65 @@
+$main-color: #ffc107;
+$text-color: #454545;
+#lawyer-detail-page {
+  margin: 30px auto;
+  #about {
+    .number-rating {
+      font-size: 20px;
+      margin-left: 20px;
+      font-weight: bold;
+      color: $main-color;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    .specialize-list {
+      li {
+        font-size: 20px;
+        text-transform: capitalize;
+        i {
+          margin-right: 15px;
+          color: $main-color;
+        }
+      }
+    }
+    .favorite-sentence-list {
+      li {
+        font-size: 14px;
+        display: flex;
+        font-style: italic;
+        i {
+          color: $main-color;
+          font-size: 8px;
+        }
+      }
+    }
+  }
+  #tab {
+    nav {
+      background-color: #eaeaea;
+      .nav-tabs {
+        border: none;
+        button {
+          width: 25%;
+          font-weight: bold;
+          &.active {
+            border-top: 3px solid $main-color;
+            border-right: 1px solid $main-color;
+            border-left: 1px solid $main-color;
+            i,
+            span {
+              color: $main-color;
+            }
+          }
+        }
+      }
+    }
+    .tab-content {
+      padding: 15px 10px;
+      border: 1px solid #eaeaea;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+  }
+}

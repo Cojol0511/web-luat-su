@@ -6,6 +6,7 @@
     <%- include('partials/head.ejs'); -%>
     <link href="/client/assets/css/rating.css" rel="stylesheet" />
     <link href="/client/assets/css/lawyer.css" rel="stylesheet" />
+    <link href="/client/assets/css/lawyer-detail-page.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -27,7 +28,7 @@
     </section>
     <!-- End Hero -->
 
-    <main id="main">
+    <main id="lawyer-detail-page">
       <!-- ======= About Section ======= -->
       <section id="about" class="about">
         <div class="container">
@@ -40,33 +41,14 @@
               <img src="<%= lawyer.Avatar %>" alt="" />
               <h5 class="text-center my-4"><strong>Luật sư Cao cấp</strong></h5>
               <div class="row action">
-                <div class="col-6 text-right">
-                  <% if (user) { %>
-                  <a
-                    href="/lawyer/profile?lawyerID=<%= lawyer.LawyerID %>"
-                    class="btn btn-primary"
-                  >
-                    Xem thêm</a
-                  >
-                  <% } else { %>
-                  <a
-                    href="#"
-                    data-dismiss="modal"
-                    data-toggle="modal"
-                    data-target="#myModal"
-                    class="btn btn-primary"
-                  >
-                    Xem thêm</a
-                  >
-                  <% } %>
-                </div>
-                <div class="col-6 text-left">
+                <div class="col-12 text-left">
                   <% if (user) { %>
                   <a
                     href="/booking?LawyerID=<%= lawyer.LawyerID %>"
-                    class="btn btn-warning"
+                    class="btn btn-warning w-100 py-2"
                   >
-                    Đặt lịch hẹn</a
+                    <i class="fas fa-phone-alt text-white mx-2"></i> Đặt lịch
+                    hẹn</a
                   >
                   <% } else { %>
                   <a
@@ -74,9 +56,10 @@
                     data-dismiss="modal"
                     data-toggle="modal"
                     data-target="#myModal"
-                    class="btn btn-warning"
+                    class="btn btn-warning w-100 py-2"
                   >
-                    Đặt lịch hẹn</a
+                    <i class="fas fa-phone-alt text-white mx-2"></i> Đặt lịch
+                    hẹn</a
                   >
                   <% } %>
                 </div>
@@ -84,24 +67,8 @@
             </div>
             <div class="col-12 col-md-6 my-4 my-md-0">
               <h3><%= lawyer.FirstName %> <%= lawyer.LastName %></h3>
-              <h5><strong> Lĩnh vực <%= specialize %> </strong></h5>
-              <p><%= lawyer.Degree %></p>
-              <ul style="list-style-type: none; padding: 0">
-                <li>
-                  <i class="bx bx-check-double"></i>Có hai sức mạnh mang đến sự
-                  yên ổn: pháp luật và đạo đức
-                </li>
-                <li>
-                  <i class="bx bx-check-double"></i>Đừng cho rằng mình cao nhất,
-                  pháp luật còn cao hơn
-                </li>
-                <li>
-                  <i class="bx bx-check-double"></i>Dân chủ là làm sao cho dân
-                  mở miệng.
-                </li>
-              </ul>
               <!-- Rating Stars Box -->
-              <div class="rating-stars">
+              <div class="d-flex align-items-center rating-stars">
                 <div id="rating">
                   <input
                     disabled
@@ -229,49 +196,180 @@
                     title="Sucks big time - 0.5 stars"
                   ></label>
                 </div>
+                <div class="number-rating">25 nhận xét</div>
               </div>
-
-              <!-- Comments -->
-
-              <table class="table">
-                <thead>
-                  <tr class="table-primary">
-                    <!--
-                    <th class="text-center" style="border: none">Bình luận</th>
-                    -->
-                    <th style="border: none">Người dùng</th>
-                    <th style="border: none">Nội dung</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <% if( lawyer.comments.length != 0 ) { for (var i=0; i <
-                  lawyer.comments.length; i++){ %>
-                  <tr>
-                    <!--
-                    <th
-                      class="text-center"
-                      scope="<%= lawyer.comments[i].CommentID %>"
-                    >
-                      <%= i+1 %>
-                    </th>
-                    -->
-                    <td><%= lawyer.comments[i].ClientID %></td>
-                    <td><%= lawyer.comments[i].Content %></td>
-                  </tr>
-                  <% } } else {%>
-                  <tr>
-                    <td style="border: none">
-                      Chưa có đánh giá về luật sư này
-                    </td>
-                  </tr>
-                  <%}%>
-                </tbody>
-              </table>
+              <ul class="specialize-list">
+                <li><i class="fad fa-check-circle"></i><%= specialize %></li>
+                <li><i class="fad fa-check-circle"></i><%= specialize %></li>
+                <li><i class="fad fa-check-circle"></i><%= specialize %></li>
+                <li><i class="fad fa-check-circle"></i><%= specialize %></li>
+              </ul>
+              <p><%= lawyer.Degree %></p>
+              <ul class="favorite-sentence-list">
+                <li>
+                  <i class="fad fa-quote-left"></i>Có hai sức mạnh mang đến sự
+                  yên ổn: pháp luật và đạo đức
+                </li>
+                <li>
+                  <i class="fad fa-quote-left"></i>Đừng cho rằng mình cao nhất,
+                  pháp luật còn cao hơn
+                </li>
+                <li>
+                  <i class="fad fa-quote-left"></i>Dân chủ là làm sao cho dân mở
+                  miệng.
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
       <!-- End About Section -->
+
+      <!-- ======= Tab Section ======= -->
+      <section id="tab">
+        <div class="container">
+          <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <button
+                class="nav-link active"
+                id="nav-info-lawyer-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#nav-info-lawyer"
+                type="button"
+                role="tab"
+                aria-controls="nav-info-lawyer"
+                aria-selected="true"
+              >
+                <i class="fad fa-info d-md-none"></i>
+                <span class="d-none d-md-block">Thông tin</span>
+              </button>
+              <button
+                class="nav-link"
+                id="nav-contact-lawyer-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#nav-contact-lawyer"
+                type="button"
+                role="tab"
+                aria-controls="nav-contact-lawyer"
+                aria-selected="false"
+              >
+                <i class="fad fa-id-card d-md-none"></i>
+                <span class="d-none d-md-block">Liên hệ</span>
+              </button>
+
+              <% if (user) { %>
+              <button
+                class="nav-link"
+                id="nav-booking-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#nav-booking"
+                type="button"
+                role="tab"
+                aria-controls="nav-booking"
+                aria-selected="false"
+              >
+                <i class="fad fa-location-arrow d-md-none"></i>
+                <span class="d-none d-md-block"> Đặt lịch hẹn</span>
+              </button>
+              <% } else { %>
+              <button
+                class="nav-link"
+                id="nav-booking-tab"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal"
+                type="button"
+                role="tab"
+                aria-controls="nav-booking"
+                aria-selected="false"
+              >
+                <i class="fad fa-location-arrow d-md-none"></i>
+                <span class="d-none d-md-block"> Đặt lịch hẹn</span>
+              </button>
+              <% } %>
+              <button
+                class="nav-link"
+                id="nav-comment-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#nav-comment"
+                type="button"
+                role="tab"
+                aria-controls="nav-comment"
+                aria-selected="false"
+              >
+                <i class="fad fa-comments d-md-none"></i>
+                <span class="d-none d-md-block">Nhận xét</span>
+              </button>
+            </div>
+          </nav>
+          <div class="shadow tab-content" id="nav-tabContent">
+            <div
+              class="tab-pane fade show active"
+              id="nav-info-lawyer"
+              role="tabpanel"
+              aria-labelledby="nav-info-lawyer-tab"
+            >
+              <h3 style="font-weight: bold">Where does it come from?</h3>
+              <p>
+                Contrary to popular belief, Lorem Ipsum is not simply random
+                text. It has roots in a piece of classical Latin literature from
+                45 BC, making it over 2000 years old. Richard McClintock, a
+                Latin professor at Hampden-Sydney College in Virginia, looked up
+                one of the more obscure Latin words, consectetur, from a Lorem
+                Ipsum passage, and going through the cites of the word in
+                classical literature, discovered the undoubtable source. Lorem
+                Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus
+                Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero,
+                written in 45 BC. This book is a treatise on the theory of
+                ethics, very popular during the Renaissance. The first line of
+                Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line
+                in section 1.10.32.
+                <br />
+                The standard chunk of Lorem Ipsum used since the 1500s is
+                reproduced below for those interested. Sections 1.10.32 and
+                1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also
+                reproduced in their exact original form, accompanied by English
+                versions from the 1914 translation by H. Rackham.
+              </p>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="nav-contact-lawyer"
+              role="tabpanel"
+              aria-labelledby="nav-contact-lawyer-tab"
+            >
+              <h3 style="font-weight: bold">
+                Mọi chi tiết vui lòng liên hệ trực tiếp với chúng tôi qua các
+                cách sau:
+              </h3>
+              <ul>
+                <li>
+                  Trụ Sở: Số 25 đường 2/9, Hòa Cường Nam, Hải Châu, Đà nẵng.
+                </li>
+                <li>Đại Diện Pháp Lý : Lê Võ Thanh Hùng.</li>
+                <li>Email: 79luatsucuatoi@gmail.com</li>
+                <li>Số điện thoại: 0912 689 137.</li>
+              </ul>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="nav-booking"
+              role="tabpanel"
+              aria-labelledby="nav-booking-tab"
+            >
+              ...3
+            </div>
+            <div
+              class="tab-pane fade"
+              id="nav-comment"
+              role="tabpanel"
+              aria-labelledby="nav-comment-tab"
+            >
+              ...4
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Tab Section -->
 
       <!-- ======= Team Section ======= -->
       <section id="team" class="team">
@@ -342,6 +440,16 @@
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
     ></script>
 
