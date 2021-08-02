@@ -44,7 +44,7 @@
                 <div class="col-12 text-left">
                   <% if (user) { %>
                   <a
-                    href="/booking?LawyerID=<%= lawyer.LawyerID %>"
+                    href="/lawyer/profile?lawyerID=<%= lawyer.LawyerID %>"
                     class="btn btn-warning w-100 py-2"
                   >
                     <i class="fas fa-phone-alt text-white mx-2"></i> Đặt lịch
@@ -302,34 +302,40 @@
             </div>
           </nav>
           <div class="shadow tab-content" id="nav-tabContent">
+            <!-- TAB INFOR -->
             <div
               class="tab-pane fade show active"
               id="nav-info-lawyer"
               role="tabpanel"
               aria-labelledby="nav-info-lawyer-tab"
             >
-              <h3 style="font-weight: bold">Where does it come from?</h3>
-              <p>
-                Contrary to popular belief, Lorem Ipsum is not simply random
-                text. It has roots in a piece of classical Latin literature from
-                45 BC, making it over 2000 years old. Richard McClintock, a
-                Latin professor at Hampden-Sydney College in Virginia, looked up
-                one of the more obscure Latin words, consectetur, from a Lorem
-                Ipsum passage, and going through the cites of the word in
-                classical literature, discovered the undoubtable source. Lorem
-                Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus
-                Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero,
-                written in 45 BC. This book is a treatise on the theory of
-                ethics, very popular during the Renaissance. The first line of
-                Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line
-                in section 1.10.32.
-                <br />
-                The standard chunk of Lorem Ipsum used since the 1500s is
-                reproduced below for those interested. Sections 1.10.32 and
-                1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also
-                reproduced in their exact original form, accompanied by English
-                versions from the 1914 translation by H. Rackham.
-              </p>
+              <div class="container">
+                <div class="content-info">
+                  <h3 style="font-weight: bold">Where does it come from?</h3>
+                  <p>
+                    Contrary to popular belief, Lorem Ipsum is not simply random
+                    text. It has roots in a piece of classical Latin literature
+                    from 45 BC, making it over 2000 years old. Richard
+                    McClintock, a Latin professor at Hampden-Sydney College in
+                    Virginia, looked up one of the more obscure Latin words,
+                    consectetur, from a Lorem Ipsum passage, and going through
+                    the cites of the word in classical literature, discovered
+                    the undoubtable source. Lorem Ipsum comes from sections
+                    1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The
+                    Extremes of Good and Evil) by Cicero, written in 45 BC. This
+                    book is a treatise on the theory of ethics, very popular
+                    during the Renaissance. The first line of Lorem Ipsum,
+                    "Lorem ipsum dolor sit amet..", comes from a line in section
+                    1.10.32.
+                    <br />
+                    The standard chunk of Lorem Ipsum used since the 1500s is
+                    reproduced below for those interested. Sections 1.10.32 and
+                    1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are
+                    also reproduced in their exact original form, accompanied by
+                    English versions from the 1914 translation by H. Rackham.
+                  </p>
+                </div>
+              </div>
             </div>
             <div
               class="tab-pane fade"
@@ -337,18 +343,92 @@
               role="tabpanel"
               aria-labelledby="nav-contact-lawyer-tab"
             >
-              <h3 style="font-weight: bold">
-                Mọi chi tiết vui lòng liên hệ trực tiếp với chúng tôi qua các
-                cách sau:
-              </h3>
-              <ul>
-                <li>
-                  Trụ Sở: Số 25 đường 2/9, Hòa Cường Nam, Hải Châu, Đà nẵng.
-                </li>
-                <li>Đại Diện Pháp Lý : Lê Võ Thanh Hùng.</li>
-                <li>Email: 79luatsucuatoi@gmail.com</li>
-                <li>Số điện thoại: 0912 689 137.</li>
-              </ul>
+              <div class="container">
+                <!-- card 1 -info -->
+                <div class="card">
+                  <div class="title">Thông tin chung</div>
+                  <div class="row">
+                    <div class="col-6 col-md-4">
+                      <span>Giới tính</span>
+                      <div class="content">Nam</div>
+                    </div>
+                    <div class="col-6 col-md-4">
+                      <span>Điện thoại</span>
+                      <div class="content">0912698173</div>
+                    </div>
+                    <div class="col-6 col-md-4">
+                      <span>Năm sinh</span>
+                      <div class="content">1999</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- card 2 kinh nghiem -->
+                <div class="card">
+                  <div class="title">Kinh nghiệm</div>
+                  <div class="table-responsive">
+                    <table class="table table-hover table-borderless">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Cơ quan</th>
+                          <th>Trình độ</th>
+                          <th>Chuyên ngành</th>
+                          <th>Chức danh</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Biti</td>
+                          <td>Junior</td>
+                          <td>IT</td>
+                          <td>Teme member</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Biti 2</td>
+                          <td>Junior</td>
+                          <td>Tester</td>
+                          <td>QA</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>Biti 3</td>
+                          <td>Senior</td>
+                          <td>IT</td>
+                          <td>PM</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!-- card 3 địa chỉ -->
+                <div class="card">
+                  <div class="title">Địa chỉ văn phòng</div>
+                  <div class="row">
+                    <div class="col-6 col-md-4">
+                      <span>Địa chỉ</span>
+                      <div class="content">42 Mẹ thứ</div>
+                    </div>
+                    <div class="col-6 col-md-4">
+                      <span>Quận</span>
+                      <div class="content">Cẩm Lệ</div>
+                    </div>
+                    <div class="col-6 col-md-4">
+                      <span>Thành phố</span>
+                      <div class="content">Đà Nẵng</div>
+                    </div>
+                    <div class="col-6 col-md-4">
+                      <span>Quốc gia</span>
+                      <div class="content">Việt Nam</div>
+                    </div>
+                    <div class="col-6 col-md-4">
+                      <span>Mã bưu chính</span>
+                      <div class="content">550000</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div
               class="tab-pane fade"
@@ -356,7 +436,115 @@
               role="tabpanel"
               aria-labelledby="nav-booking-tab"
             >
-              ...3
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="time-work">
+                      <h2>Giờ làm việc:</h2>
+                      <ul class="time-list">
+                        <li>Thứ 2 - Thứ 6: 9.00 AM - 5.00 PM</li>
+                        <li>Thứ 7: 9.00 AM - 3.00 PM</li>
+                        <li class="closed">
+                          * Chủ nhật và ngày lễ không làm việc.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="
+                      col-md-6
+                      d-flex
+                      align-items-center
+                      justify-content-end
+                      my-3
+                    "
+                  >
+                    <button class="booking">Liên hệ ngay</button>
+                  </div>
+                  <div class="col-12">
+                    <form action="" class="row my-3 g-3">
+                      <div class="col-md-6">
+                        <label for="hovatenlot" class="form-label"
+                          >Họ và tên lót</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="hovatenlot"
+                          required
+                        />
+                      </div>
+                      <div class="col-md-6">
+                        <label for="ten" class="form-label">Tên</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="ten"
+                          required
+                        />
+                      </div>
+                      <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="email"
+                          required
+                        />
+                      </div>
+                      <div class="col-md-6">
+                        <label for="sodienthoai" class="form-label"
+                          >Số điện thoại</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="sodienthoai"
+                          required
+                        />
+                      </div>
+                      <div class="col-12">
+                        <label for="diachi" class="form-label">Địa chỉ</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="diachi"
+                          placeholder="1234 Main St"
+                          required
+                        />
+                      </div>
+                      <div class="col-md-6">
+                        <label for="linhvuc" class="form-label">Lĩnh vực</label>
+                        <select id="linhvuc" class="form-select">
+                          <option value="1" selected>Hình sự</option>
+                          <option value="2">Dân sự</option>
+                          <option value="3">Kinh doanh thương mại</option>
+                          <option value="4">Khác</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="ngayhen" class="form-label">Ngày hẹn</label>
+                        <input
+                          id="ngayhen"
+                          type="date"
+                          class="datepicker form-control"
+                          name="Date"
+                          placeholder="Ngày hẹn"
+                          min="today"
+                          required
+                        />
+                      </div>
+                      <div
+                        class="offset-md-6 col-md-6 d-flex justify-content-end"
+                      >
+                        <button type="submit" class="confirm-calendar">
+                          Xác nhận lịch hẹn
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
             <div
               class="tab-pane fade"
@@ -468,34 +656,20 @@
     -->
 
     <script>
-      $(document).ready(function(){
-          const r = <%= lawyer.Rating %>/2;
-          const f = ~~r ;//Tương tự Math.floor(r)
-          id = 'star' + f + (r % f ? 'half' : '') ;
-          console.log(id);
-          id && (document.getElementById(id).checked = !0)
-      });
+      //set min daypicker is today
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
+      var yyyy = today.getFullYear();
+      if (dd < 10) {
+        dd = "0" + dd;
+      }
+      if (mm < 10) {
+        mm = "0" + mm;
+      }
 
-       function getSpecialize(i){
-          var specialize = '';
-          switch (i){
-              case '1':
-              specialize = "Dân sự";
-              break;
-              case '2':
-              specialize = "Hình sự";
-              break;
-              case '3':
-              specialize = "KDTM";
-              break;
-              default:
-              specialize = "khác";
-              break;
-          }
-
-          return specialize;
-
-      };
+      today = yyyy + "-" + mm + "-" + dd;
+      document.getElementById("ngayhen").setAttribute("min", today);
     </script>
   </body>
 </html>

@@ -56,10 +56,53 @@ $text-color: #454545;
       }
     }
     .tab-content {
-      padding: 15px 10px;
+      padding: 20px;
       border: 1px solid #eaeaea;
       border-bottom-left-radius: 10px;
       border-bottom-right-radius: 10px;
+      #nav-contact-lawyer {
+        .card {
+          padding: 15px;
+          border-bottom: 5px solid #04324c;
+          margin: 20px 0;
+          .title {
+            font-size: 20px;
+            font-weight: 500;
+            border-bottom: 2px solid lightgrey;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+          }
+          .content {
+            font-weight: bold;
+          }
+          table {
+            td {
+              min-width: 130px;
+            }
+          }
+        }
+      }
+      #nav-booking {
+        .time-work {
+          padding: 20px;
+          border: 2px solid #26c3d2;
+        }
+        .booking {
+          background: $main-color;
+          color: white;
+          border: none;
+          border-radius: 10px;
+          padding: 10px 50px;
+        }
+        .confirm-calendar {
+          background: $main-color;
+          color: white;
+          border: none;
+          border-radius: 10px;
+          padding: 10px 50px;
+          width: 100%;
+        }
+      }
     }
   }
 }
