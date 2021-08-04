@@ -3,6 +3,7 @@
 }
 .home-banner .banner img {
   width: 100%;
+  height: calc(100vh - 100px);
   object-fit: cover;
   opacity: 0.5;
 }
@@ -36,6 +37,19 @@
 }
 .home-banner .banner-content button a {
   color: white;
+}
+
+#home #what-we-do .icon-box h4 a {
+  color: #ffca2c;
+}
+
+#home #services {
+  padding: 40px 0;
+}
+
+#home #what-we-do, #home #news {
+  padding: 30px 0;
+  background: linear-gradient(45deg, #ffab11, #fff);
 }
 @media (max-width: 768px) {
   #home .home-banner .banner-content button {
