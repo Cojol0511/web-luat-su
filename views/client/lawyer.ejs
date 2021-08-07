@@ -22,7 +22,8 @@
       <div class="container text-center" data-aos="fade-up">
         <h1><span>Thông tin Luật Sư</span></h1>
         <h2>
-          We are team of talanted designers making websites with Bootstrap
+          My Lawyer hợp tác với các Luật sư uy tín, chuyên môn giỏi, giàu kinh
+          nghiệm và am hiểu kiến thức xã hội để phục vụ yêu cầu của bạn.
         </h2>
       </div>
     </section>
@@ -42,7 +43,11 @@
               <h5 class="text-center my-4"><strong>Luật sư Cao cấp</strong></h5>
               <div class="row action">
                 <div class="col-12 text-left">
-                  <% if (user) { %>
+                  <a href="tel:0905550511" class="btn btn-warning w-100 py-2">
+                    <i class="fas fa-phone-alt text-white mx-2"></i> Đặt lịch
+                    hẹn</a
+                  >
+                  <!-- <% if (user) { %>
                   <a
                     href="/lawyer/profile?lawyerID=<%= lawyer.LawyerID %>"
                     class="btn btn-warning w-100 py-2"
@@ -61,7 +66,7 @@
                     <i class="fas fa-phone-alt text-white mx-2"></i> Đặt lịch
                     hẹn</a
                   >
-                  <% } %>
+                  <% } %> -->
                 </div>
               </div>
             </div>
@@ -241,7 +246,7 @@
                 aria-selected="true"
               >
                 <i class="fad fa-info d-md-none"></i>
-                <span class="d-none d-md-block">Thông tin</span>
+                <span class="d-none d-md-block">Giới thiệu</span>
               </button>
               <button
                 class="nav-link"
@@ -254,7 +259,7 @@
                 aria-selected="false"
               >
                 <i class="fad fa-id-card d-md-none"></i>
-                <span class="d-none d-md-block">Liên hệ</span>
+                <span class="d-none d-md-block">Thông tin</span>
               </button>
 
               <% if (user) { %>
@@ -311,28 +316,25 @@
             >
               <div class="container">
                 <div class="content-info">
-                  <h3 style="font-weight: bold">Where does it come from?</h3>
                   <p>
-                    Contrary to popular belief, Lorem Ipsum is not simply random
-                    text. It has roots in a piece of classical Latin literature
-                    from 45 BC, making it over 2000 years old. Richard
-                    McClintock, a Latin professor at Hampden-Sydney College in
-                    Virginia, looked up one of the more obscure Latin words,
-                    consectetur, from a Lorem Ipsum passage, and going through
-                    the cites of the word in classical literature, discovered
-                    the undoubtable source. Lorem Ipsum comes from sections
-                    1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The
-                    Extremes of Good and Evil) by Cicero, written in 45 BC. This
-                    book is a treatise on the theory of ethics, very popular
-                    during the Renaissance. The first line of Lorem Ipsum,
-                    "Lorem ipsum dolor sit amet..", comes from a line in section
-                    1.10.32.
-                    <br />
-                    The standard chunk of Lorem Ipsum used since the 1500s is
-                    reproduced below for those interested. Sections 1.10.32 and
-                    1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are
-                    also reproduced in their exact original form, accompanied by
-                    English versions from the 1914 translation by H. Rackham.
+                    Luật sư Mai Tiến Dũng là Luật sư điều hành Công ty Luật TNHH
+                    Practical Law - Đoàn Luật sư Tp. Hà Nội. Luật sư Mai Tiến
+                    Dũng còn là Đấu giá viên, Quản tài viên, chuyên viên Thừa
+                    phát lại, Chuyên viên công chứng, Phóng viên của Tạp chí
+                    Người cao tuổi, Chuyên gia môi giới bất động sản cao cấp.
+                    Luật sư Mai Tiến Dũng cũng đã tốt nghiệp Trường ĐH ngoại ngữ
+                    Hà Nội (chuyên ngành tiếng Anh) và Trường ĐH Kinh tế Quốc
+                    dân (chuyên ngành Tài chính doanh nghiệp). <br />
+                    Luật sư luôn sẵn sàng tham gia vào các dự án phổ biến và
+                    tuyên truyền pháp luật đối với người dân ở các địa phương
+                    nơi mà sự hiểu biết về pháp luật còn hạn chế nhằm nâng cao
+                    sự hiểu biết pháp luật của cộng đồng trên khắp các tỉnh
+                    thành của Việt Nam. Đặc biệt, Luật sư Mai Tiến Dũng luôn
+                    mong muốn được cộng tác với các đồng nghiệp ở Việt Nam và
+                    nước ngoài để cùng chung tay thực hiện ước mơ của mỗi cá
+                    nhân, cũng như góp phần bảo vệ công lý và phát triển kinh
+                    tế, vì sự nghiệp dân giàu, nước mạnh, xã hội dân chủ, công
+                    bằng, văn minh.
                   </p>
                 </div>
               </div>
@@ -354,7 +356,7 @@
                     </div>
                     <div class="col-6 col-md-4">
                       <span>Điện thoại</span>
-                      <div class="content">0912698173</div>
+                      <div class="content">0912.xxx.xxx</div>
                     </div>
                     <div class="col-6 col-md-4">
                       <span>Năm sinh</span>
@@ -459,7 +461,9 @@
                       my-3
                     "
                   >
-                    <button class="booking">Liên hệ ngay</button>
+                    <button class="booking">
+                      <a href="tel:0905550511">Liên hệ ngay</a>
+                    </button>
                   </div>
                   <div class="col-12">
                     <form action="" class="row my-3 g-3">
@@ -534,6 +538,15 @@
                           required
                         />
                       </div>
+                      <div class="col-12">
+                        <label for="noidung" class="form-label">Nội dung</label>
+                        <textarea
+                          class="form-control"
+                          placeholder="Nhập nội dung thảo luận"
+                          style="min-height: 200px"
+                          id="noidung"
+                        ></textarea>
+                      </div>
                       <div
                         class="offset-md-6 col-md-6 d-flex justify-content-end"
                       >
@@ -577,6 +590,7 @@
                     "
                   >
                     <!-- Button trigger modal -->
+                    <% if (user) { %>
                     <button
                       type="button"
                       class="btn btn-warning text-white py-md-2"
@@ -585,6 +599,27 @@
                     >
                       Đánh giá Luật sư
                     </button>
+                    <% } else { %>
+                    <button
+                      type="button"
+                      class="btn btn-warning text-white py-md-2"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                    >
+                      Đánh giá Luật sư
+                    </button>
+                    <!-- <button
+                      id="nav-booking-tab"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                      role="tab"
+                      aria-controls="nav-booking"
+                      aria-selected="false"
+                    >
+                      <i class="fad fa-location-arrow d-md-none"></i>
+                      <span class="d-none d-md-block"> Đặt lịch hẹn</span>
+                    </button> -->
+                    <% } %>
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="body-total">
@@ -817,7 +852,9 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="modalReviewLabel">
-              Đánh giá luật sư <br /><span>Hoang Phu Loc</span>
+              Đánh giá luật sư <br /><span
+                ><%= lawyer.FirstName %> <%= lawyer.LastName %></span
+              >
             </h5>
             <button
               type="button"
@@ -828,6 +865,17 @@
           </div>
           <div class="modal-body">
             <form>
+              <div class="mb-3">
+                <label for="review-level" class="col-form-label"
+                  >Múc độ hài lòng:</label
+                >
+                <select class="form-select">
+                  <option value="0" selected>Rất hài lòng</option>
+                  <option value="1">Hài lòng</option>
+                  <option value="2">Không hài lòng</option>
+                  <option value="3">Thất vọng</option>
+                </select>
+              </div>
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label"
                   >Tiêu đề đánh giá của bạn:</label
@@ -859,7 +907,13 @@
             >
               Hủy
             </button>
-            <button type="button" class="btn btn-primary button-send-review"  type="submit" name="submit" value="Submit">
+            <button
+              type="button"
+              class="btn btn-primary button-send-review"
+              type="submit"
+              name="submit"
+              value="Submit"
+            >
               Gửi đánh giá
             </button>
           </div>

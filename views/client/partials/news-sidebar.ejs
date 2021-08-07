@@ -1,0 +1,42 @@
+<div class="col-12 col-md-3 order-md-2">
+  <div class="news-categories">
+    <div class="title-header">
+      <h2>Danh mục</h2>
+    </div>
+    <ul class="list-category">
+      <li class="active"><a href=""> Tất cả tin túc</a></li>
+      <li><a href=""> Tin tức Luật Sư</a></li>
+      <li><a href=""> Công ty MyLawyer</a></li>
+      <li><a href=""> Biểu mẫu</a></li>
+    </ul>
+  </div>
+  <div class="news-featured">
+    <div class="title-header">
+      <h2>Tin tức mới nhất</h2>
+    </div>
+    <ul class="list-featured">
+      <% for(var i=0; i<3; i++) {%>
+      <li class="featured">
+        <div class="row gx-md-2">
+          <div class="col-6 col-md-4">
+            <a href="/news-detail/<%= postList[i].PostID%>">
+              <img
+                src="<%= postList[i].ImageUrl%>"
+                class="featured-img"
+                alt=""
+              />
+            </a>
+          </div>
+          <div class="col-6 col-md-8">
+            <div class="featured-title">
+              <a href="/news-detail/<%= postList[i].PostID%>">
+                <%= postList[i].Title %></a
+              >
+            </div>
+          </div>
+        </div>
+      </li>
+      <% } %>
+    </ul>
+  </div>
+</div>

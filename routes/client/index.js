@@ -402,29 +402,49 @@ router.get("/domain-info/:domainId", async (req, res) => {
 });
 
 router.get("/news", async function (req, res) {
-  var postPro = await axios.get(api_url + "post", {
-    headers: {
-      "content-type": "application/json",
-    },
-  });
+  let allPost = api_url + "post";
+  const requestAllPost = axios.get(allPost);
 
-  res.render("client/news", {
-    CategoryMapper: Constant.CATEGORY_MAPPER,
-    FlashNewsList: postPro.data.slice(0, 4),
-  });
+  axios
+    .all([requestAllPost])
+    .then(
+      axios.spread((...responses) => {
+        const requestAllPost = responses[0].data;
+        res.render("client/news", {
+          postList: requestAllPost,
+        });
+      })
+    )
+    .catch((errors) => {
+      res.render("client/news", {
+        Err: errors,
+      });
+    });
 });
 
-router.get("/news-detail", async function (req, res) {
-  var postPro = await axios.get(api_url + "post", {
-    headers: {
-      "content-type": "application/json",
-    },
-  });
+router.get("/news-detail/:PostId", async function (req, res) {
+  let postDetail = api_url + "post/" + req.params.PostId;
+  let allPost = api_url + "post";
+  const requestPostDetail = axios.get(postDetail);
+  const requestAllPost = axios.get(allPost);
 
-  res.render("client/news-detail", {
-    CategoryMapper: Constant.CATEGORY_MAPPER,
-    FlashNewsList: postPro.data.slice(0, 4),
-  });
+  axios
+    .all([requestPostDetail, requestAllPost])
+    .then(
+      axios.spread((...responses) => {
+        const requestPostDetail = responses[0].data;
+        const requestAllPost = responses[1].data;
+        res.render("client/news-detail", {
+          Post: requestPostDetail,
+          postList: requestAllPost,
+        });
+      })
+    )
+    .catch((errors) => {
+      res.render("client/news-detail", {
+        Err: errors,
+      });
+    });
 });
 
 router.get("/category-posts/:CategoryId", async function (req, res) {

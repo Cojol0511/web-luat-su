@@ -94,23 +94,27 @@ $text-color: #454545;
           color: #333;
         }
       }
-      &-more {
-        display: block;
-        text-align: center;
-        box-shadow: none;
-        position: relative;
-        padding: 10px 30px;
-        color: #302f34;
-        border-style: solid;
-        background-color: #ecede7;
-        border-color: #282828;
-        font-size: 12px;
-        text-transform: uppercase;
-        height: auto;
-        cursor: pointer;
-        border-width: 0;
-        &:hover {
-          color: $main-color;
+    }
+    #loadMore {
+      ul {
+        display: flex;
+        justify-content: center;
+        li {
+          width: 30px;
+          height: 30px;
+          line-height: 30px;
+          border: 1px solid #ffab11;
+          background-color: $main-color;
+          text-align: center;
+          a {
+            color: white;
+          }
+          &.current {
+            background-color: white;
+            a {
+              color: $main-color;
+            }
+          }
         }
       }
     }

@@ -73,7 +73,7 @@ $text-color: #454545;
       img {
         width: 100%;
         height: auto;
-        margin-bottom: 10px;
+        margin-bottom: 40px;
         margin-top: 40px;
       }
     }
@@ -85,7 +85,7 @@ $text-color: #454545;
     a {
       color: #201f1f;
 
-      &:hover {
+      &:hover * {
         color: $main-color;
       }
     }

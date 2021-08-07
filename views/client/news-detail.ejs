@@ -20,9 +20,7 @@
     >
       <div class="container text-center" data-aos="fade-up">
         <h1><span>Tin tức My Lawyer</span></h1>
-        <h2>
-          We are team of talanted designers making websites with Bootstrap
-        </h2>
+        <h2>My Lawyer đã và đang làm được những gì</h2>
       </div>
     </section>
 
@@ -31,96 +29,12 @@
     <main id="news-detail-page">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-md-3 order-2">
-            <div class="news-categories">
-              <div class="title-header">
-                <h2>Danh mục</h2>
-              </div>
-              <ul class="list-category">
-                <li class="active"><a href=""> Tất cả tin túc</a></li>
-                <li><a href=""> Tin tức Luật Sư</a></li>
-                <li><a href=""> Công ty MyLawyer</a></li>
-                <li><a href=""> Biểu mẫu</a></li>
-              </ul>
-            </div>
-            <div class="news-featured">
-              <div class="title-header">
-                <h2>Tin tức nổi bật</h2>
-              </div>
-              <ul class="list-featured">
-                <li class="featured">
-                  <div class="row gx-md-2">
-                    <div class="col-6 col-md-4">
-                      <a href="">
-                        <img
-                          src="http://nerubian.nanothemes.co/wp-content/uploads/2017/07/news26-124x100.jpg"
-                          class="featured-img"
-                          alt=""
-                        />
-                      </a>
-                    </div>
-                    <div class="col-6 col-md-8">
-                      <div class="featured-title">
-                        <a href="">
-                          North Carolina Republicans Are In Trouble Again For
-                          Racial Gerrymandering</a
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="featured">
-                  <div class="row gx-md-2">
-                    <div class="col-6 col-md-4">
-                      <a href="">
-                        <img
-                          src="http://nerubian.nanothemes.co/wp-content/uploads/2017/07/news26-124x100.jpg"
-                          class="featured-img"
-                          alt=""
-                        />
-                      </a>
-                    </div>
-                    <div class="col-6 col-md-8">
-                      <div class="featured-title">
-                        <a href="">
-                          North Carolina Republicans Are In Trouble Again For
-                          Racial Gerrymandering</a
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="featured">
-                  <div class="row gx-md-2">
-                    <div class="col-6 col-md-4">
-                      <a href="">
-                        <img
-                          src="http://nerubian.nanothemes.co/wp-content/uploads/2017/07/news26-124x100.jpg"
-                          class="featured-img"
-                          alt=""
-                        />
-                      </a>
-                    </div>
-                    <div class="col-6 col-md-8">
-                      <div class="featured-title">
-                        <a href="">
-                          North Carolina Republicans Are In Trouble Again For
-                          Racial Gerrymandering</a
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <!-- sidebar for news -->
+          <%- include('partials/news-sidebar.ejs'); -%>
           <div class="col-12 col-md-9 order-1">
             <div class="news">
               <div class="news-header">
-                <h1 class="news-title">
-                  Delegates discussing topical issue while participating in
-                  political forum
-                </h1>
+                <h1 class="news-title"><%= Post.Title %></h1>
                 <div class="news-infor d-flex">
                   <div class="news-author">
                     <i class="fas fa-user-edit"></i>
@@ -128,270 +42,38 @@
                   </div>
                   <div class="news-day me-3">
                     <i class="fal fa-clock"></i>
-                    <span>July 18, 2017</span>
+                    <span
+                      ><%=new Intl.DateTimeFormat('vi-VN', { year: 'numeric',
+                      month: 'long', day: '2-digit'}).format(new
+                      Date(Post.UpdatedDateTime))%></span
+                    >
                   </div>
                 </div>
               </div>
               <div class="news-content">
                 <div class="news-img text-center">
-                  <img
-                    src="http://nerubian.nanothemes.co/wp-content/uploads/2017/07/news25-870x522.jpg"
-                    class="featured-img"
-                    alt=""
-                  />
+                  <img src="<%= Post.ImageUrl%>" class="featured-img" alt="" />
                 </div>
-                <div class="news-text">
-                  <h2
-                    style="
-                      box-sizing: border-box;
-                      font-family: arial;
-                      color: #000000;
-                      text-align: justify;
-                      outline: none !important;
-                      font-size: 20px !important;
-                    "
-                  >
-                    <span
-                      id="1_Dieu_kien_duoc_boi_thuong_thiet_hai"
-                      style="
-                        box-sizing: border-box;
-                        color: inherit;
-                        outline: none !important;
-                      "
-                      ><span
-                        style="
-                          box-sizing: border-box;
-                          color: #ff0000;
-                          outline: none !important;
-                        "
-                        ><strong
-                          style="
-                            box-sizing: border-box;
-                            outline: none !important;
-                          "
-                          >1. Điều kiện được bồi thường thiệt hại?</strong
-                        ></span
-                      ></span
-                    >
-                  </h2>
-                  <p
-                    style="
-                      box-sizing: border-box;
-                      font-family: arial, helvetica, sans-serif;
-                      margin-bottom: 1.5em;
-                      line-height: 1.5;
-                      font-size: 18px;
-                      color: #000000;
-                      text-align: justify;
-                      outline: none !important;
-                    "
-                  >
-                    Tại khoản 1 Điều 16 Luật Đất đai 2013 quy định Nhà nước
-                    quyết định thu hồi đất trong các trường hợp thu hồi vì mục
-                    đích quốc phòng, an ninh; phát triển kinh tế – xã hội vì lợi
-                    ích quốc gia, công cộng, thu hồi do vi phạm pháp luật về đất
-                    đai, thu hồi do chấm dứt việc sử dụng đất theo pháp luật, tự
-                    nguyện trả lại đất, có nguy cơ đe dọa tính mạng con người.
-                  </p>
-
-                  <h2
-                    style="
-                      box-sizing: border-box;
-                      font-family: arial;
-                      color: #000000;
-                      text-align: justify;
-                      outline: none !important;
-                      font-size: 20px !important;
-                    "
-                  >
-                    <span
-                      id="1_Dieu_kien_duoc_boi_thuong_thiet_hai"
-                      style="
-                        box-sizing: border-box;
-                        color: inherit;
-                        outline: none !important;
-                      "
-                      ><span
-                        style="
-                          box-sizing: border-box;
-                          color: #ff0000;
-                          outline: none !important;
-                        "
-                        ><strong
-                          style="
-                            box-sizing: border-box;
-                            outline: none !important;
-                          "
-                          >2. Quy định chung về bồi thường thiệt hại về nhà công
-                          trình xây dựng trên đất khi Nhà nước thu hồi
-                          đất?</strong
-                        ></span
-                      ></span
-                    >
-                  </h2>
-                  <p
-                    style="
-                      box-sizing: border-box;
-                      font-family: arial, helvetica, sans-serif;
-                      margin-bottom: 1.5em;
-                      line-height: 1.5;
-                      font-size: 18px;
-                      color: #000000;
-                      text-align: justify;
-                      outline: none !important;
-                    "
-                  >
-                    Như vậy, trong việc bồi thường thiệt hại về nhà, công trình
-                    xây dựng khi thu hồi đất của Nhà nước đối với cơ quan, tổ
-                    chức, cá nhân khi có thiệt hại xảy ra đối với nhà ở hoặc các
-                    công trình khác mà không đảm bảo được kỹ thuật còn nguyên
-                    vẹn thì Nhà nước tiesn ahnfh bồi thường toàn bộ hoặc một
-                    phần của công trình xây dựng đó và phải đảm bảo đủ các
-                    nguyên tắc trong bồi thường mà chúng tôi trình bày trên.
-                  </p>
-
-                  <h2
-                    style="
-                      box-sizing: border-box;
-                      font-family: arial;
-                      color: #000000;
-                      text-align: justify;
-                      outline: none !important;
-                      font-size: 20px !important;
-                    "
-                  >
-                    <span
-                      id="1_Dieu_kien_duoc_boi_thuong_thiet_hai"
-                      style="
-                        box-sizing: border-box;
-                        color: inherit;
-                        outline: none !important;
-                      "
-                      ><span
-                        style="
-                          box-sizing: border-box;
-                          color: #ff0000;
-                          outline: none !important;
-                        "
-                        ><strong
-                          style="
-                            box-sizing: border-box;
-                            outline: none !important;
-                          "
-                          >3. Nhà nước thực hiện việc bồi thường thiệt hại về
-                          nhà, công trình xây dựng khi thu hồi đất?</strong
-                        ></span
-                      ></span
-                    >
-                  </h2>
-                  <p
-                    style="
-                      box-sizing: border-box;
-                      font-family: arial, helvetica, sans-serif;
-                      margin-bottom: 1.5em;
-                      line-height: 1.5;
-                      font-size: 18px;
-                      color: #000000;
-                      text-align: justify;
-                      outline: none !important;
-                    "
-                  >
-                    – Thứ nhất, tại khoản 1 quy định về mức bồi thường nhà, công
-                    trình nàm trong phần thu hồi bị ảnh hưởng bằng tổng giá trị
-                    hiện có của nhà, công trình bị thiệt hại và khoản tiền được
-                    tính bằng tỷ lệ phần trăm theo giá trị hiện có của nhà, công
-                    trình đó. Xác định giá trị hiện có của nhà, công trình bị
-                    thiệt hại được Nhà nước xác định bằng (=) tỷ lệ phần trăm
-                    chất lượng còn lại của nhà, công trình đó nhân (x) với giá
-                    trị xây dựng mới của nhà, công trình có tiêu chuẩn kỹ thuật
-                    tương đương do Bộ quản lý chuyên ngành ban hành. Xác định
-                    khoản tiền tính bằng tỷ lệ phần trăm theo giá trị hiện có
-                    của nhà, công trình do Ủy ban nhân dân cấp tỉnh quy định,
-                    nhưng mức bồi thường không quá 100% giá trị xây dựng mới của
-                    nhà, công trình có tiêu chuẩn kỹ thuật tương đương với nhà,
-                    công trình bị thiệt hại.
-                  </p>
-                  <p
-                    style="
-                      box-sizing: border-box;
-                      font-family: arial, helvetica, sans-serif;
-                      margin-bottom: 1.5em;
-                      line-height: 1.5;
-                      font-size: 18px;
-                      color: #000000;
-                      text-align: justify;
-                      outline: none !important;
-                    "
-                  >
-                    – Thứ hai, đối với giá trị hiện có của nhà, công trình bị
-                    thiệt hại được xác định theo công thức: Tgt = G1 – (G1/T) x
-                    T1 trong đó: Tgt: Giá trị hiện có của nhà, công trình bị
-                    thiệt hại; G1: Giá trị xây mới nhà, công trình bị thiệt hại
-                    có tiêu chuẩn kỹ thuật tương đương do Bộ quản lý chuyên
-                    ngành ban hành; T: Thời gian khấu hao áp dụng đối với nhà,
-                    công trình bị thiệt hại; T1: Thời gian mà nhà, công trình bị
-                    thiệt hại đã qua sử dụng.
-                  </p>
-                  <p
-                    style="
-                      box-sizing: border-box;
-                      font-family: arial, helvetica, sans-serif;
-                      margin-bottom: 1.5em;
-                      line-height: 1.5;
-                      font-size: 18px;
-                      color: #000000;
-                      text-align: justify;
-                      outline: none !important;
-                    "
-                  >
-                    – Thứ ba, đối với xác định giá trị bồi thường đối với nhà,
-                    công trình xây dựng khác bị phá dỡ một phần mà phần còn lại
-                    không còn sử dụng được thì Nhà nước bắt buộc phải bồi thường
-                    cho toàn bộ nhà, công trình; nếu có xảy ra trường hợp nhà,
-                    công trình xây dựng khác bị phá dỡ một phần, nhưng vẫn tồn
-                    tại và sử dụng được phần còn lại thì bồi thường phần giá trị
-                    công trình bị phá dỡ và chi phí để sửa chữa, hoàn thiện phần
-                    còn lại theo tiêu chuẩn kỹ thuật tương đương của nhà, công
-                    trình trước khi bị phá dỡ.
-                  </p>
-                  <p
-                    style="
-                      box-sizing: border-box;
-                      font-family: arial, helvetica, sans-serif;
-                      margin-bottom: 1.5em;
-                      line-height: 1.5;
-                      font-size: 18px;
-                      color: #000000;
-                      text-align: justify;
-                      outline: none !important;
-                    "
-                  >
-                    – Thứ tư, đối với nhà, công trình xây dựng không đủ tiêu
-                    chuẩn kỹ thuật theo quy định của Bộ quản lý chuyên ngành ban
-                    hành thì Ủy ban nhân dân cấp tỉnh quy định mức bồi thường cụ
-                    thể cho phù hợp với điều kiện thực tế tại địa phương.
-                  </p>
-                </div>
+                <div class="news-text"><%- Post.Content.toString() %></div>
               </div>
             </div>
             <div class="pagination row">
               <div class="col-6 pagination-left">
-                <a href="">
+                <a href="#">
                   <i class="fal fa-arrow-left"></i>
                   <span>Previous post</span>
                   <p>
-                    Las Vegas Residents Line Up For Hours To Donate Blood To
-                    Shooting Victims
+                    Quy định mới về công nhận đào tạo nghề Luật sư ở nước ngoài
                   </p>
                 </a>
               </div>
               <div class="col-6 pagination-right">
-                <a href="">
+                <a href="#">
                   <span>Next post</span>
                   <i class="fal fa-arrow-right"></i>
                   <p class="">
-                    Delegates discussing topical issue while participating in
-                    political forum
+                    Đoàn Luật sư TP. Hà Nội tạm dừng thu hồ sơ đăng ký tham dự
+                    kiểm tra kết quả tập sự hành nghề Luật sư đợt 1 năm 2021
                   </p>
                 </a>
               </div>
