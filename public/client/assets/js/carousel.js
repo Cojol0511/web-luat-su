@@ -1,7 +1,7 @@
-var $owl = $('.gallery-carousel');
+var $owl = $(".gallery-carousel");
 
-$owl.children().each( function( index ) {
-  $(this).attr( 'data-position', index ); // NB: .attr() instead of .data()
+$owl.children().each(function (index) {
+  $(this).attr("data-position", index); // NB: .attr() instead of .data()
 });
 
 $owl.owlCarousel({
@@ -9,19 +9,19 @@ $owl.owlCarousel({
   nav: true,
   center: true,
   loop: true,
-  responsive:{
-    0:{
-      items: 1
+  responsive: {
+    0: {
+      items: 1,
     },
-    768:{
-      items: 3
+    768: {
+      items: 3,
     },
-    900:{
+    900: {
       items: 3
     }
   }
 });
 
-$(document).on('click', '.owl-item>div', function() {
-  $owl.trigger('to.owl.carousel', $(this).data( 'position' ) );
+$(document).on("click", ".owl-item>div", function () {
+  $owl.trigger("to.owl.carousel", $(this).data("position"));
 });

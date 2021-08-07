@@ -20,186 +20,72 @@
     >
       <div class="container text-center" data-aos="fade-up">
         <h1><span>Tin tức My Lawyer</span></h1>
-        <h2>
-          We are team of talanted designers making websites with Bootstrap
-        </h2>
+        <h2>My Lawyer đã và đang làm được những gì</h2>
       </div>
     </section>
 
     <!-- End Hero -->
-
     <main id="news-page">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-md-3 order-md-2">
-            <div class=" shadow news-categories">
-              <div class="title">Danh mục</div>
-              <ul class="list-category">
-                <li class="active"> <a href=""> Tất cả tin túc</a></li>
-                <li> <a href=""> TIn tức Luật Sư</a></li>
-                <li> <a href=""> Công ty MyLawyer</a></li>
-                <li> <a href=""> Biểu mẫu</a></li>
-              </ul>
-            </div>
-            <div class="shadow news-featured">
-              <div class="title">Tin tức nổi bật </div>
-              <ul class="list-featured">
-                <li class="featured">
-                  <a href=""> 
-                  <div class="row gx-1">
-                  <div class="col-3">
-                    <img
-                      src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg"
-                      class="featured-img"
-                      alt=""
-                    />
-                  </div>
-                  <div class="col-9">
-                    <div class="featured-title">
-                      This is titleThis is titleThis is titleThis is titleThis
-                      is titleThis is titleThis is titleThis is titleThis is
-                      titleThis is title
-                    </div>
-                    <div class="featured-time">18/07/2001</div>
-                  </div>
-                </div>
-                </a>
-              </li>
-               <li class="featured">
-                  <a href=""> 
-                  <div class="row gx-1">
-                  <div class="col-3">
-                    <img
-                      src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg"
-                      class="featured-img"
-                      alt=""
-                    />
-                  </div>
-                  <div class="col-9">
-                    <div class="featured-title">
-                      This is titleThis is titleThis is titleThis is titleThis
-                      is titleThis is titleThis is titleThis is titleThis is
-                      titleThis is title
-                    </div>
-                    <div class="featured-time">18/07/2001</div>
-                  </div>
-                </div>
-                </a>
-              </li>
-              </ul>
-          </div>
-          </div>
+          <!-- sidebar for news -->
+          <%- include('partials/news-sidebar.ejs'); -%>
+
           <div class="col-12 col-md-9 order-md-1">
-            <ul class="list-news">
-              <li class="news">
-                <a href="">
-                  <div class="row gx-2">
-                    <div class="col-4">
-                      <img
-                        src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg"
-                        class="news-img"
-                        alt=""
-                      />
-                    </div>
-                    <div class="col-8">
-                      <div class="news-title">
-                        This is titleThis is titleThis is titleThis is titleThis
-                        is titleThis is titleThis is titleThis is titleThis is
-                        titleThis is title
-                      </div>
-                      <div class="news-time">18/07/2001</div>
-                      <div class="news-description">
-                        Many desktop publishing packages and web page editors now
-                        use Lorem Ipsum as their default model text, and a search
-                        for 'lorem ipsum' will uncover many web sites still in
-                        their infancy. Various versions have evolved over the
-                        years, sometimes by accident, sometimes on purpose
-                        (injected humour and the like).Many desktop publishing
-                        packages and web page editors now use Lorem Ipsum as their
-                        default model text, and a search for 'lorem ipsum' will
-                        uncover many web sites still in their infancy. Various
-                        versions have evolved over the years, sometimes by
-                        accident, sometimes on purpose (injected humour and the
-                        like).
-                      </div>
-                      <div class="news-more">Xem thêm</div>
-                    </div>
-                  </div>
-                </a>
-              </li>
+            <div class="news-lastest">
+              <div class="title-header">
+                <h2>Tin tức</h2>
+              </div>
+              <ul class="list-news" id="list-news">
+                <!-- <% for(var post of postList) {%>
+
                 <li class="news">
-                <a href="">
-                  <div class="row gx-2">
+                  <div class="row">
                     <div class="col-4">
-                      <img
-                        src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg"
-                        class="news-img"
-                        alt=""
-                      />
+                      <a href="/news-detail/<%= post.PostID%>">
+                        <img
+                          src="<%= post.ImageUrl%>"
+                          class="news-img"
+                          alt=""
+                        />
+                      </a>
                     </div>
                     <div class="col-8">
+                      <div class="news-category d-none d-md-inline-block">
+                        Tin tức luật sư
+                      </div>
                       <div class="news-title">
-                        This is titleThis is titleThis is titleThis is titleThis
-                        is titleThis is titleThis is titleThis is titleThis is
-                        titleThis is title
+                        <a href="/news-detail/<%= post.PostID%>">
+                          <%= post.Title %>
+                        </a>
                       </div>
-                      <div class="news-time">18/07/2001</div>
+                      <div class="news-time d-none d-md-inline-block">
+                        <i class="fal fa-clock"></i>
+                        <%=new Intl.DateTimeFormat('vi-VN', { year: 'numeric',
+                        month: 'long', day: '2-digit'}).format(new
+                        Date(post.UpdatedDateTime))%>
+                      </div>
                       <div class="news-description">
-                        Many desktop publishing packages and web page editors now
-                        use Lorem Ipsum as their default model text, and a search
-                        for 'lorem ipsum' will uncover many web sites still in
-                        their infancy. Various versions have evolved over the
-                        years, sometimes by accident, sometimes on purpose
-                        (injected humour and the like).Many desktop publishing
-                        packages and web page editors now use Lorem Ipsum as their
-                        default model text, and a search for 'lorem ipsum' will
-                        uncover many web sites still in their infancy. Various
-                        versions have evolved over the years, sometimes by
-                        accident, sometimes on purpose (injected humour and the
-                        like).
+                        <%- post.Content.toString().replace(/<\/?[^>]+(>|$)/g,
+                        "") %>
                       </div>
-                      <div class="news-more">Xem thêm</div>
                     </div>
                   </div>
-                </a>
-              </li>  <li class="news">
-                <a href="">
-                  <div class="row gx-2">
-                    <div class="col-4">
-                      <img
-                        src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg"
-                        class="news-img"
-                        alt=""
-                      />
-                    </div>
-                    <div class="col-8">
-                      <div class="news-title">
-                        This is titleThis is titleThis is titleThis is titleThis
-                        is titleThis is titleThis is titleThis is titleThis is
-                        titleThis is title
-                      </div>
-                      <div class="news-time">18/07/2001</div>
-                      <div class="news-description">
-                        Many desktop publishing packages and web page editors now
-                        use Lorem Ipsum as their default model text, and a search
-                        for 'lorem ipsum' will uncover many web sites still in
-                        their infancy. Various versions have evolved over the
-                        years, sometimes by accident, sometimes on purpose
-                        (injected humour and the like).Many desktop publishing
-                        packages and web page editors now use Lorem Ipsum as their
-                        default model text, and a search for 'lorem ipsum' will
-                        uncover many web sites still in their infancy. Various
-                        versions have evolved over the years, sometimes by
-                        accident, sometimes on purpose (injected humour and the
-                        like).
-                      </div>
-                      <div class="news-more">Xem thêm</div>
-                    </div>
-                  </div>
-                </a>
-              </li>
-            </ul>
+                </li>
+
+                <% } %> -->
+              </ul>
+              <!-- Pagination -->
+              <nav id="loadMore" aria-label="Page navigation">
+                <ul class="pagination justify-content-center" id="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#">1</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
           </div>
+        </div>
       </div>
     </main>
     <!-- End #main -->
@@ -209,5 +95,94 @@
     <!-- End Footer -->
 
     <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+    <script src="https://pagination.js.org/dist/2.1.5/pagination.min.js"></script>
+    <script>
+      var data = [];
+      var j = 0;
+      <% for (var i  = 0; i < postList.length; i++) {%>
+          data[j++] = <%- JSON.stringify(postList[i]) %>;
+      <% } %>
+
+      const dataPanel = document.getElementById('list-news')
+      const pagination = document.getElementById('pagination')
+      const ITEM_PER_PAGE = 3
+
+      getTotalPages(data);
+      getPageData(1, data);
+
+      // Pagination
+      function getTotalPages(data) {
+      let totalPages = Math.ceil(data.length / ITEM_PER_PAGE) || 1
+      let pageItemContent = `
+          <li class="page-item current">
+              <a  href="javascript:;" data-page="1">1</a>
+          </li>
+          `
+      for (let i = 1; i < totalPages; i++) {
+          pageItemContent += `
+          <li class="page-item">
+              <a  href="javascript:;" data-page="${i + 1}">${i + 1}</a>
+          </li>
+          `
+      }
+      pagination.innerHTML = pageItemContent
+      }
+      $('#pagination li a').click(function() {
+        $('#pagination li.current').removeClass('current');
+        $(this).closest('li').addClass('current');
+      });
+      // Pagination EventListener
+      pagination.addEventListener('click', (event) => {
+      currentPage = event.target.dataset.page
+      event.currentTarget.className += " active";
+      if (event.target.tagName === 'A') {
+          getPageData(event.target.dataset.page)
+          console.log(event)
+      }
+      })
+
+      function getPageData(pageNum, data) {
+      paginationData = data || paginationData
+      let offset = (pageNum - 1) * ITEM_PER_PAGE
+      let pageData = paginationData.slice(offset, offset + ITEM_PER_PAGE)
+      let htmlContent = ''
+      pageData.forEach(function (item, index) {
+          htmlContent += `
+             <li class="news">
+                  <div class="row">
+                    <div class="col-4">
+                      <a href="/news-detail/${item.PostID}">
+                        <img
+                          src="${item.ImageUrl}"
+                          class="news-img"
+                          alt=""
+                        />
+                      </a>
+                    </div>
+                    <div class="col-8">
+                      <div class="news-category d-none d-md-inline-block">
+                        Tin tức luật sư
+                      </div>
+                      <div class="news-title">
+                      <a href="/news-detail/${item.PostID}">
+                          ${item.Title}
+                        </a>
+                      </div>
+                      <div class="news-time d-none d-md-inline-block">
+                        <i class="fal fa-clock"></i>
+                          ${ new Intl.DateTimeFormat('vi-VN', { year: 'numeric',month: 'long', day: '2-digit'}).format(new Date(item.UpdatedDateTime))}
+
+                      </div>
+                      <div class="news-description">
+                          ${item.Content.toString().replace(/<\/?[^>]+(>|$)/g,"")}
+                      </div>
+                    </div>
+                  </div>
+                </li>
+          `
+      })
+      dataPanel.innerHTML = htmlContent
+      }
+    </script>
   </body>
 </html>

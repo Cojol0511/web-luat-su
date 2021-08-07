@@ -1,5 +1,7 @@
 $main-color: #ffc107;
 $text-color: #454545;
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap");
+
 #news-page {
   margin: 30px auto;
   ul {
@@ -10,71 +12,119 @@ $text-color: #454545;
   a {
     text-decoration: none;
   }
-  .list-news {
-    .news {
-      padding: 10px;
-      border: 1px solid rgb(197, 197, 197);
-      border-radius: 10px;
-      margin: 0 auto 20px;
-      a:hover {
-        .news-title {
-          color: $main-color;
+  .title-header {
+    padding: 10px 0;
+    display: block;
+    position: relative;
+    border-bottom: 2px solid #f2f2f2;
+    margin-bottom: 25px;
+    h2 {
+      display: inline-block;
+      color: #201f1f;
+      font-size: 24px;
+      margin: 0;
+      position: relative;
+      font-weight: 500;
+      font-family: "Oswald";
+      text-transform: uppercase;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100px;
+        height: 2px;
+        background: $main-color;
+        bottom: -16px;
+      }
+    }
+  }
+  .news-lastest {
+    margin-top: 30px;
+    .list-news {
+      .news {
+        margin-bottom: 30px;
+
+        &-img {
+          max-width: 100%;
+          height: auto;
         }
-        .news-more {
-          color: $main-color;
+        &-category {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          background: $main-color;
+          padding: 4px 8px;
+          display: inline-block;
+          text-transform: uppercase;
+          color: #fff;
+          font-size: 10px;
+        }
+        &-title {
+          font-size: 20px;
+          line-height: 24px;
+          margin-top: 0px;
+          margin-bottom: 5px;
+          font-weight: 500;
+          a {
+            color: #201f1f;
+            font-family: "Oswald";
+            &:hover {
+              color: $main-color;
+            }
+          }
+        }
+        &-time {
+          font-size: 13px;
+          color: #8f8f8f;
+          i {
+            padding-right: 5px;
+          }
+        }
+        &-description {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          padding-top: 10px;
+          padding-bottom: 0;
+          margin: 0;
+          font-size: 15px;
+          line-height: 24px;
+          color: #333;
         }
       }
-      &-img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        border-radius: 10px;
-      }
-      &-title {
-        font-weight: bold;
-        font-size: 14px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-      }
-      &-time {
-        font-size: 10px;
-        color: grey;
-      }
-      &-description {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        color: $text-color;
-        font-size: 12px;
-      }
-      &-more {
-        font-size: 12px;
+    }
+    #loadMore {
+      ul {
+        display: flex;
+        justify-content: center;
+        li {
+          width: 30px;
+          height: 30px;
+          line-height: 30px;
+          border: 1px solid #ffab11;
+          background-color: $main-color;
+          text-align: center;
+          a {
+            color: white;
+          }
+          &.current {
+            background-color: white;
+            a {
+              color: $main-color;
+            }
+          }
+        }
       }
     }
   }
   .news-categories {
-    border: 1px solid rgba(255, 255, 255, 0);
-    border-radius: 10px;
-    margin-bottom: 20px;
-    .title {
-      color: $main-color;
-      font-weight: bold;
-      font-size: 16px;
-      background-color: #f7f7f7;
-      padding: 10px;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      text-align: center;
-    }
+    margin-top: 30px;
+
     .list-category {
       li {
-        padding: 3px 15px;
-        border-top: 1px solid #f2f2f2;
+        padding: 5px 0;
         &.active,
         &:hover {
           a {
@@ -83,53 +133,55 @@ $text-color: #454545;
         }
         a {
           color: $text-color;
-          font-size: 14px;
+          font-family: "Oswald";
+          font-size: 15px;
+          font-weight: 500;
         }
       }
     }
   }
   .news-featured {
-    border: 1px solid rgba(255, 255, 255, 0);
-    border-radius: 10px;
-    margin-bottom: 25px;
-    .title {
-      color: $main-color;
-      font-weight: bold;
-      font-size: 16px;
-      background-color: #f7f7f7;
-      padding: 10px;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      text-align: center;
-    }
+    margin-top: 30px;
     .list-featured {
       .featured {
-        padding: 10px 5px;
-        a :hover {
-          .featured-title {
-            color: $main-color;
-          }
-        }
+        margin-top: 15px;
         &-img {
+          height: auto;
           width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: 10px;
         }
         &-title {
-          font-weight: bold;
-          font-size: 10px;
+          font-size: 15px;
+          font-weight: 500;
           overflow: hidden;
           text-overflow: ellipsis;
           display: -webkit-box;
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
+          a {
+            color: #201f1f;
+            font-family: "Oswald";
+            &:hover {
+              color: $main-color;
+            }
+          }
         }
         &-time {
-          font-size: 8px;
-          color: grey;
         }
       }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  #news-page .list-news {
+    .news-title {
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 0;
+      font-weight: 500;
+    }
+    .news-description {
+      display: none !important;
     }
   }
 }
