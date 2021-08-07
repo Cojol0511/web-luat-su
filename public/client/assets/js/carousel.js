@@ -17,9 +17,9 @@ $owl.owlCarousel({
       items: 3,
     },
     900: {
-      items: 3,
-    },
-  },
+      items: 3
+    }
+  }
 });
 
 $(document).on("click", ".owl-item>div", function () {
