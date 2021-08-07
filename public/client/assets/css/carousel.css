@@ -263,12 +263,13 @@
 #services .owl-carousel .owl-nav .owl-prev,
 .owl-carousel .owl-nav .owl-next {
   z-index: 100;
-  top: 28%;
+  top: calc(50% - 24px);
   position: absolute;
   width: 50px;
   display: block;
   height: 50px;
   background-color: #f7a818 !important;
+  transform: translateY(-50%);
 }
 #services .owl-carousel .owl-nav .owl-prev i,
 .owl-carousel .owl-nav .owl-next i {

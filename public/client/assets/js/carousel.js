@@ -17,7 +17,7 @@ $owl.owlCarousel({
       items: 3
     },
     900:{
-      items: 5
+      items: 3
     }
   }
 });
